@@ -29,10 +29,6 @@ const applicationSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    company: {
-      type: Schema.Types.ObjectId,
-      ref: "Company",
-    },
     jobOffer: {
       type: Schema.Types.ObjectId,
       ref: "JobOffer",
