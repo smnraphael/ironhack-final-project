@@ -2,24 +2,13 @@ const { Schema, model } = require("mongoose");
 
 const favoriteSchema = new Schema(
   {
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-      trim: true,
+    jobOffer: {
+      type: Schema.Types.ObjectId,
+      ref: "JobOffer",
     },
-    password: {
-      type: String,
-      required: true,
-    },
-    firstName: {
-      type: String,
-      required: true,
-    },
-    lastName: {
-      type: String,
-      required: true,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   {

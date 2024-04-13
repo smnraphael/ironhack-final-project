@@ -67,7 +67,6 @@ router.post("/user/login", async (req, res, next) => {
     }
     const token = jwt.sign({ id: foundUser._id }, process.env.SECRET_TOKEN, {
       algorithm: "HS256",
-      expiresIn: "1d",
     });
     res.json({ authToken: token });
   } catch (error) {
