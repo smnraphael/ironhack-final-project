@@ -2,17 +2,16 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User.model.js");
+const Company = require("../models/Company.model.js");
 const isAuthenticated = require("../middlewares/isAuthenticated.js");
 const SALT = 12;
 
 // We are prefixed with /api/auth
 
-router.post("/signup", async (req, res, next) => {
+// User Signup Route
+router.post("/user/signup", async (req, res, next) => {
   try {
     const { email, password, firstName, lastName } = req.body;
-    // const regex = new RegExp(
-    //   "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{6}$"
-    // );
     const foundUser = await User.findOne({ email });
     if (foundUser) {
       return res.status(400).json({ message: "This email is already used" });
@@ -24,13 +23,38 @@ router.post("/signup", async (req, res, next) => {
       firstName,
       lastName,
     });
-    res.status(201).json({ message: "Account created", id: createdUser._id });
+    res
+      .status(201)
+      .json({ message: "User account created", id: createdUser._id });
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/login", async (req, res, next) => {
+// Company Signup Route
+router.post("/company/signup", async (req, res, next) => {
+  try {
+    const { email, password, name } = req.body;
+    const foundCompany = await Company.findOne({ email });
+    if (foundCompany) {
+      return res.status(400).json({ message: "This email is already used" });
+    }
+    const hashedPassword = await bcrypt.hash(password, SALT);
+    const createdCompany = await Company.create({
+      email,
+      password: hashedPassword,
+      name,
+    });
+    res
+      .status(201)
+      .json({ message: "Company account created", id: createdCompany._id });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// User Login Route
+router.post("/user/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const foundUser = await User.findOne({ email }, { password: 1, email: 1 });
@@ -51,10 +75,49 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.get("/verify", isAuthenticated, async (req, res, next) => {
+// Company Login Route
+router.post("/company/login", async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const foundCompany = await Company.findOne(
+      { email },
+      { password: 1, email: 1 }
+    );
+    if (!foundCompany) {
+      res.status(400).json({ message: "Wrong credentials" });
+    }
+    const correctPassword = await bcrypt.compare(
+      password,
+      foundCompany.password
+    );
+    if (!correctPassword) {
+      res.status(400).json({ message: "Wrong credentials" });
+    }
+    const token = jwt.sign({ id: foundCompany._id }, process.env.SECRET_TOKEN, {
+      algorithm: "HS256",
+      expiresIn: "1d",
+    });
+    res.json({ authToken: token });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// User Verification Route
+router.get("/user/verify", isAuthenticated, async (req, res, next) => {
   try {
     const user = await User.findById(req.currentUserId);
     res.json(user);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Company Verification Route
+router.get("/company/verify", isAuthenticated, async (req, res, next) => {
+  try {
+    const company = await Company.findById(req.currentUserId);
+    res.json(company);
   } catch (error) {
     next(error);
   }

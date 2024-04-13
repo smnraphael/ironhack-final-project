@@ -6,5 +6,6 @@ router.get("/", (req, res, next) => {
 
 router.use("/auth", require("./auth.routes.js"));
 router.use("/users", require("./users.routes.js"));
+router.use("/companies", require("./companies.routes.js"));
 
 module.exports = router;
