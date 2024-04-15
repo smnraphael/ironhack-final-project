@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "companies:seed": "node ./seed/companies.seed.js",
+    "users:seed": "node ./seed/users.seed.js",
+    "db:seed": "npm run companies:seed && npm run users:seed"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
