@@ -4,9 +4,9 @@ const User = require("../models/User.model.js");
 // We are prefixed with /api/users
 
 // Get one user
-router.get("/:id", async (req, res, next) => {
+router.get("/:userId", async (req, res, next) => {
   try {
-    const oneUser = await User.findById(req.params.id);
+    const oneUser = await User.findById(req.params.userId);
     res.json(oneUser);
   } catch (error) {
     next(error);

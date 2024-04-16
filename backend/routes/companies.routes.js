@@ -52,9 +52,9 @@ router.get("/profile/:companyId", async (req, res, next) => {
 });
 
 // Delete one company
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:companyId", async (req, res, next) => {
   try {
-    await Company.findByIdAndDelete(req.params.id);
+    await Company.findByIdAndDelete(req.params.companyId);
     res.status(204).json({ message: "Company successfuly deleted" });
   } catch (error) {
     next(error);

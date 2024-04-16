@@ -4,17 +4,17 @@ const isAuthenticated = require("../middlewares/isAuthenticated.js");
 
 // We are prefixed with /api/favorites
 
-// Get all favorites
+router.use(isAuthenticated);
+
+// Get all favorites of a user
 router.get("/", async (req, res, next) => {
   try {
-    const allFavorites = await Favorite.find({});
-    res.json(allFavorites);
+    const userFavorites = await Favorite.find({ user: req.currentUserId });
+    res.json(userFavorites);
   } catch (error) {
     next(error);
   }
 });
-
-router.use(isAuthenticated);
 
 // Post one favorite
 router.post("/:jobOfferId", async (req, res, next) => {
