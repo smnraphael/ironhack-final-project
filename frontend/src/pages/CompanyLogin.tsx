@@ -5,7 +5,7 @@ const CompanyLogin = () => {
     <div className="flex flex-col gap-10 justify-center items-center">
       <h1>Log In as a company</h1>
       <form className="flex flex-col justify-center items-center gap-2">
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -16,7 +16,7 @@ const CompanyLogin = () => {
             className="border rounded-lg p-2"
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="password">Password</label>
           <input
             type="password"

@@ -3,7 +3,7 @@ const CompanySignup = () => {
     <div className="flex flex-col gap-10 justify-center items-center">
       <h1>Sign Up as a company</h1>
       <form className="flex flex-col justify-center items-center gap-2">
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -14,7 +14,7 @@ const CompanySignup = () => {
             className="border rounded-lg p-2"
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -25,7 +25,7 @@ const CompanySignup = () => {
             className="border rounded-lg p-2"
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="name">Company Name</label>
           <input
             type="text"
@@ -35,7 +35,7 @@ const CompanySignup = () => {
             className="border rounded-lg p-2"
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="headquarters">Headquarters (optional)</label>
           <input
             type="text"
@@ -44,7 +44,7 @@ const CompanySignup = () => {
             className="border rounded-lg p-2"
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="numberOfEmployees">
             Number of Employees (optional)
           </label>
@@ -55,7 +55,7 @@ const CompanySignup = () => {
             className="border rounded-lg p-2"
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="website">Website (optional)</label>
           <input
             type="url"
@@ -64,7 +64,7 @@ const CompanySignup = () => {
             className="border rounded-lg p-2"
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col">
           <label htmlFor="description">Description (optional)</label>
           <textarea
             id="description"
