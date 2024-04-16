@@ -15,7 +15,7 @@ const jobOfferSchema = new Schema(
       required: true,
     },
     experience: {
-      type: String,
+      type: Number,
       required: true,
     },
     workLevel: {
@@ -23,7 +23,7 @@ const jobOfferSchema = new Schema(
       required: true,
     },
     salary: {
-      type: String,
+      type: Number,
       required: true,
     },
     remote: {
