@@ -9,7 +9,7 @@ const jobOffers = [
     location: "New York",
     employmentType: "Full-Time",
     experience: 5,
-    workLevel: "Senior",
+    workLevel: "Senior Level",
     salary: 120000,
     remote: "Hybrid",
     companyOverview:
@@ -24,7 +24,7 @@ const jobOffers = [
     location: "Seattle",
     employmentType: "Full-Time",
     experience: 6,
-    workLevel: "Senior",
+    workLevel: "Senior Level",
     salary: 130000,
     remote: "Remote",
     companyOverview:
@@ -39,7 +39,7 @@ const jobOffers = [
     location: "Mountain View",
     employmentType: "Full-Time",
     experience: 3,
-    workLevel: "Entry-Level",
+    workLevel: "Entry Level",
     salary: 100000,
     remote: "Hybrid",
     companyOverview:
@@ -54,7 +54,7 @@ const jobOffers = [
     location: "Menlo Park",
     employmentType: "Full-Time",
     experience: 4,
-    workLevel: "Mid-Level",
+    workLevel: "Mid Level",
     salary: 140000,
     remote: "Hybrid",
     companyOverview:
@@ -69,7 +69,7 @@ const jobOffers = [
     location: "Redmond",
     employmentType: "Full-Time",
     experience: 7,
-    workLevel: "Senior",
+    workLevel: "Senior Level",
     salary: 150000,
     remote: "Remote",
     companyOverview:
@@ -84,7 +84,7 @@ const jobOffers = [
     location: "Seattle",
     employmentType: "Full-Time",
     experience: 8,
-    workLevel: "Senior",
+    workLevel: "Senior Level",
     salary: 160000,
     remote: "On Site",
     companyOverview:
@@ -99,7 +99,7 @@ const jobOffers = [
     location: "Palo Alto",
     employmentType: "Full-Time",
     experience: 6,
-    workLevel: "Senior",
+    workLevel: "Senior Level",
     salary: 145000,
     remote: "Hybrid",
     companyOverview:
@@ -114,7 +114,7 @@ const jobOffers = [
     location: "Santa Clara",
     employmentType: "Full-Time",
     experience: 4,
-    workLevel: "Mid-Level",
+    workLevel: "Mid Level",
     salary: 125000,
     remote: "Remote",
     companyOverview:
@@ -129,7 +129,7 @@ const jobOffers = [
     location: "Los Gatos",
     employmentType: "Full-Time",
     experience: 8,
-    workLevel: "Senior",
+    workLevel: "Senior Level",
     salary: 170000,
     remote: "Remote",
     companyOverview:
@@ -144,7 +144,7 @@ const jobOffers = [
     location: "Santa Clara",
     employmentType: "Full-Time",
     experience: 6,
-    workLevel: "Senior",
+    workLevel: "Senior Level",
     salary: 140000,
     remote: "On Site",
     companyOverview:
