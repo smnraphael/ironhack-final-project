@@ -4,7 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "companies:seed": "node ./seed/companies.seed.js",
+    "users:seed": "node ./seed/users.seed.js",
+    "joboffers:seed": "node ./seed/joboffers.seed.js",
+    "applications:seed": "node ./seed/applications.seed.js",
+    "favorites:seed": "node ./seed/favorites.seed.js",
+    "db:seed": "npm run companies:seed && npm run users:seed && npm run joboffers:seed && npm run applications:seed && npm run favorites:seed"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

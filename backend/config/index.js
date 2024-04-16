@@ -1,16 +1,6 @@
-// We reuse this import in order to have access to the `body` property in requests
 const express = require("express");
-
-// Responsible for the messages you see in the terminal as requests are coming in
-// https://www.npmjs.com/package/morgan
 const logger = require("morgan");
-
-// Needed when we deal with cookies (we will when dealing with authentication)
-// https://www.npmjs.com/package/cookie-parser
 const cookieParser = require("cookie-parser");
-
-// Needed to accept from requests from 'the outside'. CORS stands for cross origin resource sharing
-// unless the request if from the same domain, by default express wont accept POST requests
 const cors = require("cors");
 
 const FRONTEND_URL = process.env.ORIGIN || "http://localhost:5173";
