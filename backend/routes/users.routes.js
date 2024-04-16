@@ -3,6 +3,7 @@ const User = require("../models/User.model.js");
 
 // We are prefixed with /api/users
 
+// Get one user
 router.get("/:id", async (req, res, next) => {
   try {
     const oneUser = await User.findById(req.params.id);
@@ -12,20 +13,26 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.put("/:id", async (req, res, next) => {
+// Edit one user
+router.put("/:userId", async (req, res, next) => {
   try {
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.userId,
+      req.body,
+      {
+        new: true,
+      }
+    );
     res.json(updatedUser);
   } catch (error) {
     next(error);
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+// Delete one user
+router.delete("/:userId", async (req, res, next) => {
   try {
-    await User.findByIdAndDelete(req.params.id);
+    await User.findByIdAndDelete(req.params.userId);
     res.status(204).json({ message: "User successfuly deleted" });
   } catch (error) {
     next(error);

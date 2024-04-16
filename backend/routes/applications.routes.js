@@ -3,20 +3,34 @@ const Application = require("../models/Application.model.js");
 
 // We are prefixed with /api/applications
 
-router.get("/joboffers/:id", async (req, res, next) => {
+// Get all applications
+router.get("/", async (req, res, next) => {
   try {
-    const applications = await Application.find({
-      jobOffer: req.params.id,
-    });
+    const applications = await Application.find({});
     res.json(applications);
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/joboffers/:id", async (req, res, next) => {
+// Get one application
+router.get("/:applicationId", async (req, res, next) => {
   try {
-    const newApplication = await Application.create(req.body);
+    const oneApplication = await Application.findById(req.params.applicationId);
+    res.json(oneApplication);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Post one application
+router.post("/:userId/:jobOfferId", async (req, res, next) => {
+  try {
+    const newApplication = await Application.create({
+      ...req.body,
+      user: req.params.userId,
+      jobOffer: req.params.jobOfferId,
+    });
     res.json({
       message: "Successfully applied",
       application: newApplication,

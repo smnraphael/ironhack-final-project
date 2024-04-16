@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const Company = require("../models/Company.model.js");
+const JobOffer = require("../models/JobOffer.model.js");
 
 // We are prefixed with /api/companies
 
+// Get all companies
 router.get("/", async (req, res, next) => {
   try {
     const allCompanies = await Company.find({});
@@ -12,19 +14,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+// Get one company (private)
+router.get("/:companyId", async (req, res, next) => {
   try {
-    const oneCompany = await Company.findById(req.params.id);
+    const oneCompany = await Company.findById(req.params.companyId);
     res.json(oneCompany);
   } catch (error) {
     next(error);
   }
 });
 
-router.put("/:id", async (req, res, next) => {
+// Edit one company (private)
+router.put("/:companyId", async (req, res, next) => {
   try {
     const updatedCompany = await Company.findByIdAndUpdate(
-      req.params.id,
+      req.params.companyId,
       req.body,
       { new: true }
     );
@@ -34,6 +38,20 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
+// Get one company and related job offers (public)
+router.get("/profile/:companyId", async (req, res, next) => {
+  try {
+    const oneCompany = await Company.findById(req.params.companyId);
+    const jobOffers = await JobOffer.find({
+      company: req.params.companyId,
+    });
+    res.json({ oneCompany, jobOffers });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Delete one company
 router.delete("/:id", async (req, res, next) => {
   try {
     await Company.findByIdAndDelete(req.params.id);

@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const JobOffer = require("../models/JobOffer.model.js");
+const Application = require("../models/Application.model.js");
 
 // We are prefixed with /api/joboffers
 
+// Get all job offers
 router.get("/", async (req, res, next) => {
   try {
     const allJobOffers = await JobOffer.find({});
@@ -12,26 +14,17 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+// Get one job offer
+router.get("/:jobOfferId", async (req, res, next) => {
   try {
-    const oneJobOffer = await JobOffer.findById(req.params.id);
+    const oneJobOffer = await JobOffer.findById(req.params.jobOfferId);
     res.json(oneJobOffer);
   } catch (error) {
     next(error);
   }
 });
 
-router.get("/companies/:id", async (req, res, next) => {
-  try {
-    const jobOffers = await JobOffer.find({
-      company: req.params.id,
-    });
-    res.json(jobOffers);
-  } catch (error) {
-    next(error);
-  }
-});
-
+// Post a new job offer
 router.post("/", async (req, res, next) => {
   try {
     const newJobOffer = await JobOffer.create(req.body);
@@ -44,10 +37,11 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.patch("/:id", async (req, res, next) => {
+// Archive one job offer
+router.patch("/:jobOfferId", async (req, res, next) => {
   try {
     const updatedJobOffer = await JobOffer.findByIdAndUpdate(
-      req.params.id,
+      req.params.jobOfferId,
       req.body,
       { next: true }
     );
@@ -55,6 +49,20 @@ router.patch("/:id", async (req, res, next) => {
       message: "Job offer successfully archived",
       jobOffer: updatedJobOffer,
     });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// ----- APPLICATIONS -----
+
+// Get all applications for a job offer
+router.get("/:jobOfferId/applications", async (req, res, next) => {
+  try {
+    const applications = await Application.find({
+      jobOffer: req.params.jobOfferId,
+    });
+    res.json(applications);
   } catch (error) {
     next(error);
   }

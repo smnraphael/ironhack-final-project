@@ -16,7 +16,6 @@ const applicationSchema = new Schema(
     },
     socialNetwork: {
       type: String,
-      required: true,
     },
     resume: {
       type: String,

@@ -8,7 +8,7 @@ const SALT = 12;
 
 // We are prefixed with /api/auth
 
-// User Signup Route
+// User Sign up
 router.post("/user/signup", async (req, res, next) => {
   try {
     const { email, password, firstName, lastName } = req.body;
@@ -31,7 +31,7 @@ router.post("/user/signup", async (req, res, next) => {
   }
 });
 
-// Company Signup Route
+// Company Sign up
 router.post("/company/signup", async (req, res, next) => {
   try {
     const { email, password, name } = req.body;
@@ -53,7 +53,7 @@ router.post("/company/signup", async (req, res, next) => {
   }
 });
 
-// User Login Route
+// User Log in
 router.post("/user/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -74,7 +74,7 @@ router.post("/user/login", async (req, res, next) => {
   }
 });
 
-// Company Login Route
+// Company Log in
 router.post("/company/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -102,7 +102,7 @@ router.post("/company/login", async (req, res, next) => {
   }
 });
 
-// User Verification Route
+// User Verify
 router.get("/user/verify", isAuthenticated, async (req, res, next) => {
   try {
     const user = await User.findById(req.currentUserId);
@@ -112,7 +112,7 @@ router.get("/user/verify", isAuthenticated, async (req, res, next) => {
   }
 });
 
-// Company Verification Route
+// Company Verify
 router.get("/company/verify", isAuthenticated, async (req, res, next) => {
   try {
     const company = await Company.findById(req.currentUserId);

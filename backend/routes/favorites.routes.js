@@ -4,8 +4,7 @@ const isAuthenticated = require("../middlewares/isAuthenticated.js");
 
 // We are prefixed with /api/favorites
 
-router.use(isAuthenticated);
-
+// Get all favorites
 router.get("/", async (req, res, next) => {
   try {
     const allFavorites = await Favorite.find({});
@@ -15,6 +14,9 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.use(isAuthenticated);
+
+// Post one favorite
 router.post("/:jobOfferId", async (req, res, next) => {
   try {
     const createdFavorite = await Favorite.create({
@@ -30,9 +32,10 @@ router.post("/:jobOfferId", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+// Delete one favorite
+router.delete("/:favoriteId", async (req, res, next) => {
   try {
-    await Favorite.findByIdAndDelete(req.params.id);
+    await Favorite.findByIdAndDelete(req.params.favoriteId);
     res.status(204).json({ message: "Favorite successfuly deleted" });
   } catch (error) {
     next(error);
