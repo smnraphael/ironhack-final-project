@@ -13,6 +13,7 @@ const jobOfferSchema = new Schema(
     employmentType: {
       type: String,
       required: true,
+      enum: ["Full-Time", "Part-Time", "Internship"],
     },
     experience: {
       type: Number,
@@ -21,6 +22,13 @@ const jobOfferSchema = new Schema(
     workLevel: {
       type: String,
       required: true,
+      enum: [
+        "Student Level",
+        "Entry Level",
+        "Mid Level",
+        "Senior Level",
+        "Director Level",
+      ],
     },
     salary: {
       type: Number,
@@ -46,6 +54,7 @@ const jobOfferSchema = new Schema(
     company: {
       type: Schema.Types.ObjectId,
       ref: "Company",
+      required: true,
     },
     archived: {
       type: Boolean,

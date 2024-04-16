@@ -6,7 +6,6 @@ const companySchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      lowercase: true,
       trim: true,
     },
     password: {
@@ -33,9 +32,6 @@ const companySchema = new Schema(
       type: String,
       default:
         "https://openseauserdata.com/files/7f16cec1cc177a7e148067006e73c02a.png",
-    },
-    header: {
-      type: String,
     },
   },
   {

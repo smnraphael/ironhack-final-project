@@ -5,10 +5,12 @@ const favoriteSchema = new Schema(
     jobOffer: {
       type: Schema.Types.ObjectId,
       ref: "JobOffer",
+      required: true,
     },
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
   },
   {

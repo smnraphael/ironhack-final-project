@@ -28,10 +28,12 @@ const applicationSchema = new Schema(
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
     jobOffer: {
       type: Schema.Types.ObjectId,
       ref: "JobOffer",
+      required: true,
     },
   },
   {
