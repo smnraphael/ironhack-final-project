@@ -1,6 +1,43 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import useAuth from "../context/useAuth.ts";
+import api from "../service/api.ts";
+import { useNavigate, Link } from "react-router-dom";
 
 const CompanyLogin = () => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const { email, password } = formState;
+
+  const { user, storeToken, authenticateUser } = useAuth();
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const key = e.currentTarget.id;
+    const value = e.currentTarget.value;
+    setFormState({ ...formState, [key]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.post("/auth/company/login", formState);
+      console.log(response);
+      const token = response.data.authToken;
+      storeToken(token);
+      await authenticateUser("company");
+      if (response.status === 200) {
+        navigate("/");
+      }
+    } catch (error) {
+      // console.log(error.message);
+      setError(error.response?.data?.message);
+      setTimeout(() => {
+        setError("");
+      }, 3000);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-10 justify-center items-center">
       <h1>Log In as a company</h1>

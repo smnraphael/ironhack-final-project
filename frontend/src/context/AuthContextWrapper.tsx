@@ -18,7 +18,7 @@ function AuthContextWrapper({ children }) {
   const authenticateUser = async (typeOfUser) => {
     try {
       const token = localStorage.getItem("token");
-      if (!token) {
+      if (!token || !typeOfUser) {
         setUser(null);
         setIsLoading(false);
         setIsLoggedIn(false);
