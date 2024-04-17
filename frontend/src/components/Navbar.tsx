@@ -1,23 +1,28 @@
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import useAuth from "../context/useAuth";
 
 const Navbar = () => {
   const { user, company, isLoggedIn, logout } = useAuth();
 
+  const { currentId } = useParams();
+
   return (
-    <nav className="flex justify-between items-center p-2 bg-l-light">
-      <p>IT-Recruitment</p>
+    <nav className="flex justify-between items-center px-10 py-2 bg-l-light">
+      <Link to={"/"} className="text-2xl font-bold text-l-contrast">
+        IT-Recruitment
+      </Link>
       <div className="flex gap-3 items-center">
-        <Link to={"/"}>Jobs</Link>
         {isLoggedIn ? (
           <>
             {user ? (
               <>
-                <img
-                  src={user.avatar}
-                  alt={user.firstName}
-                  className="h-10 rounded-full"
-                />
+                <Link to={`/user/profile/${currentId}`}>
+                  <img
+                    src={user.avatar}
+                    alt={user.firstName}
+                    className="h-10 rounded-full"
+                  />
+                </Link>
                 <button
                   onClick={logout}
                   className="bg-l-contrast text-l-light p-2 rounded-lg"

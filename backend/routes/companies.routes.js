@@ -44,7 +44,7 @@ router.get("/profile/:companyId", async (req, res, next) => {
     const oneCompany = await Company.findById(req.params.companyId);
     const jobOffers = await JobOffer.find({
       company: req.params.companyId,
-    });
+    }).populate("company");
     res.json({ oneCompany, jobOffers });
   } catch (error) {
     next(error);

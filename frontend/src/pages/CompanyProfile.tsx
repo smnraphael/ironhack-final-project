@@ -45,6 +45,8 @@ const CompanyProfile = () => {
     fetchOneCompany();
   }, [companyId]);
 
+  console.log(company?.jobOffers);
+
   return (
     <div className="px-20 py-5">
       {company && (
@@ -55,7 +57,7 @@ const CompanyProfile = () => {
               alt={company.oneCompany.name}
               className="h-10"
             />
-            <p>Name: {company.oneCompany.name}</p>
+            <p className="text-3xl font-bold">{company.oneCompany.name}</p>
             <p>Description: {company.oneCompany.description}</p>
             <p>Headquarters: {company.oneCompany.headquarters}</p>
             <p>Number of employees: {company.oneCompany.numberOfEmployees}</p>

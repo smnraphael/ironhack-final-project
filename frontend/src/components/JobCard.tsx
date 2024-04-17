@@ -19,7 +19,7 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => {
         <img
           src={job.company.logo}
           alt={job.company._id}
-          className="h-10 rounded-xl"
+          className="h-10 w-10 object-contain rounded-xl"
         />
       </Link>
       <p className="text-xl font-bold">{job.position}</p>

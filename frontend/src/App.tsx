@@ -8,6 +8,7 @@ import CompanyLogin from "./pages/CompanyLogin";
 import OneJobOffer from "./pages/OneJobOffer";
 import CompanyProfile from "./pages/CompanyProfile";
 import Application from "./pages/Application";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           path="/job-offers/:jobOfferId/application"
           element={<Application />}
         />
+        <Route path="/user/profile/:userId" element={<UserProfile />} />
       </Routes>
     </div>
   );

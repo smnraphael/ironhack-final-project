@@ -48,7 +48,11 @@ const OneJobOffer = () => {
         <div className="flex flex-col gap-5">
           <div className="h-20 w-20">
             <Link to={`/company/profile/${job.company._id}`}>
-              <img src={job.company.logo} alt={job.company._id} />
+              <img
+                src={job.company.logo}
+                alt={job.company._id}
+                className="h-10"
+              />
             </Link>
           </div>
           <p className="text-3xl font-bold">{job.position}</p>

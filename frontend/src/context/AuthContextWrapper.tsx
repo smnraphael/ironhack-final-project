@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import api from "../service/api.ts";
 
 type User = {
+  email: string;
   firstName: string;
+  lastName: string;
   avatar: string;
 };
 
@@ -60,8 +62,6 @@ function AuthContextWrapper({ children }: AuthContextWrapperProps) {
     try {
       const token = localStorage.getItem("token");
       if (!token) {
-        console.log(user);
-        console.log(token);
         setIsLoading(false);
         setIsLoggedIn(false);
         return;
@@ -86,8 +86,6 @@ function AuthContextWrapper({ children }: AuthContextWrapperProps) {
     try {
       const token = localStorage.getItem("token");
       if (!token) {
-        console.log(company);
-        console.log(token);
         setIsLoading(false);
         setIsLoggedIn(false);
         return;
