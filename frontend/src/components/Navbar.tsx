@@ -5,13 +5,16 @@ const Navbar = () => {
   const { isLoggedIn, logout } = useAuth();
 
   return (
-    <nav className="flex justify-between items-center p-2 bg-blue-50">
+    <nav className="flex justify-between items-center p-2 bg-l-light">
       <p>IT-Recruitment</p>
       <div className="flex gap-3 items-center">
         <Link to={"/"}>Jobs</Link>
         {isLoggedIn ? (
           <>
-            <button onClick={logout} className="bg-blue-200 p-2 rounded-lg">
+            <button
+              onClick={logout}
+              className="bg-l-contrast text-l-light p-2 rounded-lg"
+            >
               Log out
             </button>
           </>
@@ -19,7 +22,10 @@ const Navbar = () => {
           <>
             <Link to={"/user/login"}>Log In</Link>
             <Link to={"/user/signup"}>Sign Up</Link>
-            <Link to={"/company/login"} className="bg-blue-200 p-2 rounded-lg">
+            <Link
+              to={"/company/login"}
+              className="bg-l-contrast text-l-light p-2 rounded-lg"
+            >
               Company Portal
             </Link>
           </>

@@ -54,23 +54,23 @@ const OneJobOffer = () => {
           <p className="text-3xl font-bold">{job.position}</p>
           <p className="text-sm">{job.location}</p>
           <div className="flex self-center gap-5 border rounded-lg p-5">
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <p className="font-bold">Employment Type</p>
               <p>{job.employmentType}</p>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <p className="font-bold">Experience</p>
-              <p>{job.experience} years of experience</p>
+              <p>{job.experience} years</p>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <p className="font-bold">Work Level</p>
               <p>{job.workLevel}</p>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <p className="font-bold">Remote</p>
               <p>{job.remote ? "Remote" : "On-site"}</p>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <p className="font-bold">Salary</p>
               <p>${job.salary}</p>
             </div>
