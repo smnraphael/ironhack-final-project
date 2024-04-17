@@ -7,11 +7,14 @@ const Navbar = () => {
   const { currentId } = useParams();
 
   return (
-    <nav className="flex justify-between items-center px-10 py-2 bg-l-light">
-      <Link to={"/"} className="text-2xl font-bold text-l-contrast">
+    <nav className="flex justify-between items-center px-10 py-2 bg-l-light text-d-dark dark:bg-d-mid dark:text-l-light">
+      <Link
+        to={"/"}
+        className="text-2xl font-extrabold text-l-contrast dark:text-d-contrast"
+      >
         IT-Recruitment
       </Link>
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-5 items-center">
         {isLoggedIn ? (
           <>
             {user ? (
@@ -25,7 +28,7 @@ const Navbar = () => {
                 </Link>
                 <button
                   onClick={logout}
-                  className="bg-l-contrast text-l-light p-2 rounded-lg"
+                  className="bg-l-mid dark:bg-d-light p-2 rounded-lg"
                 >
                   Log out
                 </button>
@@ -39,7 +42,7 @@ const Navbar = () => {
                 />
                 <button
                   onClick={logout}
-                  className="bg-l-contrast text-l-light p-2 rounded-lg"
+                  className="bg-l-mid dark:bg-d-light p-2 rounded-lg"
                 >
                   Log out
                 </button>
@@ -47,10 +50,9 @@ const Navbar = () => {
             ) : (
               <>
                 <Link to={"/user/login"}>Log In</Link>
-                <Link to={"/user/signup"}>Sign Up</Link>
                 <Link
                   to={"/company/login"}
-                  className="bg-l-contrast text-l-light p-2 rounded-lg"
+                  className="bg-l-mid dark:bg-d-light p-2 rounded-lg"
                 >
                   Company Portal
                 </Link>
@@ -60,10 +62,9 @@ const Navbar = () => {
         ) : (
           <>
             <Link to={"/user/login"}>Log In</Link>
-            <Link to={"/user/signup"}>Sign Up</Link>
             <Link
               to={"/company/login"}
-              className="bg-l-contrast text-l-light p-2 rounded-lg"
+              className="bg-l-mid dark:bg-d-light p-2 rounded-lg"
             >
               Company Portal
             </Link>

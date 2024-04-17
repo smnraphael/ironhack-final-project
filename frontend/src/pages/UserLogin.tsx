@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useAuth from "../context/useAuth.ts";
 import api from "../service/api.ts";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AxiosError } from "axios";
 
 const UserLogin = () => {
@@ -81,6 +81,12 @@ const UserLogin = () => {
           </button>
         </div>
       </form>
+      <p>
+        Don't have an account yet? Register{" "}
+        <Link to={"/user/signup"} className="text-l-contrast">
+          HERE
+        </Link>
+      </p>
     </div>
   );
 };
