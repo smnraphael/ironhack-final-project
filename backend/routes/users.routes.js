@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/User.model.js");
+const fileUploader = require("../config/cloudinaryConfig.js");
 
 // We are prefixed with /api/users
 
@@ -14,20 +15,31 @@ router.get("/:userId", async (req, res, next) => {
 });
 
 // Edit one user
-router.put("/:userId", async (req, res, next) => {
-  try {
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.userId,
-      req.body,
-      {
-        new: true,
-      }
-    );
-    res.json(updatedUser);
-  } catch (error) {
-    next(error);
+router.put(
+  "/:userId",
+  fileUploader.single("avatar"),
+  async (req, res, next) => {
+    try {
+      const filePath = req.file.path;
+      const updatedUser = await User.findByIdAndUpdate(
+        req.params.userId,
+        {
+          email,
+          password: hashedPassword,
+          firstName,
+          lastName,
+          avatar: filePath,
+        },
+        {
+          new: true,
+        }
+      );
+      res.json(updatedUser);
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 // Delete one user
 router.delete("/:userId", async (req, res, next) => {

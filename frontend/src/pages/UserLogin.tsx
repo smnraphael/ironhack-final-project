@@ -26,7 +26,7 @@ const UserLogin = () => {
       console.log(response);
       const token = response.data.authToken;
       storeToken(token);
-      await authenticateUser("user");
+      await authenticateUser();
       if (response.status === 200) {
         navigate("/");
       }

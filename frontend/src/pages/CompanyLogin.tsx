@@ -12,7 +12,7 @@ const CompanyLogin = () => {
   const [error, setError] = useState<string>("");
   const { email, password } = formState;
 
-  const { storeToken, authenticateUser } = useAuth();
+  const { storeToken, authenticateCompany } = useAuth();
 
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const CompanyLogin = () => {
       console.log(response);
       const token = response.data.authToken;
       storeToken(token);
-      await authenticateUser("company");
+      await authenticateCompany();
       if (response.status === 200) {
         navigate("/");
       }

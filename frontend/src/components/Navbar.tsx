@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../context/useAuth";
 
 const Navbar = () => {
-  const { isLoggedIn, logout } = useAuth();
+  const { user, company, isLoggedIn, logout } = useAuth();
 
   return (
     <nav className="flex justify-between items-center p-2 bg-l-light">
@@ -11,12 +11,46 @@ const Navbar = () => {
         <Link to={"/"}>Jobs</Link>
         {isLoggedIn ? (
           <>
-            <button
-              onClick={logout}
-              className="bg-l-contrast text-l-light p-2 rounded-lg"
-            >
-              Log out
-            </button>
+            {user ? (
+              <>
+                <img
+                  src={user.avatar}
+                  alt={user.firstName}
+                  className="h-10 rounded-full"
+                />
+                <button
+                  onClick={logout}
+                  className="bg-l-contrast text-l-light p-2 rounded-lg"
+                >
+                  Log out
+                </button>
+              </>
+            ) : company ? (
+              <>
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  className="h-10 rounded-full"
+                />
+                <button
+                  onClick={logout}
+                  className="bg-l-contrast text-l-light p-2 rounded-lg"
+                >
+                  Log out
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to={"/user/login"}>Log In</Link>
+                <Link to={"/user/signup"}>Sign Up</Link>
+                <Link
+                  to={"/company/login"}
+                  className="bg-l-contrast text-l-light p-2 rounded-lg"
+                >
+                  Company Portal
+                </Link>
+              </>
+            )}
           </>
         ) : (
           <>
