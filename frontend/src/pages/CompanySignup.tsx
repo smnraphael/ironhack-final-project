@@ -1,10 +1,9 @@
-import useAuth from "../context/useAuth";
 import { useState } from "react";
 import api from "../service/api";
 import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
 
 const CompanySignup = () => {
-  const { user } = useAuth();
   const [formState, setFormState] = useState({
     email: "",
     password: "",
@@ -14,7 +13,7 @@ const CompanySignup = () => {
     website: "",
     description: "",
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | undefined>("");
   const navigate = useNavigate();
 
   const {
@@ -27,25 +26,31 @@ const CompanySignup = () => {
     description,
   } = formState;
 
-  const handleChange = async (e) => {
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const key = e.target.id;
     const value = e.target.value;
     setFormState({ ...formState, [key]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const reponse = await api.post("/auth/company/signup", formState);
       if (reponse.status === 201) {
         navigate("/company/login");
       }
-    } catch (error) {
-      console.log(error.message);
-      setError(error.response?.data?.message);
-      setTimeout(() => {
-        setError("");
-      }, 3000);
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.log(error.message);
+        setError(error.response?.data?.message);
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+      }
     }
   };
 

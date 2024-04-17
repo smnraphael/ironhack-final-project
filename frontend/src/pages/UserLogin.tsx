@@ -2,23 +2,24 @@ import { useState } from "react";
 import useAuth from "../context/useAuth.ts";
 import api from "../service/api.ts";
 import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
 
 const UserLogin = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const { email, password } = formState;
 
-  const { user, storeToken, authenticateUser } = useAuth();
+  const { storeToken, authenticateUser } = useAuth();
 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const key = e.currentTarget.id;
     const value = e.currentTarget.value;
     setFormState({ ...formState, [key]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await api.post("/auth/user/login", formState);
@@ -29,12 +30,14 @@ const UserLogin = () => {
       if (response.status === 200) {
         navigate("/");
       }
-    } catch (error) {
-      // console.log(error.message);
-      setError(error.response?.data?.message);
-      setTimeout(() => {
-        setError("");
-      }, 3000);
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.log(error.message);
+        setError(error.response?.data?.message);
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+      }
     }
   };
 
