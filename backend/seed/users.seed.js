@@ -12,6 +12,8 @@ const users = [
     password: safePassword,
     firstName: "John",
     lastName: "Doe",
+    avatar:
+      "https://lh5.googleusercontent.com/proxy/swauUCDkb6bxTsSpoEmcnqYahRFvXabwkprJghyVnET4zRW7Z1cZWyLW0zCCkZ5T5XgyVK5CFlEhEcedPfH58Syk49NFUHwuUgivRTi9GWZcbf4jREppKHikXmqd1r3VhnjXVE4PWaXhFTKaBTj2Ns04",
   },
   {
     email: "janedoe@example.com",
