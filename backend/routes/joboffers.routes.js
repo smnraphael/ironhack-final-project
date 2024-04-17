@@ -17,7 +17,9 @@ router.get("/", async (req, res, next) => {
 // Get one job offer
 router.get("/:jobOfferId", async (req, res, next) => {
   try {
-    const oneJobOffer = await JobOffer.findById(req.params.jobOfferId);
+    const oneJobOffer = await JobOffer.findById(req.params.jobOfferId).populate(
+      "company"
+    );
     res.json(oneJobOffer);
   } catch (error) {
     next(error);
