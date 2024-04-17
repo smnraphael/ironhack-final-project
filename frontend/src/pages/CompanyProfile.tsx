@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../service/api";
+import OneJobOffer from "./OneJobOffer";
+import JobCard from "../components/JobCard";
 
 const CompanyProfile = () => {
   const [company, setCompany] = useState(null);
@@ -22,19 +24,27 @@ const CompanyProfile = () => {
   }, [companyId]);
 
   return (
-    <div>
+    <div className="px-20 py-5">
       {company && (
-        <>
-          <img
-            src={company.oneCompany.logo}
-            alt={company.oneCompany.name}
-            className="h-10"
-          />
-          <p>Name: {company.oneCompany.name}</p>
-          <p>Description: {company.oneCompany.description}</p>
-          <p>Headquarters: {company.oneCompany.headquarters}</p>
-          <p>Number of employees: {company.oneCompany.numberOfEmployees}</p>
-        </>
+        <div className="flex flex-col">
+          <div>
+            <img
+              src={company.oneCompany.logo}
+              alt={company.oneCompany.name}
+              className="h-10"
+            />
+            <p>Name: {company.oneCompany.name}</p>
+            <p>Description: {company.oneCompany.description}</p>
+            <p>Headquarters: {company.oneCompany.headquarters}</p>
+            <p>Number of employees: {company.oneCompany.numberOfEmployees}</p>
+            <p>Job Offers posted by {company.oneCompany.name}:</p>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {company.jobOffers.map((jobOffer) => (
+              <JobCard key={jobOffer._id} job={jobOffer} />
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );
