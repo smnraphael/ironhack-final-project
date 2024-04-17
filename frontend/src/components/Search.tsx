@@ -8,7 +8,7 @@ const Search = () => {
             id="search"
             type="text"
             placeholder="Search"
-            className="bg-l-light dark:bg-d-mid p-2 rounded-lg w-full"
+            className="bg-l-light dark:bg-d-mid p-2 rounded-lg border w-full"
           />
         </label>
       </div>

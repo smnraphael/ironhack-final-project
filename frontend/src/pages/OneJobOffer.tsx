@@ -43,7 +43,7 @@ const OneJobOffer = () => {
   }, [jobOfferId]);
 
   return (
-    <div className="px-20 py-5">
+    <div className="px-56 py-5">
       {job && (
         <div className="flex flex-col gap-5">
           <div>
@@ -57,7 +57,7 @@ const OneJobOffer = () => {
           </div>
           <p className="text-3xl font-bold">{job.position}</p>
           <p className="text-sm">{job.location}</p>
-          <div className="flex self-center gap-5 border rounded-lg p-5">
+          <div className="grid grid-cols-5 self-center gap-5 border rounded-lg p-5">
             <div className="flex flex-col items-center">
               <p className="font-bold">Employment Type</p>
               <p>{job.employmentType}</p>
