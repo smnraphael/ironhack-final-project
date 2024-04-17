@@ -13,6 +13,7 @@ type Job = {
   positionOverview: string;
   employmentType: string;
   remote: boolean;
+  salary: number;
 };
 
 type Company = {
@@ -63,7 +64,7 @@ const CompanyProfile = () => {
             <p>Number of employees: {company.oneCompany.numberOfEmployees}</p>
             <p>Job Offers posted by {company.oneCompany.name}:</p>
           </div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {company.jobOffers.map((jobOffer) => (
               <JobCard key={jobOffer._id} job={jobOffer} />
             ))}

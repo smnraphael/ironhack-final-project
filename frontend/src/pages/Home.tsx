@@ -1,9 +1,9 @@
 import api from "../service/api";
 import Search from "../components/Search";
 import Filters from "../components/Filters";
-import Sort from "../components/Sort";
 import JobCard from "../components/JobCard";
 import { useEffect, useState } from "react";
+import TopJobOffers from "../components/TopJobOffers";
 
 type Jobs = {
   _id: string;
@@ -15,6 +15,7 @@ type Jobs = {
   positionOverview: string;
   employmentType: string;
   remote: boolean;
+  salary: number;
 };
 
 const Home = () => {
@@ -39,9 +40,9 @@ const Home = () => {
       <Search />
       <div className="flex">
         <Filters />
-        <div>
-          <Sort />
-          <div className="grid grid-cols-3 gap-3">
+        <div className="w-9/12">
+          <TopJobOffers />
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {jobs.map((job) => (
               <JobCard key={job._id} job={job} />
             ))}

@@ -8,11 +8,11 @@ const Search = () => {
             id="search"
             type="text"
             placeholder="Search"
-            className="bg-l-light p-2 rounded-lg w-full"
+            className="bg-l-light dark:bg-d-mid p-2 rounded-lg w-full"
           />
         </label>
       </div>
-      <button className="bg-l-contrast text-l-light p-2 rounded-lg">
+      <button className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg">
         Find Job
       </button>
     </div>
