@@ -63,7 +63,7 @@ const CompanyProfile = () => {
             <p>Number of employees: {company.oneCompany.numberOfEmployees}</p>
             <p>Job Offers posted by {company.oneCompany.name}:</p>
           </div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-3">
             {company.jobOffers.map((jobOffer) => (
               <JobCard key={jobOffer._id} job={jobOffer} />
             ))}

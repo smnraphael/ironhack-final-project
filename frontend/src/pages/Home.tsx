@@ -41,7 +41,7 @@ const Home = () => {
         <Filters />
         <div>
           <Sort />
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-3">
             {jobs.map((job) => (
               <JobCard key={job._id} job={job} />
             ))}

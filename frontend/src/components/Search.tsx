@@ -1,6 +1,6 @@
 const Search = () => {
   return (
-    <div className="flex gap-3">
+    <div className="flex justify-evenly">
       <div className="w-10/12">
         <label htmlFor="search">
           <input

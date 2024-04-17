@@ -46,7 +46,7 @@ const OneJobOffer = () => {
     <div className="px-20 py-5">
       {job && (
         <div className="flex flex-col gap-5">
-          <div className="h-20 w-20">
+          <div>
             <Link to={`/company/profile/${job.company._id}`}>
               <img
                 src={job.company.logo}

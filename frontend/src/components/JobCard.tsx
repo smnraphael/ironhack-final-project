@@ -10,11 +10,12 @@ interface Job {
   positionOverview: string;
   employmentType: string;
   remote: boolean;
+  salary: number;
 }
 
 const JobCard: React.FC<{ job: Job }> = ({ job }) => {
   return (
-    <div className="h-90 bg-l-light rounded-lg p-2 flex flex-col justify-between items-start gap-2">
+    <div className="h-90 bg-l-light rounded-lg p-3 flex flex-col justify-between items-start gap-2">
       <Link to={`/company/profile/${job.company._id}`}>
         <img
           src={job.company.logo}
@@ -27,6 +28,7 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => {
       <div className="flex flex-wrap gap-1">
         <p className="text-sm bg-l-mid rounded-xl px-2">{job.employmentType}</p>
         <p className="text-sm bg-l-mid rounded-xl px-2">{job.remote}</p>
+        <p className="text-sm bg-l-mid rounded-xl px-2">${job.salary}</p>
       </div>
       <Link to={`/job-offers/${job._id}`}>
         <button className="bg-l-contrast text-l-light px-2 py-1 rounded-lg">
