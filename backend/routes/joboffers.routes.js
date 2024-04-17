@@ -7,7 +7,7 @@ const Application = require("../models/Application.model.js");
 // Get all job offers
 router.get("/", async (req, res, next) => {
   try {
-    const allJobOffers = await JobOffer.find({});
+    const allJobOffers = await JobOffer.find({}).populate("company");
     res.json(allJobOffers);
   } catch (error) {
     next(error);
