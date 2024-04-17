@@ -5,8 +5,20 @@ import Sort from "../components/Sort";
 import JobCard from "../components/JobCard";
 import { useEffect, useState } from "react";
 
+type Jobs = {
+  _id: string;
+  company: {
+    _id: string;
+    logo: string;
+  };
+  position: string;
+  positionOverview: string;
+  employmentType: string;
+  remote: boolean;
+};
+
 const Home = () => {
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState<Jobs[]>([]);
 
   useEffect(() => {
     const fetchJobs = async () => {

@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
 
-const JobCard = ({ job }) => {
+interface Job {
+  _id: string;
+  company: {
+    _id: string;
+    logo: string;
+  };
+  position: string;
+  positionOverview: string;
+  employmentType: string;
+  remote: boolean;
+}
+
+const JobCard: React.FC<{ job: Job }> = ({ job }) => {
   return (
     <div className="h-90 bg-l-light rounded-lg p-2 flex flex-col justify-between items-start">
       <Link to={`/company/profile/${job.company._id}`}>

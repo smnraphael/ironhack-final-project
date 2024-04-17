@@ -41,10 +41,16 @@ const CompanyLogin = () => {
   return (
     <div className="flex flex-col gap-10 justify-center items-center">
       <h1>Log In as a company</h1>
-      <form className="flex flex-col justify-center items-center gap-2">
+      {error}
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-center items-center gap-2"
+      >
         <div className="flex flex-col">
           <label htmlFor="email">Email</label>
           <input
+            value={email}
+            onChange={handleChange}
             type="email"
             id="email"
             name="email"
@@ -56,6 +62,8 @@ const CompanyLogin = () => {
         <div className="flex flex-col">
           <label htmlFor="password">Password</label>
           <input
+            value={password}
+            onChange={handleChange}
             type="password"
             id="password"
             name="password"

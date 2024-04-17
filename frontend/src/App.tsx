@@ -7,6 +7,7 @@ import CompanySignup from "./pages/CompanySignup";
 import CompanyLogin from "./pages/CompanyLogin";
 import OneJobOffer from "./pages/OneJobOffer";
 import CompanyProfile from "./pages/CompanyProfile";
+import Application from "./pages/Application";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
         <Route
           path="/company/profile/:companyId"
           element={<CompanyProfile />}
+        />
+        <Route
+          path="/job-offers/:jobOfferId/application"
+          element={<Application />}
         />
       </Routes>
     </div>

@@ -1,11 +1,33 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../service/api";
-import OneJobOffer from "./OneJobOffer";
 import JobCard from "../components/JobCard";
 
+type Job = {
+  _id: string;
+  company: {
+    _id: string;
+    logo: string;
+  };
+  position: string;
+  positionOverview: string;
+  employmentType: string;
+  remote: boolean;
+};
+
+type Company = {
+  oneCompany: {
+    name: string;
+    logo: string;
+    description: string;
+    headquarters: string;
+    numberOfEmployees: number;
+  };
+  jobOffers: Job[];
+};
+
 const CompanyProfile = () => {
-  const [company, setCompany] = useState(null);
+  const [company, setCompany] = useState<Company | null>(null);
 
   const { companyId } = useParams();
 
