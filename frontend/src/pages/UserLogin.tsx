@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useContxt from "../context/useContxt.ts";
+import useAuth from "../context/useAuth.ts";
 import api from "../service/api.ts";
 import { useNavigate, Link } from "react-router-dom";
 import { AxiosError } from "axios";
@@ -9,7 +9,7 @@ const UserLogin = () => {
   const [error, setError] = useState("");
   const { email, password } = formState;
 
-  const { storeToken, authenticateUser } = useContxt();
+  const { storeToken, authenticateUser } = useAuth();
 
   const navigate = useNavigate();
 

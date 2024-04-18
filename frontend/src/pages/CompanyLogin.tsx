@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useContxt from "../context/useContxt.ts";
+import useAuth from "../context/useAuth.ts";
 import api from "../service/api.ts";
 import { useNavigate, Link } from "react-router-dom";
 import { AxiosError } from "axios";
@@ -12,7 +12,7 @@ const CompanyLogin = () => {
   const [error, setError] = useState<string>("");
   const { email, password } = formState;
 
-  const { storeToken, authenticateCompany } = useContxt();
+  const { storeToken, authenticateCompany } = useAuth();
 
   const navigate = useNavigate();
 

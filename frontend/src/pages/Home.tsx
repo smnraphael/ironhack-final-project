@@ -3,10 +3,10 @@ import Filters from "../components/Filters";
 import JobCard from "../components/JobCard";
 import { useEffect } from "react";
 import TopJobOffers from "../components/TopJobOffers";
-import useContxt from "../context/useContxt";
+import useJob from "../context/useJob";
 
 const Home = () => {
-  const { jobs, setJobs, fetchJobs } = useContxt();
+  const { jobs, setJobs, fetchJobs } = useJob();
 
   useEffect(() => {
     fetchJobs();

@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
-import useContxt from "../context/useContxt";
+import useAuth from "../context/useAuth";
 
 const Navbar = () => {
-  const { user, company, isLoggedIn, logout } = useContxt();
+  const { user, company, isLoggedIn, logout } = useAuth();
 
   const { currentId } = useParams();
 

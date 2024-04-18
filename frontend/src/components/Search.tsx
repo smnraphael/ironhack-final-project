@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { AxiosError } from "axios";
-import useContxt from "../context/useContxt";
+import useJob from "../context/useJob";
 import api from "../service/api";
 
 const Search = () => {
   const [search, setSearch] = useState("");
 
-  const { setJobs } = useContxt();
+  const { setJobs } = useJob();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;

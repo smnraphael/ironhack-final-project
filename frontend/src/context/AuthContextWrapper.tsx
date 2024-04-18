@@ -1,12 +1,6 @@
-import {
-  createContext,
-  useState,
-  useEffect,
-  ReactNode,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import { createContext, useState, useEffect, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
+
 import api from "../service/api.ts";
 
 type User = {
@@ -21,27 +15,9 @@ type Company = {
   logo: string;
 };
 
-type Job = {
-  _id: string;
-  company: {
-    _id: string;
-    logo: string;
-  };
-  position: string;
-  positionOverview: string;
-  employmentType: string;
-  remote: boolean;
-  salary: number;
-  createdAt: Date;
-};
-
-type Jobs = Job[];
-
-type ContextType = {
+type AuthContextType = {
   user: User | null;
   company: Company | null;
-  jobs: Jobs | null;
-  setJobs: Dispatch<SetStateAction<Jobs | null>>;
   storeToken: (token: string) => void;
   removeToken: () => void;
   authenticateUser: () => Promise<void>;
@@ -49,14 +25,11 @@ type ContextType = {
   isLoggedIn: boolean;
   isLoading: boolean;
   logout: () => void;
-  fetchJobs: () => void;
 };
 
-export const Context = createContext<ContextType>({
+export const AuthContext = createContext<AuthContextType>({
   user: null,
   company: null,
-  jobs: null,
-  setJobs: () => {},
   storeToken: () => {},
   removeToken: () => {},
   authenticateUser: async () => {},
@@ -64,7 +37,6 @@ export const Context = createContext<ContextType>({
   isLoggedIn: false,
   isLoading: true,
   logout: () => {},
-  fetchJobs: () => {},
 });
 
 type ContextWrapperProps = {
@@ -74,7 +46,6 @@ type ContextWrapperProps = {
 function AuthContextWrapper({ children }: ContextWrapperProps) {
   const [user, setUser] = useState<User | null>(null);
   const [company, setCompany] = useState<Company | null>(null);
-  const [jobs, setJobs] = useState<Jobs | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -144,27 +115,11 @@ function AuthContextWrapper({ children }: ContextWrapperProps) {
     navigate("/");
   };
 
-  const fetchJobs = async () => {
-    try {
-      const { data } = await api.get("/joboffers");
-      data.sort(
-        (a: Job, b: Job) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      );
-      setJobs(data);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
-    <Context.Provider
+    <AuthContext.Provider
       value={{
         user,
         company,
-        jobs,
-        setJobs,
         storeToken,
         removeToken,
         authenticateUser,
@@ -172,11 +127,10 @@ function AuthContextWrapper({ children }: ContextWrapperProps) {
         isLoggedIn,
         isLoading,
         logout,
-        fetchJobs,
       }}
     >
       {children}
-    </Context.Provider>
+    </AuthContext.Provider>
   );
 }
 

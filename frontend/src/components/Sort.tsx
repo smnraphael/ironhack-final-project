@@ -1,7 +1,7 @@
-import useContxt from "../context/useContxt";
+import useJob from "../context/useJob";
 
 const Sort = () => {
-  const { jobs, setJobs } = useContxt();
+  const { jobs, setJobs } = useJob();
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const sortOption = e.currentTarget.value;

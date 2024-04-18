@@ -1,8 +1,8 @@
 import Sort from "./Sort";
-import useContxt from "../context/useContxt";
+import useJob from "../context/useJob";
 
 const TopJobOffers = () => {
-  const { jobs } = useContxt();
+  const { jobs } = useJob();
 
   const jobCount = jobs ? jobs.length : 0;
 
