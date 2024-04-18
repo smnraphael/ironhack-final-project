@@ -6,15 +6,30 @@ const Filters = () => {
         <div>
           <p className="text-lg font-bold">Type of Employment</p>
           <div className="flex gap-2">
-            <input type="checkbox" id="Full-Time" name="Full-Time" />
+            <input
+              type="checkbox"
+              id="Full-Time"
+              name="Full-Time"
+              value="Full-Time"
+            />
             <label htmlFor="Full-Time">Full-Time</label>
           </div>
           <div className="flex gap-2">
-            <input type="checkbox" id="Part-Time" name="Part-Time" />
+            <input
+              type="checkbox"
+              id="Part-Time"
+              name="Part-Time"
+              value="Part-Time"
+            />
             <label htmlFor="Part-Time">Part-Time</label>
           </div>
           <div className="flex gap-2">
-            <input type="checkbox" id="Internship" name="Internship" />
+            <input
+              type="checkbox"
+              id="Internship"
+              name="Internship"
+              value="Internship"
+            />
             <label htmlFor="Internship">Internship</label>
           </div>
         </div>

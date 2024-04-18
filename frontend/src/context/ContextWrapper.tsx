@@ -21,20 +21,21 @@ type Company = {
   logo: string;
 };
 
-type Jobs = [
-  {
+type Job = {
+  _id: string;
+  company: {
     _id: string;
-    company: {
-      _id: string;
-      logo: string;
-    };
-    position: string;
-    positionOverview: string;
-    employmentType: string;
-    remote: boolean;
-    salary: number;
-  }
-];
+    logo: string;
+  };
+  position: string;
+  positionOverview: string;
+  employmentType: string;
+  remote: boolean;
+  salary: number;
+  createdAt: Date;
+};
+
+type Jobs = Job[];
 
 type ContextType = {
   user: User | null;
@@ -146,6 +147,10 @@ function AuthContextWrapper({ children }: ContextWrapperProps) {
   const fetchJobs = async () => {
     try {
       const { data } = await api.get("/joboffers");
+      data.sort(
+        (a: Job, b: Job) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
       setJobs(data);
       console.log(data);
     } catch (error) {
