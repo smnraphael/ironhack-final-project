@@ -13,7 +13,12 @@ type User = {
 
 type Company = {
   _id: string;
+  email: string;
   name: string;
+  headquarters: string;
+  numberOfEmployees: number;
+  website: string;
+  description: string;
   logo: string;
 };
 

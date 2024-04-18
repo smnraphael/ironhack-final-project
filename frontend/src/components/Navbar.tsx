@@ -21,7 +21,7 @@ const Navbar = () => {
                   <img
                     src={user.avatar}
                     alt={user.firstName}
-                    className="h-10 rounded-full"
+                    className="h-8 rounded-xl"
                   />
                 </Link>
                 <button
@@ -37,7 +37,7 @@ const Navbar = () => {
                   <img
                     src={company.logo}
                     alt={company.name}
-                    className="h-10 rounded-full"
+                    className="h-8 rounded-xl"
                   />
                 </Link>
                 <button

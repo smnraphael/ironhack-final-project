@@ -3,7 +3,7 @@ import useAuth from "../context/useAuth";
 const UserProfile = () => {
   const { user } = useAuth();
   return (
-    <div>
+    <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
       {user && (
         <>
           <img
