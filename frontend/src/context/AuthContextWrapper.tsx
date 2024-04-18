@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../service/api.ts";
 
 type User = {
+  _id: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -11,6 +12,7 @@ type User = {
 };
 
 type Company = {
+  _id: string;
   name: string;
   logo: string;
 };

@@ -9,6 +9,7 @@ import OneJobOffer from "./pages/OneJobOffer";
 import CompanyProfile from "./pages/CompanyProfile";
 import Application from "./pages/Application";
 import UserProfile from "./pages/UserProfile";
+import CompanyPrivateProfile from "./pages/CompanyPrivateProfile";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
           element={<Application />}
         />
         <Route path="/user/profile/:userId" element={<UserProfile />} />
+        <Route
+          path="/company/private-profile/:companyId"
+          element={<CompanyPrivateProfile />}
+        />
       </Routes>
     </div>
   );

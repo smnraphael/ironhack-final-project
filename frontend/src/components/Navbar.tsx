@@ -1,10 +1,8 @@
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useAuth from "../context/useAuth";
 
 const Navbar = () => {
   const { user, company, isLoggedIn, logout } = useAuth();
-
-  const { currentId } = useParams();
 
   return (
     <nav className="flex justify-between items-center px-10 py-2 bg-l-light text-d-dark dark:bg-d-mid dark:text-l-light">
@@ -19,7 +17,7 @@ const Navbar = () => {
           <>
             {user ? (
               <>
-                <Link to={`/user/profile/${currentId}`}>
+                <Link to={`/user/profile/${user._id}`}>
                   <img
                     src={user.avatar}
                     alt={user.firstName}
@@ -35,11 +33,13 @@ const Navbar = () => {
               </>
             ) : company ? (
               <>
-                <img
-                  src={company.logo}
-                  alt={company.name}
-                  className="h-10 rounded-full"
-                />
+                <Link to={`company/private-profile/${company._id}`}>
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="h-10 rounded-full"
+                  />
+                </Link>
                 <button
                   onClick={logout}
                   className="bg-l-mid dark:bg-d-light font-medium p-2 rounded-lg"
