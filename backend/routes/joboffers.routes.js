@@ -7,10 +7,20 @@ const Application = require("../models/Application.model.js");
 // Get all job offers
 router.get("/", async (req, res, next) => {
   try {
-    const allJobOffers = await JobOffer.find({}).populate("company");
+    const search = handleSearch(req.query);
+    const allJobOffers = await JobOffer.find(search).populate("company");
     res.json(allJobOffers);
   } catch (error) {
     next(error);
+  }
+
+  function handleSearch(query) {
+    const search = {};
+    if (query.position) {
+      search.position = new RegExp(query.position, "i");
+    }
+    console.log(query);
+    return search;
   }
 });
 

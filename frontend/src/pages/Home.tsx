@@ -1,39 +1,16 @@
-import api from "../service/api";
 import Search from "../components/Search";
 import Filters from "../components/Filters";
 import JobCard from "../components/JobCard";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import TopJobOffers from "../components/TopJobOffers";
-
-type Jobs = {
-  _id: string;
-  company: {
-    _id: string;
-    logo: string;
-  };
-  position: string;
-  positionOverview: string;
-  employmentType: string;
-  remote: boolean;
-  salary: number;
-};
+import useContxt from "../context/useContxt";
 
 const Home = () => {
-  const [jobs, setJobs] = useState<Jobs[]>([]);
+  const { jobs, setJobs, fetchJobs } = useContxt();
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const { data } = await api.get("/joboffers");
-        setJobs(data);
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     fetchJobs();
-  }, []);
+  }, [setJobs]);
 
   return (
     <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
@@ -43,9 +20,7 @@ const Home = () => {
         <div className="w-9/12">
           <TopJobOffers />
           <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
-            {jobs.map((job) => (
-              <JobCard key={job._id} job={job} />
-            ))}
+            {jobs && jobs.map((job) => <JobCard key={job._id} job={job} />)}
           </div>
         </div>
       </div>

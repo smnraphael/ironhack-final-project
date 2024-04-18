@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-interface Job {
+type Job = {
   _id: string;
   company: {
     _id: string;
@@ -11,7 +11,7 @@ interface Job {
   employmentType: string;
   remote: boolean;
   salary: number;
-}
+};
 
 const JobCard: React.FC<{ job: Job }> = ({ job }) => {
   return (

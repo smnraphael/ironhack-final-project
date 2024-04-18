@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
-import useAuth from "../context/useAuth";
+import useContxt from "../context/useContxt";
 
 const Navbar = () => {
-  const { user, company, isLoggedIn, logout } = useAuth();
+  const { user, company, isLoggedIn, logout } = useContxt();
 
   const { currentId } = useParams();
 
@@ -28,7 +28,7 @@ const Navbar = () => {
                 </Link>
                 <button
                   onClick={logout}
-                  className="bg-l-mid dark:bg-d-light p-2 rounded-lg"
+                  className="bg-l-mid dark:bg-d-light font-medium p-2 rounded-lg"
                 >
                   Log out
                 </button>
@@ -42,7 +42,7 @@ const Navbar = () => {
                 />
                 <button
                   onClick={logout}
-                  className="bg-l-mid dark:bg-d-light p-2 rounded-lg"
+                  className="bg-l-mid dark:bg-d-light font-medium p-2 rounded-lg"
                 >
                   Log out
                 </button>
@@ -52,7 +52,7 @@ const Navbar = () => {
                 <Link to={"/user/login"}>Log In</Link>
                 <Link
                   to={"/company/login"}
-                  className="bg-l-mid dark:bg-d-light p-2 rounded-lg"
+                  className="bg-l-mid dark:bg-d-light font-medium p-2 rounded-lg"
                 >
                   Company Portal
                 </Link>
@@ -61,10 +61,12 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link to={"/user/login"}>Log In</Link>
+            <Link to={"/user/login"} className="font-medium">
+              Log In
+            </Link>
             <Link
               to={"/company/login"}
-              className="bg-l-mid dark:bg-d-light p-2 rounded-lg"
+              className="bg-l-mid dark:bg-d-light font-medium p-2 rounded-lg"
             >
               Company Portal
             </Link>

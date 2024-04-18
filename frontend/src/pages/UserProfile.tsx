@@ -1,7 +1,7 @@
-import useAuth from "../context/useAuth";
+import useContxt from "../context/useContxt";
 
 const UserProfile = () => {
-  const { user } = useAuth();
+  const { user } = useContxt();
   return (
     <div>
       {user && (

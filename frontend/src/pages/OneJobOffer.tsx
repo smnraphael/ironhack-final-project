@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import api from "../service/api";
-import useAuth from "../context/useAuth";
+import useContxt from "../context/useContxt";
 
 type Job = {
   _id: string;
@@ -26,7 +26,7 @@ const OneJobOffer = () => {
 
   const { jobOfferId } = useParams();
 
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useContxt();
 
   useEffect(() => {
     const fetchOneJob = async () => {

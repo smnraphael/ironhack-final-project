@@ -150,6 +150,7 @@ const CompanySignup = () => {
           </button>
         </div>
       </form>
+      <p className="text-red-500">{error}</p>
     </div>
   );
 };
