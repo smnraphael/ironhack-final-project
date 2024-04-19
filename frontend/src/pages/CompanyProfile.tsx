@@ -7,7 +7,7 @@ type Job = {
   _id: string;
   company: {
     _id: string;
-    logo: string;
+    image: string;
   };
   position: string;
   positionOverview: string;
@@ -19,7 +19,7 @@ type Job = {
 type Company = {
   oneCompany: {
     name: string;
-    logo: string;
+    image: string;
     description: string;
     headquarters: string;
     numberOfEmployees: number;
@@ -54,7 +54,7 @@ const CompanyProfile = () => {
         <div className="flex flex-col">
           <div>
             <img
-              src={company.oneCompany.logo}
+              src={company.oneCompany.image}
               alt={company.oneCompany.name}
               className="h-10"
             />
