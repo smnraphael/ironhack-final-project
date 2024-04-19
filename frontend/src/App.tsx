@@ -10,6 +10,8 @@ import CompanyProfile from "./pages/CompanyProfile";
 import Application from "./pages/Application";
 import UserProfile from "./pages/UserProfile";
 import CompanyPrivateProfile from "./pages/CompanyPrivateProfile";
+import PostJobOffer from "./pages/PostJobOffer";
+import CompanyJobOffers from "./pages/CompanyJobOffers";
 
 function App() {
   return (
@@ -30,10 +32,18 @@ function App() {
           path="/job-offers/:jobOfferId/application"
           element={<Application />}
         />
-        <Route path="/user/profile/:userId" element={<UserProfile />} />
+        <Route path="/user/profile" element={<UserProfile />} />
         <Route
-          path="/company/private-profile/:companyId"
+          path="/company/private-profile"
           element={<CompanyPrivateProfile />}
+        />
+        <Route
+          path="company/:companyId/new-job-offer"
+          element={<PostJobOffer />}
+        />
+        <Route
+          path="/company/private-profile/:companyId/job-offers"
+          element={<CompanyJobOffers />}
         />
       </Routes>
     </div>

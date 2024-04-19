@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useAuth from "../context/useAuth";
 
 const CompanyPrivateProfile = () => {
@@ -23,6 +24,24 @@ const CompanyPrivateProfile = () => {
           <p>{company.website}</p>
           <p>Description</p>
           <p>{company.description}</p>
+
+          <button className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg">
+            EDIT PROFILE
+          </button>
+
+          <Link
+            to={`/company/${company._id}/new-job-offer`}
+            className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg"
+          >
+            Post job offer
+          </Link>
+
+          <Link
+            to={`/company/private-profile/${company._id}/job-offers`}
+            className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg"
+          >
+            See all job offers
+          </Link>
         </>
       )}
     </div>

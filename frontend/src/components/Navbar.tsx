@@ -17,7 +17,7 @@ const Navbar = () => {
           <>
             {user ? (
               <>
-                <Link to={`/user/profile/${user._id}`}>
+                <Link to={"/user/profile"}>
                   <img
                     src={user.avatar}
                     alt={user.firstName}
@@ -33,7 +33,7 @@ const Navbar = () => {
               </>
             ) : company ? (
               <>
-                <Link to={`company/private-profile/${company._id}`}>
+                <Link to={`company/private-profile`}>
                   <img
                     src={company.logo}
                     alt={company.name}
