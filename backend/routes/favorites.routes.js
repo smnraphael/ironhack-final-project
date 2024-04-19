@@ -7,7 +7,7 @@ const isAuthenticated = require("../middlewares/isAuthenticated.js");
 router.use(isAuthenticated);
 
 // Get all favorites of a user
-router.get("/", async (req, res, next) => {
+router.get("/", isAuthenticated, async (req, res, next) => {
   try {
     const applicantFavorites = await Favorite.find({
       applicant: req.currentUserId,
