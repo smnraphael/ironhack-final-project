@@ -1,18 +1,18 @@
 require("../db/index.js");
 const bcrypt = require("bcryptjs");
 
-const User = require("../models/User.model.js");
+const Applicant = require("../models/Applicant.model.js");
 
 const password = "123";
 const safePassword = bcrypt.hashSync(password);
 
-const users = [
+const applicants = [
   {
     email: "johndoe@example.com",
     password: safePassword,
     firstName: "John",
     lastName: "Doe",
-    avatar:
+    image:
       "https://lh5.googleusercontent.com/proxy/swauUCDkb6bxTsSpoEmcnqYahRFvXabwkprJghyVnET4zRW7Z1cZWyLW0zCCkZ5T5XgyVK5CFlEhEcedPfH58Syk49NFUHwuUgivRTi9GWZcbf4jREppKHikXmqd1r3VhnjXVE4PWaXhFTKaBTj2Ns04",
   },
   {
@@ -73,9 +73,9 @@ const users = [
 
 async function seed() {
   try {
-    await User.deleteMany();
-    const createdUsers = await User.create(users);
-    console.log(`${createdUsers.length} users created`);
+    await Applicant.deleteMany();
+    const createdApplicants = await Applicant.create(applicants);
+    console.log(`${createdApplicants.length} applicants created`);
   } catch (error) {
     console.log(error);
   } finally {

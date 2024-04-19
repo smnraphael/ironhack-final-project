@@ -2,7 +2,7 @@ require("../db/index.js");
 
 const Application = require("../models/Application.model.js");
 const JobOffer = require("../models/JobOffer.model.js");
-const User = require("../models/User.model.js");
+const Applicant = require("../models/Applicant.model.js");
 
 const applications = [
   {
@@ -105,10 +105,10 @@ async function seed() {
       const randomJobOfferId = Math.floor(Math.random() * jobOffer.length);
       application.jobOffer = jobOffer[randomJobOfferId]._id;
     });
-    const user = await User.find();
+    const applicant = await Applicant.find();
     applications.forEach((application) => {
-      const randomUserId = Math.floor(Math.random() * user.length);
-      application.user = user[randomUserId]._id;
+      const randomApplicantId = Math.floor(Math.random() * applicant.length);
+      application.applicant = applicant[randomApplicantId]._id;
     });
     const createdApplications = await Application.create(applications);
     console.log(`${createdApplications.length} applications created`);

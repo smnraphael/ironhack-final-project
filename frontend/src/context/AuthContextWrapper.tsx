@@ -3,32 +3,31 @@ import { useNavigate } from "react-router-dom";
 
 import api from "../service/api.ts";
 
-type User = {
+interface IUser {
   _id: string;
   email: string;
+  image: string;
+  __t: string;
+}
+interface IApplicant extends IUser {
   firstName: string;
   lastName: string;
-  avatar: string;
-};
-
-type Company = {
-  _id: string;
-  email: string;
+  __t: "Applicant";
+}
+interface ICompany extends IUser {
   name: string;
   headquarters: string;
   numberOfEmployees: number;
   website: string;
   description: string;
-  logo: string;
-};
+  __t: "Company";
+}
 
 type AuthContextType = {
-  user: User | null;
-  company: Company | null;
+  user: IApplicant | ICompany | null;
   storeToken: (token: string) => void;
   removeToken: () => void;
   authenticateUser: () => Promise<void>;
-  authenticateCompany: () => Promise<void>;
   isLoggedIn: boolean;
   isLoading: boolean;
   logout: () => void;
@@ -36,11 +35,9 @@ type AuthContextType = {
 
 export const AuthContext = createContext<AuthContextType>({
   user: null,
-  company: null,
   storeToken: () => {},
   removeToken: () => {},
   authenticateUser: async () => {},
-  authenticateCompany: async () => {},
   isLoggedIn: false,
   isLoading: true,
   logout: () => {},
@@ -51,8 +48,7 @@ type ContextWrapperProps = {
 };
 
 function AuthContextWrapper({ children }: ContextWrapperProps) {
-  const [user, setUser] = useState<User | null>(null);
-  const [company, setCompany] = useState<Company | null>(null);
+  const [user, setUser] = useState<IApplicant | ICompany | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -60,7 +56,6 @@ function AuthContextWrapper({ children }: ContextWrapperProps) {
 
   useEffect(() => {
     authenticateUser();
-    authenticateCompany();
   }, []);
 
   const storeToken = (token: string) => localStorage.setItem("token", token);
@@ -74,11 +69,16 @@ function AuthContextWrapper({ children }: ContextWrapperProps) {
         setIsLoggedIn(false);
         return;
       }
-      const response = await api.get<User>(`/auth/user/verify`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await api.get<IApplicant | ICompany>(
+        `/auth/user/verify`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response);
+
       setUser(response.data);
       setIsLoggedIn(true);
       setIsLoading(false);
@@ -90,34 +90,9 @@ function AuthContextWrapper({ children }: ContextWrapperProps) {
     }
   };
 
-  const authenticateCompany = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        setIsLoading(false);
-        setIsLoggedIn(false);
-        return;
-      }
-      const response = await api.get<Company>(`/auth/company/verify`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setCompany(response.data);
-      setIsLoggedIn(true);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      setCompany(null);
-      setIsLoggedIn(false);
-      setIsLoading(false);
-    }
-  };
-
   const logout = () => {
     removeToken();
     setUser(null);
-    setCompany(null);
     setIsLoggedIn(false);
     navigate("/");
   };
@@ -126,11 +101,9 @@ function AuthContextWrapper({ children }: ContextWrapperProps) {
     <AuthContext.Provider
       value={{
         user,
-        company,
         storeToken,
         removeToken,
         authenticateUser,
-        authenticateCompany,
         isLoggedIn,
         isLoading,
         logout,

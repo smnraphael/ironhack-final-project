@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import useAuth from "../context/useAuth";
 
 const CompanyPrivateProfile = () => {
-  const { company } = useAuth();
+  const { user } = useAuth();
+  if (!user || user.__t === "Applicant") {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
@@ -30,7 +33,7 @@ const CompanyPrivateProfile = () => {
           </button>
 
           <Link
-            to={`/company/${company._id}/new-job-offer`}
+            to={`/company/new-job-offer`}
             className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg"
           >
             Post job offer

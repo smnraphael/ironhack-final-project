@@ -9,8 +9,10 @@ router.use(isAuthenticated);
 // Get all favorites of a user
 router.get("/", async (req, res, next) => {
   try {
-    const userFavorites = await Favorite.find({ user: req.currentUserId });
-    res.json(userFavorites);
+    const applicantFavorites = await Favorite.find({
+      applicant: req.currentUserId,
+    });
+    res.json(applicantFavorites);
   } catch (error) {
     next(error);
   }
@@ -21,7 +23,7 @@ router.post("/:jobOfferId", async (req, res, next) => {
   try {
     const createdFavorite = await Favorite.create({
       jobOffer: req.params.jobOfferId,
-      user: req.currentUserId,
+      applicant: req.currentUserId,
     });
     res.json({
       message: "Job offer successfully added to favorites",

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const JobOffer = require("../models/JobOffer.model.js");
 const Application = require("../models/Application.model.js");
+const isAuthenticated = require("../middlewares/isAuthenticated.js");
 
 // We are prefixed with /api/joboffers
 
@@ -37,9 +38,12 @@ router.get("/:jobOfferId", async (req, res, next) => {
 });
 
 // Post a new job offer
-router.post("/", async (req, res, next) => {
+router.post("/", isAuthenticated, async (req, res, next) => {
   try {
-    const newJobOffer = await JobOffer.create(req.body);
+    const newJobOffer = await JobOffer.create({
+      ...req.body,
+      company: req.currentUserId,
+    });
     res.json({
       message: "Job offer successfully posted",
       jobOffer: newJobOffer,

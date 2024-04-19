@@ -7,9 +7,9 @@ const favoriteSchema = new Schema(
       ref: "JobOffer",
       required: true,
     },
-    user: {
+    applicant: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Applicant",
       required: true,
     },
   },

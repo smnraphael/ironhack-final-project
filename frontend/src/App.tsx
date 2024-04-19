@@ -8,10 +8,11 @@ import CompanyLogin from "./pages/CompanyLogin";
 import OneJobOffer from "./pages/OneJobOffer";
 import CompanyProfile from "./pages/CompanyProfile";
 import Application from "./pages/Application";
-import UserProfile from "./pages/UserProfile";
+import ApplicantProfile from "./pages/ApplicantProfile";
 import CompanyPrivateProfile from "./pages/CompanyPrivateProfile";
 import PostJobOffer from "./pages/PostJobOffer";
 import CompanyJobOffers from "./pages/CompanyJobOffers";
+import IsLoggedIn from "./components/routing/IsLoggedIn";
 
 function App() {
   return (
@@ -32,19 +33,21 @@ function App() {
           path="/job-offers/:jobOfferId/application"
           element={<Application />}
         />
-        <Route path="/user/profile" element={<UserProfile />} />
+        <Route
+          path="/applicant/private-profile"
+          element={<ApplicantProfile />}
+        />
         <Route
           path="/company/private-profile"
           element={<CompanyPrivateProfile />}
         />
-        <Route
-          path="company/:companyId/new-job-offer"
-          element={<PostJobOffer />}
-        />
-        <Route
-          path="/company/private-profile/:companyId/job-offers"
-          element={<CompanyJobOffers />}
-        />
+        <Route element={<IsLoggedIn />}>
+          <Route path="company/new-job-offer" element={<PostJobOffer />} />
+          <Route
+            path="/company/private-profile/:companyId/job-offers"
+            element={<CompanyJobOffers />}
+          />
+        </Route>
       </Routes>
     </div>
   );

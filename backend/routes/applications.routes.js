@@ -24,11 +24,11 @@ router.get("/:applicationId", async (req, res, next) => {
 });
 
 // Post one application
-router.post("/:userId/:jobOfferId", async (req, res, next) => {
+router.post("/:applicantId/:jobOfferId", async (req, res, next) => {
   try {
     const newApplication = await Application.create({
       ...req.body,
-      user: req.params.userId,
+      applicant: req.params.applicantId,
       jobOffer: req.params.jobOfferId,
     });
     res.json({
