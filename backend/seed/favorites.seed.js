@@ -2,7 +2,7 @@ require("../db/index.js");
 
 const Favorite = require("../models/Favorite.model.js");
 const JobOffer = require("../models/JobOffer.model.js");
-const User = require("../models/User.model.js");
+const Applicant = require("../models/Applicant.model.js");
 
 const favorites = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
@@ -14,10 +14,10 @@ async function seed() {
       const randomJobOfferId = Math.floor(Math.random() * jobOffer.length);
       favorite.jobOffer = jobOffer[randomJobOfferId]._id;
     });
-    const user = await User.find();
+    const applicant = await Applicant.find();
     favorites.forEach((favorite) => {
-      const randomUserId = Math.floor(Math.random() * user.length);
-      favorite.user = user[randomUserId]._id;
+      const randomApplicantId = Math.floor(Math.random() * applicant.length);
+      favorite.applicant = applicant[randomApplicantId]._id;
     });
     const createdFavorites = await Favorite.create(favorites);
     console.log(`${createdFavorites.length} favorites created`);

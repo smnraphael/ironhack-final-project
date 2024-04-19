@@ -12,7 +12,7 @@ const CompanyLogin = () => {
   const [error, setError] = useState<string>("");
   const { email, password } = formState;
 
-  const { storeToken, authenticateCompany } = useAuth();
+  const { storeToken, authenticateUser } = useAuth();
 
   const navigate = useNavigate();
 
@@ -25,11 +25,11 @@ const CompanyLogin = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await api.post("/auth/company/login", formState);
+      const response = await api.post("/auth/user/login", formState);
       console.log(response);
       const token = response.data.authToken;
       storeToken(token);
-      await authenticateCompany();
+      await authenticateUser();
       if (response.status === 200) {
         navigate("/");
       }

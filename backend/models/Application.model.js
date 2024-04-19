@@ -24,9 +24,9 @@ const applicationSchema = new Schema(
     coverLetter: {
       type: String,
     },
-    user: {
+    applicant: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Applicant",
       required: true,
     },
     jobOffer: {

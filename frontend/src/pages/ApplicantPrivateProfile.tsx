@@ -1,13 +1,13 @@
 import useAuth from "../context/useAuth";
 
-const UserProfile = () => {
+const ApplicantPrivateProfile = () => {
   const { user } = useAuth();
   return (
-    <div>
-      {user && (
+    <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
+      {user?.__t === "Applicant" && (
         <>
           <img
-            src={user.avatar}
+            src={user.image}
             alt={user.firstName}
             className="h-36 rounded-lg"
           />
@@ -20,4 +20,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default ApplicantPrivateProfile;
