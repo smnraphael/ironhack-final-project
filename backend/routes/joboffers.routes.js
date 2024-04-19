@@ -2,6 +2,7 @@ const router = require("express").Router();
 const JobOffer = require("../models/JobOffer.model.js");
 const Application = require("../models/Application.model.js");
 const isAuthenticated = require("../middlewares/isAuthenticated.js");
+const { isValidObjectId } = require("mongoose");
 
 // We are prefixed with /api/joboffers
 
@@ -27,6 +28,9 @@ router.get("/", async (req, res, next) => {
 
 // Get one job offer
 router.get("/:jobOfferId", async (req, res, next) => {
+  if (!isValidObjectId(req.params.jobOfferId)) {
+    return next("route");
+  }
   try {
     const oneJobOffer = await JobOffer.findById(req.params.jobOfferId).populate(
       "company"

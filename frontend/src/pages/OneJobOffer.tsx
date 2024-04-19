@@ -17,7 +17,7 @@ type Job = {
   keyResponsibilities: string;
   company: {
     _id: string;
-    logo: string;
+    image: string;
   };
 };
 
@@ -48,7 +48,7 @@ const OneJobOffer = () => {
           <div>
             <Link to={`/company/profile/${job.company._id}`}>
               <img
-                src={job.company.logo}
+                src={job.company.image}
                 alt={job.company._id}
                 className="h-10"
               />
