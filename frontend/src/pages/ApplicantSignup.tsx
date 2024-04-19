@@ -3,7 +3,7 @@ import api from "../service/api";
 import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 
-const UserSignup = () => {
+const ApplicantSignup = () => {
   const [formState, setFormState] = useState({
     email: "",
     password: "",
@@ -110,4 +110,4 @@ const UserSignup = () => {
   );
 };
 
-export default UserSignup;
+export default ApplicantSignup;

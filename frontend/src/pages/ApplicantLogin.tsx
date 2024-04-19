@@ -4,7 +4,7 @@ import api from "../service/api.ts";
 import { useNavigate, Link } from "react-router-dom";
 import { AxiosError } from "axios";
 
-const UserLogin = () => {
+const ApplicantLogin = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const { email, password } = formState;
@@ -91,4 +91,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default ApplicantLogin;

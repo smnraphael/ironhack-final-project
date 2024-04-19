@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useAuth from "../context/useAuth";
 
 const ApplicantPrivateProfile = () => {
@@ -14,6 +15,12 @@ const ApplicantPrivateProfile = () => {
           <p>{user.firstName}</p>
           <p>{user.lastName}</p>
           <p>{user.email}</p>
+          <Link
+            to="/user/applications"
+            className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg"
+          >
+            See all my applications
+          </Link>
         </>
       )}
     </div>
