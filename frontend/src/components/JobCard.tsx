@@ -4,7 +4,7 @@ type Job = {
   _id: string;
   company: {
     _id: string;
-    logo: string;
+    image: string;
   };
   position: string;
   positionOverview: string;
@@ -18,7 +18,7 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => {
     <div className="h-90 bg-l-light dark:bg-d-mid rounded-lg border p-3 flex flex-col justify-between items-start gap-2">
       <Link to={`/company/profile/${job.company._id}`}>
         <img
-          src={job.company.logo}
+          src={job.company.image}
           alt={job.company._id}
           className="h-10 w-10 object-contain rounded-xl"
         />

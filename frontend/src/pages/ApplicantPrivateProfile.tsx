@@ -1,6 +1,6 @@
 import useAuth from "../context/useAuth";
 
-const ApplicantProfile = () => {
+const ApplicantPrivateProfile = () => {
   const { user } = useAuth();
   return (
     <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
@@ -20,4 +20,4 @@ const ApplicantProfile = () => {
   );
 };
 
-export default ApplicantProfile;
+export default ApplicantPrivateProfile;

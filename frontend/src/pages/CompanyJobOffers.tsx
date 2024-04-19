@@ -1,34 +1,34 @@
 import { useEffect, useState } from "react";
 import api from "../service/api";
-import { useParams } from "react-router-dom";
+import useAuth from "../context/useAuth";
+import { Link } from "react-router-dom";
 
 type Job = {
   _id: string;
-  oneCompany: {
+  company: {
     _id: string;
     name: string;
-    logo: string;
+    image: string;
   };
   jobOffers: {
     _id: string;
     position: string;
+    positionOverview: string;
+    employmentType: string;
+    remote: boolean;
+    salary: number;
+    createdAt: Date;
   }[];
-  position: string;
-  positionOverview: string;
-  employmentType: string;
-  remote: boolean;
-  salary: number;
-  createdAt: Date;
 };
 
 const CompanyJobOffers = () => {
   const [companyJobs, setCompanyJobs] = useState<Job | null>(null);
 
-  const { companyId } = useParams();
+  const { user } = useAuth();
 
   const fetchCompanyJobs = async () => {
     try {
-      const { data } = await api.get(`/companies/profile/${companyId}`);
+      const { data } = await api.get(`/companies/profile/${user?._id}`);
       setCompanyJobs(data);
       console.log(data);
     } catch (error) {
@@ -47,16 +47,15 @@ const CompanyJobOffers = () => {
   return (
     <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
       <img
-        src={companyJobs.oneCompany.logo}
-        alt={companyJobs.oneCompany.name}
+        src={companyJobs.company.image}
+        alt={companyJobs.company.name}
         className="h-36 rounded-lg"
       />
-      <h2 className="text-3xl font-bold">{companyJobs.oneCompany.name}</h2>
+      <h2 className="text-3xl font-bold">{companyJobs.company.name}</h2>
       <table>
         <thead className="bg-l-mid">
           <tr>
             <th>Position</th>
-            <th>Number of Applicants</th>
             <th></th>
           </tr>
         </thead>
@@ -64,8 +63,9 @@ const CompanyJobOffers = () => {
           {companyJobs.jobOffers.map((offer) => (
             <tr key={offer._id}>
               <td>{offer.position}</td>
-              <td>Number of Applicants</td>
-              <td>→</td>
+              <td>
+                <Link to={`/job-offer/${offer._id}`}>→</Link>
+              </td>
             </tr>
           ))}
         </tbody>

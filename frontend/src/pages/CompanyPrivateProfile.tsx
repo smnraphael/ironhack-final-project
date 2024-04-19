@@ -9,24 +9,20 @@ const CompanyPrivateProfile = () => {
 
   return (
     <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
-      {company && (
+      {user.__t === "Company" && (
         <>
-          <img
-            src={company.logo}
-            alt={company.name}
-            className="h-36 rounded-lg"
-          />
-          <p className="text-3xl font-bold">{company.name}</p>
+          <img src={user.image} alt={user.name} className="h-36 rounded-lg" />
+          <p className="text-3xl font-bold">{user.name}</p>
           <p>Email</p>
-          <p>{company.email}</p>
+          <p>{user.email}</p>
           <p>Headquarters</p>
-          <p>{company.headquarters}</p>
+          <p>{user.headquarters}</p>
           <p>Number of Employees</p>
-          <p>{company.numberOfEmployees}</p>
+          <p>{user.numberOfEmployees}</p>
           <p>Website</p>
-          <p>{company.website}</p>
+          <p>{user.website}</p>
           <p>Description</p>
-          <p>{company.description}</p>
+          <p>{user.description}</p>
 
           <button className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg">
             EDIT PROFILE
@@ -40,7 +36,7 @@ const CompanyPrivateProfile = () => {
           </Link>
 
           <Link
-            to={`/company/private-profile/${company._id}/job-offers`}
+            to={`/company/private-profile/job-offers`}
             className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg"
           >
             See all job offers

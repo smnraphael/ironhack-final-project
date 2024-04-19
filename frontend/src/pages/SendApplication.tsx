@@ -1,4 +1,4 @@
-const Application = () => {
+const SendApplication = () => {
   return (
     <div className="flex flex-col gap-10 justify-center items-center">
       <h1>Send your Application</h1>
@@ -78,4 +78,4 @@ const Application = () => {
   );
 };
 
-export default Application;
+export default SendApplication;
