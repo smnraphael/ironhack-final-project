@@ -4,7 +4,7 @@ const Filters = () => {
       <div className="h-6" />
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-3">
-          <p className="font-semibold lg:text-md lg:font-bold">
+          <p className="font-semibold lg:text-md lg:font-bold dark:text-white">
             Type of Employment
           </p>
           <div className="flex flex-col gap-2">
@@ -56,7 +56,7 @@ const Filters = () => {
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          <p className="font-semibold lg:text-md lg:font-bold">
+          <p className="font-semibold lg:text-md lg:font-bold dark:text-white">
             Seniority Level
           </p>
           <div className="flex flex-col gap-2">
@@ -133,7 +133,9 @@ const Filters = () => {
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          <p className="font-semibold lg:text-md lg:font-bold">Remote</p>
+          <p className="font-semibold lg:text-md lg:font-bold dark:text-white">
+            Remote
+          </p>
           <div className="flex items-center gap-3">
             <input
               type="checkbox"

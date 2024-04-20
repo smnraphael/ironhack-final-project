@@ -50,28 +50,57 @@ const CompanyProfile = () => {
   console.log(company?.jobOffers);
 
   return (
-    <div className="px-20 py-5">
-      {company && (
-        <div className="flex flex-col">
-          <div>
-            <img
-              src={company.company.image}
-              alt={company.company.name}
-              className="h-10"
-            />
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-col items-center sm:items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
+        {company && (
+          <div className="flex flex-col gap-5">
+            <div>
+              <img
+                src={company.company.image}
+                alt={company.company.name}
+                className="h-16 rounded-lg"
+              />
+            </div>
+
             <p className="text-3xl font-bold">{company.company.name}</p>
-            <p>Description: {company.company.description}</p>
-            <p>Headquarters: {company.company.headquarters}</p>
-            <p>Number of employees: {company.company.numberOfEmployees}</p>
-            <p>Job Offers posted by {company.company.name}:</p>
+            {company.company.description ? (
+              <p className="text-sm text-gray-700 dark:text-gray-400">
+                {company.company.description}
+              </p>
+            ) : null}
+            <p className="text-sm font-medium">
+              Headquarters:{" "}
+              {company.company.headquarters ? (
+                <span className="font-normal text-gray-700">
+                  {company.company.headquarters}
+                </span>
+              ) : (
+                <span className="font-normal text-gray-700">N/A</span>
+              )}
+            </p>
+            <p className="text-sm font-medium">
+              Number of employees:{" "}
+              {company.company.numberOfEmployees ? (
+                <span className="font-normal text-gray-700">
+                  {company.company.numberOfEmployees}
+                </span>
+              ) : (
+                <span className="font-normal text-gray-700">N/A</span>
+              )}
+            </p>
           </div>
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
-            {company.jobOffers.map((jobOffer) => (
-              <JobCard key={jobOffer._id} job={jobOffer} />
-            ))}
-          </div>
+        )}
+      </div>
+      <div className="flex flex-col gap-2">
+        <p className="text-sm font-semibold ml-2">
+          Job offers posted by {company?.company.name}:
+        </p>
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
+          {company?.jobOffers.map((jobOffer) => (
+            <JobCard key={jobOffer._id} job={jobOffer} />
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };

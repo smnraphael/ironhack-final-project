@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../service/api";
 
 type Application = {
@@ -37,7 +38,7 @@ const ApplicantApplications = () => {
 
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-xl font-bold">My Applications</h1>
+      <h1 className="text-xl font-bold dark:text-white">My Applications</h1>
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
@@ -74,6 +75,12 @@ const ApplicantApplications = () => {
           </tbody>
         </table>
       </div>
+
+      <Link to="/applicant/private-profile" className="self-start">
+        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-orange-500">
+          Back to profile
+        </p>
+      </Link>
     </div>
   );
 };

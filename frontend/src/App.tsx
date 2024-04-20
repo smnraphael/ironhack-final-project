@@ -52,7 +52,7 @@ function App() {
             />
             <Route path="/job-offer/:jobOfferId" element={<ApplicantsList />} />
             <Route
-              path="/applicant/private-profile/applications"
+              path="/applicant/applications"
               element={<ApplicantApplications />}
             />
           </Route>

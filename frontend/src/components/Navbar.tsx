@@ -18,7 +18,7 @@ const Navbar = () => {
           to={"/"}
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <h1 className="text-2xl font-bold whitespace-nowrap dark:text-white">
+          <h1 className="text-2xl font-bold whitespace-nowrap hover:text-blue-700 dark:text-white dark:hover:text-orange-500">
             IT-Recruitment
           </h1>
         </Link>
@@ -26,7 +26,7 @@ const Navbar = () => {
           {isLoggedIn ? (
             <div className="flex gap-1 items-center sm:gap-2">
               <Link to={`/${userType}/private-profile`}>
-                <img src={user?.image} className="h-8 rounded-full" />
+                <img src={user?.image} className="h-10 rounded-full" />
               </Link>
 
               <button

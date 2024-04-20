@@ -5,7 +5,7 @@ const ApplicantPrivateProfile = () => {
   const { user } = useAuth();
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-xl font-bold">My Profile</h1>
+      <h1 className="text-xl font-bold dark:text-white">My Profile</h1>
       <div className="flex flex-col items-center sm:items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         {user?.__t === "Applicant" && (
           <>
@@ -26,7 +26,7 @@ const ApplicantPrivateProfile = () => {
               </div>
             </div>
             <Link
-              to="/applicant/private-profile/applications"
+              to="/applicant/applications"
               className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
             >
               See all my applications
