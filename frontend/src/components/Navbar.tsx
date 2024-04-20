@@ -12,39 +12,47 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="flex justify-between items-center px-10 py-2 bg-l-light text-d-dark dark:bg-d-mid dark:text-l-light">
-      <Link
-        to={"/"}
-        className="text-2xl font-extrabold text-l-contrast dark:text-d-contrast"
-      >
-        IT-Recruitment
-      </Link>
-      <div className="flex gap-5 items-center">
-        {isLoggedIn ? (
-          <>
-            <Link to={`/${userType}/private-profile`}>
-              <img src={user?.image} className="h-8 rounded-xl" />
-            </Link>
-            <button
-              onClick={logout}
-              className="bg-l-mid dark:bg-d-light font-medium p-2 rounded-lg"
-            >
-              Log out
-            </button>
-          </>
-        ) : (
-          <>
-            <Link to={"/user/login"} className="font-medium">
-              Log In
-            </Link>
-            <Link
-              to={"/company/login"}
-              className="bg-l-mid dark:bg-d-light font-medium p-2 rounded-lg"
-            >
-              Company Portal
-            </Link>
-          </>
-        )}
+    <nav className="border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <Link
+          to={"/"}
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <h1 className="text-2xl font-bold whitespace-nowrap dark:text-white">
+            IT-Recruitment
+          </h1>
+        </Link>
+        <div className="block w-auto">
+          {isLoggedIn ? (
+            <div className="flex items-center gap-2">
+              <Link to={`/${userType}/private-profile`}>
+                <img src={user?.image} className="h-8 rounded-full" />
+              </Link>
+
+              <button
+                onClick={logout}
+                className="py-2 px-3 font-medium text-blue-700 dark:text-orange-500 hover:underline"
+              >
+                Log out
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center">
+              <Link
+                to={"/applicant/login"}
+                className="py-2 px-3 dark:text-white hover:underline"
+              >
+                Log In
+              </Link>
+              <Link
+                to={"/company/login"}
+                className="py-2 px-3 font-medium text-blue-700 dark:text-orange-500 hover:underline"
+              >
+                Company Portal
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   );

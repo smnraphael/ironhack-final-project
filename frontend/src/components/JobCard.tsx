@@ -15,7 +15,7 @@ type Job = {
 
 const JobCard: React.FC<{ job: Job }> = ({ job }) => {
   return (
-    <div className="h-90 bg-l-light dark:bg-d-mid rounded-lg border p-3 flex flex-col justify-between items-start gap-2">
+    <div className="h-90 bg-l-light hover:shadow-md hover:shadow-l-mid duration-300 dark:bg-d-mid rounded-lg border border-l-mid p-3 flex flex-col justify-between items-start gap-2">
       <Link to={`/company/profile/${job.company._id}`}>
         <img
           src={job.company.image}
@@ -23,8 +23,10 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => {
           className="h-10 w-10 object-contain rounded-xl"
         />
       </Link>
-      <p className="text-xl font-bold">{job.position}</p>
-      <p className="text-sm">{job.positionOverview}</p>
+      <p className="text-lg font-bold">{job.position}</p>
+      <p className="text-sm">
+        {job.positionOverview.slice(0, 120).concat("...")}
+      </p>
       <div className="flex flex-wrap gap-1">
         <p className="text-sm bg-l-mid dark:bg-d-light rounded-xl px-2">
           {job.employmentType}
