@@ -8,6 +8,7 @@ type Job = {
   company: {
     _id: string;
     image: string;
+    name: string;
   };
   position: string;
   positionOverview: string;
