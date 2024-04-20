@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import api from "../service/api";
@@ -80,15 +81,22 @@ const OneJobOffer = () => {
           </div>
           <div>
             <p className="text-md font-bold">Company Overview</p>
-            <p>{job.companyOverview}</p>
+            <p>{job.companyOverview.split("\r\n")}</p>
           </div>
           <div>
             <p className="text-md font-bold">Position Overview</p>
-            <p>{job.positionOverview}</p>
+            <p>{job.positionOverview.split("\r\n")}</p>
           </div>
           <div>
             <p className="text-md font-bold">Key Responsibilities</p>
-            <p>{job.keyResponsibilities}</p>
+            <p>
+              {job.keyResponsibilities.split("\n").map((item, index) => (
+                <React.Fragment key={index}>
+                  {item}
+                  <br />
+                </React.Fragment>
+              ))}
+            </p>
           </div>
           {isLoggedIn ? (
             <Link

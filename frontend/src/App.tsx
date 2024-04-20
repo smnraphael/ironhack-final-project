@@ -18,9 +18,9 @@ import ApplicantApplications from "./pages/ApplicantApplications";
 
 function App() {
   return (
-    <div className="App bg-gray-50 dark:bg-gray-900">
+    <div className="App bg-gray-50 dark:bg-gray-900 min-h-screen">
       <Navbar />
-      <div className="overflow-y-scroll overflow-x-hidden p-6">
+      <div className="overflow-y-scroll overflow-x-hidden py-6 px-6 md:px-10 lg:px-20">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/applicant/signup" element={<ApplicantSignup />} />
@@ -52,7 +52,7 @@ function App() {
             />
             <Route path="/job-offer/:jobOfferId" element={<ApplicantsList />} />
             <Route
-              path="/user/applications"
+              path="/applicant/private-profile/applications"
               element={<ApplicantApplications />}
             />
           </Route>

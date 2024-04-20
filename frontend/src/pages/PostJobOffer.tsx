@@ -139,8 +139,7 @@ const PostJobOffer = () => {
         </div>
         <div className="flex flex-col">
           <label htmlFor="companyOverview">Company Overview</label>
-          <input
-            type="textarea"
+          <textarea
             id="companyOverview"
             name="companyOverview"
             value={companyOverview}
@@ -151,8 +150,7 @@ const PostJobOffer = () => {
         </div>
         <div className="flex flex-col">
           <label htmlFor="positionOverview">Position Overview</label>
-          <input
-            type="textarea"
+          <textarea
             id="positionOverview"
             name="positionOverview"
             value={positionOverview}
@@ -163,8 +161,7 @@ const PostJobOffer = () => {
         </div>
         <div className="flex flex-col">
           <label htmlFor="keyResponsibilities">Key Responsibilities</label>
-          <input
-            type="textarea"
+          <textarea
             id="keyResponsibilities"
             name="keyResponsibilities"
             value={keyResponsibilities}
