@@ -27,7 +27,7 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
+    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -57,7 +57,7 @@ const Search = () => {
           id="default-search"
           value={search}
           onChange={handleChange}
-          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50  dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
+          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-200 rounded-xl bg-white dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
           placeholder="Search jobs..."
         />
         <button

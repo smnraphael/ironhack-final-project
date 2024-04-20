@@ -21,8 +21,8 @@ function App() {
     <div className="App bg-gray-50 dark:bg-gray-900">
       <Navbar />
       <div
-        className="overflow-y-scroll overflow-x-hidden p-10"
-        style={{ height: "calc(100vh - 72px)" }}
+        className="overflow-y-scroll overflow-x-hidden p-6"
+        style={{ height: "calc(100vh - 64px)" }}
       >
         <Routes>
           <Route path="/" element={<Home />} />

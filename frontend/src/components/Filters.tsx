@@ -1,74 +1,176 @@
 const Filters = () => {
   return (
-    <div className="w-3/12">
-      <div className="h-5"></div>
-      <div>
-        <div>
+    <div className="w-2/12">
+      <div className="h-6" />
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
           <p className="text-lg font-bold">Type of Employment</p>
-          <div className="flex gap-2">
-            <input
-              type="checkbox"
-              id="Full-Time"
-              name="Full-Time"
-              value="Full-Time"
-            />
-            <label htmlFor="Full-Time">Full-Time</label>
-          </div>
-          <div className="flex gap-2">
-            <input
-              type="checkbox"
-              id="Part-Time"
-              name="Part-Time"
-              value="Part-Time"
-            />
-            <label htmlFor="Part-Time">Part-Time</label>
-          </div>
-          <div className="flex gap-2">
-            <input
-              type="checkbox"
-              id="Internship"
-              name="Internship"
-              value="Internship"
-            />
-            <label htmlFor="Internship">Internship</label>
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="Full-Time"
+                name="Full-Time"
+                value="Full-Time"
+                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              />
+              <label
+                htmlFor="Full-Time"
+                className="text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Full-Time
+              </label>
+            </div>
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="Part-Time"
+                name="Part-Time"
+                value="Part-Time"
+                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              />
+              <label
+                htmlFor="Part-Time"
+                className="text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Part-Time
+              </label>
+            </div>
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="Internship"
+                name="Internship"
+                value="Internship"
+                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              />
+              <label
+                htmlFor="Internship"
+                className="text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Internship
+              </label>
+            </div>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-3">
           <p className="text-lg font-bold">Seniority Level</p>
-          <div className="flex gap-2">
-            <input type="checkbox" id="Student Level" name="Student Level" />
-            <label htmlFor="Student Level">Student Level</label>
-          </div>
-          <div className="flex gap-2">
-            <input type="checkbox" id="Entry Level" name="Entry Level" />
-            <label htmlFor="Entry Level">Entry Level</label>
-          </div>
-          <div className="flex gap-2">
-            <input type="checkbox" id="Mid Level" name="Mid Level" />
-            <label htmlFor="Mid Level">Mid Level</label>
-          </div>
-          <div className="flex gap-2">
-            <input type="checkbox" id="Senior Level" name="Senior Level" />
-            <label htmlFor="Senior Level">Senior Level</label>
-          </div>
-          <div className="flex gap-2">
-            <input type="checkbox" id="Director Level" name="Director Level" />
-            <label htmlFor="Director Level">Director Level</label>
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="Student Level"
+                name="Student Level"
+                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              />
+              <label
+                htmlFor="Student Level"
+                className="text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Student Level
+              </label>
+            </div>
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="Entry Level"
+                name="Entry Level"
+                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              />
+              <label
+                htmlFor="Entry Level"
+                className="text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Entry Level
+              </label>
+            </div>
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="Mid Level"
+                name="Mid Level"
+                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              />
+              <label
+                htmlFor="Mid Level"
+                className="text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Mid Level
+              </label>
+            </div>
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="Senior Level"
+                name="Senior Level"
+                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              />
+              <label
+                htmlFor="Senior Level"
+                className="text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Senior Level
+              </label>
+            </div>
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="Director Level"
+                name="Director Level"
+                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              />
+              <label
+                htmlFor="Director Level"
+                className="text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Director Level
+              </label>
+            </div>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-3">
           <p className="text-lg font-bold">Remote</p>
-          <div className="flex gap-2">
-            <input type="checkbox" id="On Site" name="On Site" />
-            <label htmlFor="On Site">On Site</label>
+          <div className="flex items-center gap-3">
+            <input
+              type="checkbox"
+              id="On Site"
+              name="On Site"
+              className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+            />
+            <label
+              htmlFor="On Site"
+              className="text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              On Site
+            </label>
           </div>
-          <div className="flex gap-2">
-            <input type="checkbox" id="Hybrid" name="Hybrid" />
-            <label htmlFor="Hybrid">Hybrid</label>
+          <div className="flex items-center gap-3">
+            <input
+              type="checkbox"
+              id="Hybrid"
+              name="Hybrid"
+              className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+            />
+            <label
+              htmlFor="Hybrid"
+              className="text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Hybrid
+            </label>
           </div>
-          <div className="flex gap-2">
-            <input type="checkbox" id="Remote" name="Remote" />
-            <label htmlFor="Remote">Remote</label>
+          <div className="flex items-center gap-3">
+            <input
+              type="checkbox"
+              id="Remote"
+              name="Remote"
+              className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+            />
+            <label
+              htmlFor="Remote"
+              className="text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Remote
+            </label>
           </div>
         </div>
       </div>

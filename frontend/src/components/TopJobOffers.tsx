@@ -8,10 +8,12 @@ const TopJobOffers = () => {
 
   return (
     <div>
-      <div className="h-5 w-full"></div>
+      <div className="h-6 w-full"></div>
       <div className="flex justify-between items-center pb-2">
-        <div className="text-2xl font-bold">
-          Showing {jobCount} {jobCount === 1 ? "job" : "jobs"}
+        <div>
+          <p className="text-2xl font-bold dark:text-white">
+            Showing {jobCount} {jobCount === 1 ? "job" : "jobs"}
+          </p>
         </div>
         <Sort />
       </div>

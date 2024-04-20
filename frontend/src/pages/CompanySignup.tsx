@@ -75,7 +75,7 @@ const CompanySignup = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="johndoe@example.com"
+                placeholder="hr@google.com"
                 required
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500"
               />
@@ -111,7 +111,7 @@ const CompanySignup = () => {
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Google"
+                placeholder="Google LLC"
                 required
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500"
               />
@@ -129,7 +129,7 @@ const CompanySignup = () => {
                 type="text"
                 id="headquarters"
                 name="headquarters"
-                placeholder="Los Angeles, California, USA"
+                placeholder="Googleplex, Mountain View, California, U.S."
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500"
               />
             </div>
@@ -163,7 +163,7 @@ const CompanySignup = () => {
                 type="url"
                 id="website"
                 name="website"
-                placeholder="www.google.com"
+                placeholder="https://about.google/"
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500"
               />
             </div>

@@ -13,13 +13,13 @@ const Home = () => {
   }, [setJobs]);
 
   return (
-    <div className="text-d-dark dark:bg-d-dark dark:text-l-light">
+    <div>
       <Search />
-      <div className="flex">
+      <div className="flex justify-evenly">
         <Filters />
         <div className="w-9/12">
           <TopJobOffers />
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {jobs && jobs.map((job) => <JobCard key={job._id} job={job} />)}
           </div>
         </div>
