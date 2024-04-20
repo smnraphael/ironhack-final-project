@@ -2,10 +2,16 @@
 
 ### AUTH ROUTES:
 
-##### User Sign up
+##### Applicant Sign up
 
 ```
-POST /api/auth/user/signup
+POST /api/auth/applicant/signup
+```
+
+##### Company Sign up
+
+```
+POST /api/auth/company/signup
 ```
 
 ##### User Log in
@@ -20,42 +26,30 @@ POST /api/auth/user/login
 GET /api/auth/user/verify
 ```
 
-##### Company Sign up
+### APPLICANTS ROUTES:
+
+##### Get one applicant
 
 ```
-POST /api/auth/company/signup
+GET /api/applicants/:applicantId
 ```
 
-##### Company Log in
+##### Edit one applicant
 
 ```
-POST /api/auth/company/login
+PUT /api/applicants/:applicantId
 ```
 
-##### Company Verify
+##### Delete one applicant
 
 ```
-GET /api/auth/company/verify
+DELETE /api/applicants/:applicantId
 ```
 
-### USERS ROUTES:
-
-##### Get one user
+#### Get all applications for an applicant
 
 ```
-GET /api/users/:userId
-```
-
-##### Edit one user
-
-```
-PUT /api/users/:userId
-```
-
-##### Delete one user
-
-```
-DELETE /api/users/:userId
+GET /api/applicants/applications
 ```
 
 ### COMPANIES ROUTES:
@@ -139,7 +133,7 @@ GET /api/applications/:applicationId
 ##### Post one application
 
 ```
-POST /api/applications/:userId/:jobOfferId
+POST /api/applications/:applicantId/:jobOfferId
 ```
 
 ### FAVORITES ROUTES:

@@ -17,7 +17,7 @@ type Job = {
 };
 
 type Company = {
-  oneCompany: {
+  company: {
     name: string;
     image: string;
     description: string;
@@ -54,15 +54,15 @@ const CompanyProfile = () => {
         <div className="flex flex-col">
           <div>
             <img
-              src={company.oneCompany.image}
-              alt={company.oneCompany.name}
+              src={company.company.image}
+              alt={company.company.name}
               className="h-10"
             />
-            <p className="text-3xl font-bold">{company.oneCompany.name}</p>
-            <p>Description: {company.oneCompany.description}</p>
-            <p>Headquarters: {company.oneCompany.headquarters}</p>
-            <p>Number of employees: {company.oneCompany.numberOfEmployees}</p>
-            <p>Job Offers posted by {company.oneCompany.name}:</p>
+            <p className="text-3xl font-bold">{company.company.name}</p>
+            <p>Description: {company.company.description}</p>
+            <p>Headquarters: {company.company.headquarters}</p>
+            <p>Number of employees: {company.company.numberOfEmployees}</p>
+            <p>Job Offers posted by {company.company.name}:</p>
           </div>
           <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {company.jobOffers.map((jobOffer) => (

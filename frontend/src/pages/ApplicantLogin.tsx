@@ -4,12 +4,9 @@ import api from "../service/api.ts";
 import { useNavigate, Link } from "react-router-dom";
 import { AxiosError } from "axios";
 
-const CompanyLogin = () => {
-  const [formState, setFormState] = useState({
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState<string>("");
+const ApplicantLogin = () => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
   const { email, password } = formState;
 
   const { storeToken, authenticateUser } = useAuth();
@@ -49,7 +46,7 @@ const CompanyLogin = () => {
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-            Sign in as Company
+            Sign in as Applicant
           </h1>
 
           <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
@@ -66,7 +63,7 @@ const CompanyLogin = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="hr@google.com"
+                placeholder="johndoe@example.com"
                 autoComplete="on"
                 required
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500"
@@ -100,7 +97,7 @@ const CompanyLogin = () => {
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
               Don’t have an account yet?{" "}
               <Link
-                to="/company/signup"
+                to="/applicant/signup"
                 className="font-medium text-blue-600 hover:underline dark:text-orange-500"
               >
                 Sign up
@@ -118,4 +115,4 @@ const CompanyLogin = () => {
   );
 };
 
-export default CompanyLogin;
+export default ApplicantLogin;
