@@ -50,7 +50,7 @@ const OneJobOffer = () => {
           <div className="flex flex-col gap-2">
             <p className="text-3xl font-bold">{job.position}</p>
             <Link to={`/company/profile/${job.company._id}`}>
-              <p className="text-sm font-medium text-blue-600 hover:underline dark:text-orange-500">
+              <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
                 {job.company.name}
               </p>
             </Link>
@@ -122,7 +122,7 @@ const OneJobOffer = () => {
           {isLoggedIn ? (
             <Link
               to={`/job-offers/${jobOfferId}/application`}
-              className="self-center inline-flex items-center px-5 py-3 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+              className="self-center inline-flex items-center px-5 py-3 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Apply
               <svg
@@ -144,7 +144,7 @@ const OneJobOffer = () => {
           ) : (
             <Link
               to="/applicant/login"
-              className="self-center inline-flex items-center px-5 py-3 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+              className="self-center inline-flex items-center px-5 py-3 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Apply
               <svg

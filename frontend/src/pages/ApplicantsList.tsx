@@ -81,7 +81,7 @@ const ApplicantsList = () => {
                 <td className="px-6 py-4">
                   <Link
                     to={`/job-offer/${application.jobOffer}/application`}
-                    className="text-blue-600 hover:underline dark:text-orange-500"
+                    className="text-blue-600 hover:underline dark:text-blue-500"
                   >
                     View
                   </Link>

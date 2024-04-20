@@ -18,7 +18,7 @@ const Navbar = () => {
           to={"/"}
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <h1 className="text-2xl font-bold whitespace-nowrap hover:text-blue-700 dark:text-white dark:hover:text-orange-500">
+          <h1 className="text-2xl font-bold whitespace-nowrap hover:text-blue-700 dark:text-white dark:hover:text-blue-500">
             IT-Recruitment
           </h1>
         </Link>
@@ -31,7 +31,7 @@ const Navbar = () => {
 
               <button
                 onClick={logout}
-                className="py-2 px-3 font-medium text-blue-700 dark:text-orange-500 hover:underline"
+                className="py-2 px-3 font-medium text-blue-700 dark:text-blue-500 hover:underline"
               >
                 Log out
               </button>
@@ -46,7 +46,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to={"/company/login"}
-                className="py-2 px-3 font-medium text-blue-700 dark:text-orange-500 hover:underline"
+                className="py-2 px-3 font-medium text-blue-700 dark:text-blue-500 hover:underline"
               >
                 Company Portal
               </Link>

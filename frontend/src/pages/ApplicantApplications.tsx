@@ -77,7 +77,7 @@ const ApplicantApplications = () => {
       </div>
 
       <Link to="/applicant/private-profile" className="self-start">
-        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-orange-500">
+        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-blue-500">
           Back to profile
         </p>
       </Link>

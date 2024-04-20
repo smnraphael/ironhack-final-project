@@ -14,7 +14,7 @@ const Filters = () => {
                 id="Full-Time"
                 name="Full-Time"
                 value="Full-Time"
-                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+                className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
                 htmlFor="Full-Time"
@@ -29,7 +29,7 @@ const Filters = () => {
                 id="Part-Time"
                 name="Part-Time"
                 value="Part-Time"
-                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+                className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
                 htmlFor="Part-Time"
@@ -44,7 +44,7 @@ const Filters = () => {
                 id="Internship"
                 name="Internship"
                 value="Internship"
-                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+                className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
                 htmlFor="Internship"
@@ -65,7 +65,7 @@ const Filters = () => {
                 type="checkbox"
                 id="Student Level"
                 name="Student Level"
-                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+                className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
                 htmlFor="Student Level"
@@ -79,7 +79,7 @@ const Filters = () => {
                 type="checkbox"
                 id="Entry Level"
                 name="Entry Level"
-                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+                className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
                 htmlFor="Entry Level"
@@ -93,7 +93,7 @@ const Filters = () => {
                 type="checkbox"
                 id="Mid Level"
                 name="Mid Level"
-                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+                className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
                 htmlFor="Mid Level"
@@ -107,7 +107,7 @@ const Filters = () => {
                 type="checkbox"
                 id="Senior Level"
                 name="Senior Level"
-                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+                className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
                 htmlFor="Senior Level"
@@ -121,7 +121,7 @@ const Filters = () => {
                 type="checkbox"
                 id="Director Level"
                 name="Director Level"
-                className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+                className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
                 htmlFor="Director Level"
@@ -141,7 +141,7 @@ const Filters = () => {
               type="checkbox"
               id="On Site"
               name="On Site"
-              className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
               htmlFor="On Site"
@@ -155,7 +155,7 @@ const Filters = () => {
               type="checkbox"
               id="Hybrid"
               name="Hybrid"
-              className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
               htmlFor="Hybrid"
@@ -169,7 +169,7 @@ const Filters = () => {
               type="checkbox"
               id="Remote"
               name="Remote"
-              className="w-4 h-4 text-blue-600 dark:text-orange-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+              className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
               htmlFor="Remote"

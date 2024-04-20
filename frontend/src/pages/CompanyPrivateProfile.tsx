@@ -31,7 +31,7 @@ const CompanyPrivateProfile = () => {
                   <a
                     href={user.website}
                     target="_blank"
-                    className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 dark:hover:text-orange-500"
+                    className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 dark:hover:text-blue-500"
                   >
                     {user.website}
                   </a>
@@ -72,7 +72,7 @@ const CompanyPrivateProfile = () => {
 
               <Link
                 to={`/company/private-profile/job-offers`}
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 See all job offers
                 <svg

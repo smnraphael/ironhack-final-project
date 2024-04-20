@@ -21,7 +21,7 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => {
           {job.position}
         </p>
         <Link to={`/company/profile/${job.company._id}`}>
-          <p className="text-sm font-medium text-blue-600 hover:underline dark:text-orange-500">
+          <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
             {job.company.name}
           </p>
         </Link>
@@ -43,7 +43,7 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => {
         </div>
         <Link
           to={`/job-offers/${job._id}`}
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Read more
           <svg
