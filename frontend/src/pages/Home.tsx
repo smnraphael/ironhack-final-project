@@ -13,7 +13,7 @@ const Home = () => {
   }, [setJobs]);
 
   return (
-    <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
+    <div className="text-d-dark dark:bg-d-dark dark:text-l-light">
       <Search />
       <div className="flex">
         <Filters />
