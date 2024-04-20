@@ -8,41 +8,93 @@ const CompanyPrivateProfile = () => {
   }
 
   return (
-    <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
-      {user.__t === "Company" && (
-        <>
-          <img src={user.image} alt={user.name} className="h-36 rounded-lg" />
-          <p className="text-3xl font-bold">{user.name}</p>
-          <p>Email</p>
-          <p>{user.email}</p>
-          <p>Headquarters</p>
-          <p>{user.headquarters}</p>
-          <p>Number of Employees</p>
-          <p>{user.numberOfEmployees}</p>
-          <p>Website</p>
-          <p>{user.website}</p>
-          <p>Description</p>
-          <p>{user.description}</p>
+    <div className="flex flex-col gap-5">
+      <h1 className="text-xl font-bold dark:text-white">Company Profile</h1>
+      <div className="flex flex-col items-center sm:items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
+        {user.__t === "Company" && (
+          <>
+            <div className="flex flex-col justify-between sm:flex-row gap-5">
+              <div className="flex flex-row gap-5 sm:w-3/12">
+                <img
+                  src={user.image}
+                  alt={user.name}
+                  className="h-20 rounded-lg"
+                />
 
-          <button className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg">
-            EDIT PROFILE
-          </button>
+                <div className="flex flex-col gap-2">
+                  <p className="text-xl font-semibold dark:text-white">
+                    {user.name}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    {user.email}
+                  </p>
+                  <a
+                    href={user.website}
+                    target="_blank"
+                    className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 dark:hover:text-orange-500"
+                  >
+                    {user.website}
+                  </a>
+                </div>
+              </div>
 
-          <Link
-            to={`/company/new-job-offer`}
-            className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg"
-          >
-            Post job offer
-          </Link>
+              <div className="flex flex-col gap-5 sm:w-7/12">
+                <div className="flex flex-col gap-2">
+                  <p className="font-semibold dark:text-white">Description:</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-400">
+                    {user.description}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="font-semibold dark:text-white">Headquarters:</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-400">
+                    {user.headquarters}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="font-semibold dark:text-white">
+                    Number of employees:
+                  </p>
+                  <p className="text-sm text-gray-700 dark:text-gray-400">
+                    {user.numberOfEmployees}
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <Link
-            to={`/company/private-profile/job-offers`}
-            className="bg-l-contrast dark:bg-d-contrast text-l-light font-bold px-3 py-2 rounded-lg"
-          >
-            See all job offers
-          </Link>
-        </>
-      )}
+            <div className="flex gap-5">
+              <Link
+                to={`/company/new-job-offer`}
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-100"
+              >
+                Post a new job offer
+              </Link>
+
+              <Link
+                to={`/company/private-profile/job-offers`}
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+              >
+                See all job offers
+                <svg
+                  className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

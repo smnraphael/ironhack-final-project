@@ -19,6 +19,7 @@ type Job = {
   company: {
     _id: string;
     image: string;
+    name: string;
   };
 };
 
@@ -43,53 +44,33 @@ const OneJobOffer = () => {
   }, [jobOfferId]);
 
   return (
-    <div className="px-56 py-5">
+    <div className="px-16">
       {job && (
         <div className="flex flex-col gap-5">
-          <div>
+          <div className="flex flex-col gap-2">
+            <p className="text-3xl font-bold">{job.position}</p>
             <Link to={`/company/profile/${job.company._id}`}>
-              <img
-                src={job.company.image}
-                alt={job.company._id}
-                className="h-10"
-              />
+              <p className="text-sm font-medium text-blue-600 hover:underline dark:text-orange-500">
+                {job.company.name}
+              </p>
             </Link>
           </div>
-          <p className="text-3xl font-bold">{job.position}</p>
-          <p className="text-sm">{job.location}</p>
-          <div className="grid grid-cols-5 self-center gap-5 border rounded-lg p-5">
-            <div className="flex flex-col items-center">
-              <p className="font-bold">Employment Type</p>
-              <p>{job.employmentType}</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <p className="font-bold">Experience</p>
-              <p>{job.experience} years</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <p className="font-bold">Work Level</p>
-              <p>{job.workLevel}</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <p className="font-bold">Remote</p>
-              <p>{job.remote ? "Remote" : "On-site"}</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <p className="font-bold">Salary</p>
-              <p>${job.salary}</p>
-            </div>
-          </div>
-          <div>
+          <p className="text-gray-700">{job.location}</p>
+          <div className="flex flex-col gap-2">
             <p className="text-md font-bold">Company Overview</p>
-            <p>{job.companyOverview.split("\r\n")}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-400">
+              {job.companyOverview.split("\r\n")}
+            </p>
           </div>
-          <div>
+          <div className="flex flex-col gap-2">
             <p className="text-md font-bold">Position Overview</p>
-            <p>{job.positionOverview.split("\r\n")}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-400">
+              {job.positionOverview.split("\r\n")}
+            </p>
           </div>
-          <div>
+          <div className="flex flex-col gap-2">
             <p className="text-md font-bold">Key Responsibilities</p>
-            <p>
+            <p className="text-sm text-gray-700 dark:text-gray-400">
               {job.keyResponsibilities.split("\n").map((item, index) => (
                 <React.Fragment key={index}>
                   {item}
@@ -98,19 +79,89 @@ const OneJobOffer = () => {
               ))}
             </p>
           </div>
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
+              <tr>
+                <th scope="col" className="px-6 py-3">
+                  Work Level
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Experience
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Employment Type
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Remote
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Salary
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="bg-white border-b dark:bg-gray-700 dark:border-gray-600">
+                <td>
+                  <p className="px-6 py-4">{job.workLevel}</p>
+                </td>
+                <td>
+                  <p className="px-6 py-4">{job.experience} years minimum</p>
+                </td>
+                <td>
+                  <p className="px-6 py-4">{job.employmentType}</p>
+                </td>
+                <td>
+                  <p className="px-6 py-4">{job.remote}</p>
+                </td>
+                <td>
+                  <p className="px-6 py-4">${job.salary}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           {isLoggedIn ? (
             <Link
               to={`/job-offers/${jobOfferId}/application`}
-              className="bg-l-contrast text-l-light py-2 px-5 rounded-full self-center"
+              className="self-center inline-flex items-center px-5 py-3 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
             >
-              Apply Now
+              Apply
+              <svg
+                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
             </Link>
           ) : (
             <Link
-              to="/user/login"
-              className="bg-l-contrast text-l-light py-2 px-5 rounded-full self-center"
+              to="/applicant/login"
+              className="self-center inline-flex items-center px-5 py-3 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
             >
-              Apply Now
+              Apply
+              <svg
+                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
             </Link>
           )}
         </div>

@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App bg-gray-50 dark:bg-gray-900 min-h-screen">
       <Navbar />
-      <div className="overflow-y-scroll overflow-x-hidden py-6 px-6 md:px-10 lg:px-20">
+      <div className="pt-6 pb-10 px-6 md:px-10 lg:px-20">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/applicant/signup" element={<ApplicantSignup />} />

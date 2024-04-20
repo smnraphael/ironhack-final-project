@@ -25,9 +25,8 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => {
             {job.company.name}
           </p>
         </Link>
-
         <p className="text-sm text-gray-700 dark:text-gray-400">
-          {job.positionOverview}
+          {job.positionOverview.slice(0, 150).concat("...")}
         </p>
       </div>
       <div className="flex flex-col gap-4 items-start">
