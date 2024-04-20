@@ -28,7 +28,7 @@ const Sort = () => {
   // };
 
   return (
-    <form className="flex items-center">
+    <form className="hidden sm:flex items-center">
       <label
         htmlFor="sortSelect"
         className="font-semibold text-gray-900 dark:text-white mr-2"
@@ -39,7 +39,7 @@ const Sort = () => {
         id="sortSelect"
         name="sortSelect"
         // onChange={handleSort}
-        className="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-500 dark:focus:ring-orange-500 dark:focus:border-orange-500"
+        className="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 py-1 px-2 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-500 dark:focus:ring-orange-500 dark:focus:border-orange-500"
       >
         <option value="newest">Newest</option>
         <option value="oldest">Oldest</option>
