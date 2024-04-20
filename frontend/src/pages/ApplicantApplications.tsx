@@ -12,6 +12,7 @@ type Application = {
   jobOffer: {
     position: string;
   };
+  createdAt: Date;
 };
 
 const ApplicantApplications = () => {
@@ -30,14 +31,49 @@ const ApplicantApplications = () => {
     fetchApplications();
   }, []);
 
+  const formatDate = (date: Date) => {
+    return new Date(date).toLocaleDateString();
+  };
+
   return (
-    <div>
-      <p>Applications</p>
-      {applications.map((application) => (
-        <div key={application._id}>
-          <p>{application.jobOffer.position}</p>
-        </div>
-      ))}
+    <div className="flex flex-col gap-5">
+      <h1 className="text-xl font-bold">My Applications</h1>
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Applications
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Date
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {applications.map((application) => (
+              <tr
+                key={application._id}
+                className="bg-white hover:bg-gray-100 border-b dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600"
+              >
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-50"
+                >
+                  <p>{application.jobOffer.position}</p>
+                </th>
+                <td className="px-6 py-4">
+                  {formatDate(application.createdAt)}
+                </td>
+                <td className="px-6 py-4">**to add in db**</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
