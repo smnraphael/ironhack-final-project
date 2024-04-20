@@ -40,36 +40,59 @@ const CompanyJobOffers = () => {
     fetchCompanyJobs();
   }, []);
 
+  const formatDate = (date: Date) => {
+    return new Date(date).toLocaleDateString();
+  };
+
   if (!companyJobs) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="px-20 py-5 text-d-dark dark:bg-d-dark dark:text-l-light">
-      <img
-        src={companyJobs.company.image}
-        alt={companyJobs.company.name}
-        className="h-36 rounded-lg"
-      />
-      <h2 className="text-3xl font-bold">{companyJobs.company.name}</h2>
-      <table>
-        <thead className="bg-l-mid">
-          <tr>
-            <th>Position</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {companyJobs.jobOffers.map((offer) => (
-            <tr key={offer._id}>
-              <td>{offer.position}</td>
-              <td>
-                <Link to={`/job-offer/${offer._id}`}>→</Link>
-              </td>
+    <div className="flex flex-col gap-5">
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Position
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Date
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Status
+              </th>
+              <th scope="col" className="px-6 py-3"></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {companyJobs.jobOffers.map((offer) => (
+              <tr
+                key={offer._id}
+                className="bg-white hover:bg-gray-100 border-b dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600"
+              >
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-50"
+                >
+                  <p>{offer.position}</p>
+                </th>
+                <td className="px-6 py-4">{formatDate(offer.createdAt)}</td>
+                <td className="px-6 py-4">**to add in db**</td>
+                <td className="px-6 py-4">
+                  <Link
+                    to={`/job-offer/${offer._id}`}
+                    className="text-blue-600 hover:underline dark:text-orange-500"
+                  >
+                    View
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

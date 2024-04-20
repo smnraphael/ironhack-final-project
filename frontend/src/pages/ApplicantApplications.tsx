@@ -44,7 +44,7 @@ const ApplicantApplications = () => {
           <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Applications
+                Application
               </th>
               <th scope="col" className="px-6 py-3">
                 Date
