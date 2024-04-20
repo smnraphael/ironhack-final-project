@@ -16,7 +16,7 @@ type Job = {
 const JobCard: React.FC<{ job: Job }> = ({ job }) => {
   return (
     <div className="flex flex-col gap-2 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-      <div>
+      <div className="flex flex-col gap-1">
         <p className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
           {job.position}
         </p>
@@ -25,9 +25,8 @@ const JobCard: React.FC<{ job: Job }> = ({ job }) => {
             {job.company.name}
           </p>
         </Link>
-
         <p className="text-sm text-gray-700 dark:text-gray-400">
-          {job.positionOverview}
+          {job.positionOverview.slice(0, 150).concat("...")}
         </p>
       </div>
       <div className="flex flex-col gap-4 items-start">

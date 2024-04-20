@@ -15,9 +15,9 @@ const Home = () => {
   return (
     <div>
       <Search />
-      <div className="flex justify-evenly">
+      <div className="flex gap-5 justify-between">
         <Filters />
-        <div className="w-9/12">
+        <div className="w-max md:w-10/12 lg:9/12">
           <TopJobOffers />
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {jobs && jobs.map((job) => <JobCard key={job._id} job={job} />)}

@@ -13,20 +13,20 @@ const Navbar = () => {
 
   return (
     <nav className="border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+      <div className="flex flex-col sm:flex-row flex-wrap items-center justify-between py-3 px-4 md:px-10 lg:px-20">
         <Link
           to={"/"}
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <h1 className="text-2xl font-bold whitespace-nowrap dark:text-white">
+          <h1 className="text-2xl font-bold whitespace-nowrap hover:text-blue-700 dark:text-white dark:hover:text-orange-500">
             IT-Recruitment
           </h1>
         </Link>
         <div className="block w-auto">
           {isLoggedIn ? (
-            <div className="flex items-center gap-2">
+            <div className="flex gap-1 items-center sm:gap-2">
               <Link to={`/${userType}/private-profile`}>
-                <img src={user?.image} className="h-8 rounded-full" />
+                <img src={user?.image} className="h-10 rounded-full" />
               </Link>
 
               <button

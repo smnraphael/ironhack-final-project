@@ -38,28 +38,59 @@ const ApplicantsList = () => {
     fetchApplications();
   }, []);
 
+  const formatDate = (date: Date) => {
+    return new Date(date).toLocaleDateString();
+  };
+
   return (
-    <div>
-      <table>
-        <thead className="bg-l-mid">
-          <tr>
-            <th>Applicant</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {applications.map((application) => (
-            <tr key={application._id}>
-              <td>
-                {application.firstName} {application.lastName}
-              </td>
-              <td>
-                <Link to={`/job-offer/${application.jobOffer}`}>→</Link>
-              </td>
+    <div className="flex flex-col gap-5">
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Applicant
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Date
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Status
+              </th>
+              <th scope="col" className="px-6 py-3"></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {applications.map((application) => (
+              <tr
+                key={application._id}
+                className="bg-white hover:bg-gray-100 border-b dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600"
+              >
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-50"
+                >
+                  <p>
+                    {application.firstName} {application.lastName}
+                  </p>
+                </th>
+                <td className="px-6 py-4">
+                  {formatDate(application.createdAt)}
+                </td>
+                <td className="px-6 py-4">**to add in db**</td>
+                <td className="px-6 py-4">
+                  <Link
+                    to={`/job-offer/${application.jobOffer}/application`}
+                    className="text-blue-600 hover:underline dark:text-orange-500"
+                  >
+                    View
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
