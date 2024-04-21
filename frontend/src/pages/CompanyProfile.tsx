@@ -53,6 +53,11 @@ const CompanyProfile = () => {
 
   return (
     <div className="flex flex-col gap-5">
+      <a href="/" className="self-start">
+        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-blue-500">
+          Back to job offers
+        </p>
+      </a>
       <div className="flex flex-col items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         {company && (
           <div className="flex flex-col gap-5">
