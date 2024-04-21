@@ -49,7 +49,7 @@ const OneJobOffer = () => {
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
             <p className="text-3xl font-bold dark:text-white">{job.position}</p>
-            <Link to={`/company/profile/${job.company._id}`}>
+            <Link to={`/companies/${job.company._id}`}>
               <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
                 {job.company.name}
               </p>

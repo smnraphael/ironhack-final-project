@@ -44,12 +44,13 @@ const CompanyPrivateProfile = () => {
                 <div className="flex flex-col gap-2">
                   <p className="font-semibold dark:text-white">Description:</p>
                   <p className="text-sm text-gray-700 dark:text-gray-400">
-                    {user.description.split("\n").map((item, index) => (
-                      <React.Fragment key={index}>
-                        {item}
-                        <br />
-                      </React.Fragment>
-                    ))}
+                    {user.description &&
+                      user.description.split("\n").map((item, index) => (
+                        <React.Fragment key={index}>
+                          {item}
+                          <br />
+                        </React.Fragment>
+                      ))}
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -71,14 +72,14 @@ const CompanyPrivateProfile = () => {
 
             <div className="flex gap-5">
               <Link
-                to={`/company/new-job-offer`}
+                to={`/companies/publish-job-offer`}
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-100"
               >
                 Publish a new job offer
               </Link>
 
               <Link
-                to={`/company/private-profile/job-offers`}
+                to={`/companies/job-offers`}
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 See all job offers

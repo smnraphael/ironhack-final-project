@@ -25,7 +25,7 @@ const JobCard = ({ job }: Props) => {
         <p className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
           {job.position}
         </p>
-        <Link to={`/company/profile/${job.company._id}`}>
+        <Link to={`/companies/${job.company._id}`}>
           <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
             {job.company.name}
           </p>

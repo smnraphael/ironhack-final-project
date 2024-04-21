@@ -50,6 +50,12 @@ const CompanyJobOffers = () => {
 
   return (
     <div className="flex flex-col gap-5">
+      <Link to="/companies/profile" className="self-start">
+        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-blue-500">
+          Back to profile
+        </p>
+      </Link>
+      <h1 className="text-xl font-bold dark:text-white">Job Offers</h1>
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
@@ -59,9 +65,6 @@ const CompanyJobOffers = () => {
               </th>
               <th scope="col" className="px-6 py-3">
                 Date
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Status
               </th>
               <th scope="col" className="px-6 py-3"></th>
             </tr>
@@ -79,10 +82,9 @@ const CompanyJobOffers = () => {
                   <p>{offer.position}</p>
                 </th>
                 <td className="px-6 py-4">{formatDate(offer.createdAt)}</td>
-                <td className="px-6 py-4">**to add in db**</td>
                 <td className="px-6 py-4">
                   <Link
-                    to={`/job-offer/${offer._id}`}
+                    to={`/companies/job-offers/${offer._id}`}
                     className="text-blue-600 hover:underline dark:text-blue-500"
                   >
                     View
@@ -93,11 +95,6 @@ const CompanyJobOffers = () => {
           </tbody>
         </table>
       </div>
-      <Link to="/company/private-profile" className="self-start">
-        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-blue-500">
-          Back to profile
-        </p>
-      </Link>
     </div>
   );
 };

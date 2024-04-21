@@ -6,9 +6,9 @@ const Navbar = () => {
 
   let userType;
   if (user?.__t === "Company") {
-    userType = "company";
+    userType = "companies";
   } else if (user?.__t === "Applicant") {
-    userType = "applicant";
+    userType = "applicants";
   }
 
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="block w-auto">
           {isLoggedIn ? (
             <div className="flex gap-1 items-center sm:gap-2">
-              <Link to={`/${userType}/private-profile`}>
+              <Link to={`/${userType}/profile`}>
                 <img src={user?.image} className="h-10 rounded-full" />
               </Link>
 
@@ -36,13 +36,13 @@ const Navbar = () => {
           ) : (
             <div className="flex items-center">
               <Link
-                to={"/applicant/login"}
+                to={"/applicants/login"}
                 className="py-2 px-3 dark:text-white hover:underline"
               >
                 Log In
               </Link>
               <Link
-                to={"/company/login"}
+                to={"/companies/login"}
                 className="py-2 px-3 font-medium text-blue-700 dark:text-blue-500 hover:underline"
               >
                 Company Portal

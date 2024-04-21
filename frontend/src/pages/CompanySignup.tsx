@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../service/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AxiosError } from "axios";
 
 const CompanySignup = () => {
@@ -191,6 +191,15 @@ const CompanySignup = () => {
             >
               Sign up
             </button>
+            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+              Already have an account?{" "}
+              <Link
+                to="/companies/login"
+                className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+              >
+                Sign up
+              </Link>
+            </p>
             {error ? (
               <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-900 dark:text-red-200">
                 <p className="text-center">{error}</p>{" "}
