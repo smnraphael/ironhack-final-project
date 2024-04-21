@@ -197,7 +197,7 @@ const CompanySignup = () => {
                 to="/companies/login"
                 className="font-medium text-blue-600 hover:underline dark:text-blue-500"
               >
-                Sign up
+                Sign in
               </Link>
             </p>
             {error ? (
