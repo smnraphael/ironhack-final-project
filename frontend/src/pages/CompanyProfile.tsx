@@ -53,7 +53,7 @@ const CompanyProfile = () => {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-col items-center sm:items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
+      <div className="flex flex-col items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         {company && (
           <div className="flex flex-col gap-5">
             <div>

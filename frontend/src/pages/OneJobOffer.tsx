@@ -44,7 +44,7 @@ const OneJobOffer = () => {
   }, [jobOfferId]);
 
   return (
-    <div className="px-16">
+    <div>
       {job && (
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
@@ -63,7 +63,12 @@ const OneJobOffer = () => {
               Company Overview
             </p>
             <p className="text-sm text-gray-700 dark:text-gray-400">
-              {job.companyOverview.split("\r\n")}
+              {job.companyOverview.split("\n").map((item, index) => (
+                <React.Fragment key={index}>
+                  {item}
+                  <br />
+                </React.Fragment>
+              ))}
             </p>
           </div>
           <div className="flex flex-col gap-2">
@@ -71,7 +76,12 @@ const OneJobOffer = () => {
               Position Overview
             </p>
             <p className="text-sm text-gray-700 dark:text-gray-400">
-              {job.positionOverview.split("\r\n")}
+              {job.positionOverview.split("\n").map((item, index) => (
+                <React.Fragment key={index}>
+                  {item}
+                  <br />
+                </React.Fragment>
+              ))}
             </p>
           </div>
           <div className="flex flex-col gap-2">
