@@ -15,14 +15,6 @@ const Avatar: React.FC = () => {
     setIsOpen(false);
   };
 
-  let userType = "";
-
-  if (user?.__t === "Company") {
-    userType = "companies";
-  } else if (user?.__t === "Applicant") {
-    userType = "applicants";
-  }
-
   const renderMenuItems = () => {
     if (user?.__t === "Company") {
       return (
