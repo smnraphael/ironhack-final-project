@@ -13,8 +13,10 @@ type Job = {
   position: string;
   positionOverview: string;
   employmentType: string;
-  remote: boolean;
+  workLevel: string;
+  remote: string;
   salary: number;
+  createdAt: Date;
 };
 
 type Company = {
