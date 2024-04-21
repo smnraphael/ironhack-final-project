@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../service/api";
 import JobCard from "../components/JobCard";
@@ -53,7 +53,7 @@ const CompanyProfile = () => {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-col items-center sm:items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
+      <div className="flex flex-col items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         {company && (
           <div className="flex flex-col gap-5">
             <div>
@@ -69,7 +69,12 @@ const CompanyProfile = () => {
             </p>
             {company.company.description ? (
               <p className="text-sm text-gray-700 dark:text-gray-400">
-                {company.company.description}
+                {company.company.description.split("\n").map((item, index) => (
+                  <React.Fragment key={index}>
+                    {item}
+                    <br />
+                  </React.Fragment>
+                ))}
               </p>
             ) : null}
             <p className="text-sm font-medium dark:text-white">

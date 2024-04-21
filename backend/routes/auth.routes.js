@@ -35,7 +35,15 @@ router.post("/applicant/signup", async (req, res, next) => {
 // Company Sign up
 router.post("/company/signup", async (req, res, next) => {
   try {
-    const { email, password, name } = req.body;
+    const {
+      email,
+      password,
+      name,
+      headquarters,
+      numberOfEmployees,
+      website,
+      description,
+    } = req.body;
     const foundCompany = await Company.findOne({ email });
     if (foundCompany) {
       return res.status(400).json({ message: "This email is already used" });
@@ -45,6 +53,10 @@ router.post("/company/signup", async (req, res, next) => {
       email,
       password: hashedPassword,
       name,
+      headquarters,
+      numberOfEmployees,
+      website,
+      description,
     });
     res
       .status(201)

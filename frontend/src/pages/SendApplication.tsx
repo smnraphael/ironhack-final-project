@@ -43,6 +43,7 @@ const SendApplication = () => {
       if (response.status === 200) {
         navigate("/");
       }
+      console.log(response);
     } catch (error) {
       if (error instanceof AxiosError) {
         console.log(error.message);

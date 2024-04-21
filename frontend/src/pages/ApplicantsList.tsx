@@ -44,6 +44,12 @@ const ApplicantsList = () => {
 
   return (
     <div className="flex flex-col gap-5">
+      <Link to="/companies/job-offers" className="self-start">
+        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-blue-500">
+          Back to job offers
+        </p>
+      </Link>
+      <h1 className="text-xl font-bold dark:text-white">Applicants</h1>
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
@@ -80,7 +86,7 @@ const ApplicantsList = () => {
                 <td className="px-6 py-4">**to add in db**</td>
                 <td className="px-6 py-4">
                   <Link
-                    to={`/job-offer/${application.jobOffer}/application`}
+                    to={`/companies/job-offers/${application.jobOffer}/applications`}
                     className="text-blue-600 hover:underline dark:text-blue-500"
                   >
                     View

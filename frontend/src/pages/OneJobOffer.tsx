@@ -44,26 +44,31 @@ const OneJobOffer = () => {
   }, [jobOfferId]);
 
   return (
-    <div className="px-16">
+    <div>
       {job && (
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
             <p className="text-3xl font-bold dark:text-white">{job.position}</p>
-            <Link to={`/company/profile/${job.company._id}`}>
+            <Link to={`/companies/${job.company._id}`}>
               <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
                 {job.company.name}
               </p>
             </Link>
+            <p className="text-sm text-gray-700 dark:text-gray-400">
+              {job.location}
+            </p>
           </div>
-          <p className="text-sm text-gray-700 dark:text-gray-400">
-            {job.location}
-          </p>
           <div className="flex flex-col gap-2">
             <p className="text-md font-bold dark:text-white">
               Company Overview
             </p>
             <p className="text-sm text-gray-700 dark:text-gray-400">
-              {job.companyOverview.split("\r\n")}
+              {job.companyOverview.split("\n").map((item, index) => (
+                <React.Fragment key={index}>
+                  {item}
+                  <br />
+                </React.Fragment>
+              ))}
             </p>
           </div>
           <div className="flex flex-col gap-2">
@@ -71,7 +76,12 @@ const OneJobOffer = () => {
               Position Overview
             </p>
             <p className="text-sm text-gray-700 dark:text-gray-400">
-              {job.positionOverview.split("\r\n")}
+              {job.positionOverview.split("\n").map((item, index) => (
+                <React.Fragment key={index}>
+                  {item}
+                  <br />
+                </React.Fragment>
+              ))}
             </p>
           </div>
           <div className="flex flex-col gap-2">

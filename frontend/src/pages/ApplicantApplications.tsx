@@ -38,6 +38,11 @@ const ApplicantApplications = () => {
 
   return (
     <div className="flex flex-col gap-5">
+      <Link to="/applicants/profile" className="self-start">
+        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-blue-500">
+          Back to profile
+        </p>
+      </Link>
       <h1 className="text-xl font-bold dark:text-white">My Applications</h1>
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -75,11 +80,6 @@ const ApplicantApplications = () => {
           </tbody>
         </table>
       </div>
-      <Link to="/applicant/private-profile" className="self-start">
-        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-blue-500">
-          Back to profile
-        </p>
-      </Link>
     </div>
   );
 };

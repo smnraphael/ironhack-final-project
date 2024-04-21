@@ -23,36 +23,39 @@ function App() {
       <div className="pt-6 pb-10 px-6 md:px-10 lg:px-20">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/applicant/signup" element={<ApplicantSignup />} />
-          <Route path="/applicant/login" element={<ApplicantLogin />} />
-          <Route path="/company/signup" element={<CompanySignup />} />
-          <Route path="/company/login" element={<CompanyLogin />} />
+          <Route path="/applicants/signup" element={<ApplicantSignup />} />
+          <Route path="/applicants/login" element={<ApplicantLogin />} />
+          <Route path="/companies/signup" element={<CompanySignup />} />
+          <Route path="/companies/login" element={<CompanyLogin />} />
           <Route path="/job-offers/:jobOfferId" element={<OneJobOffer />} />
-          <Route
-            path="/company/profile/:companyId"
-            element={<CompanyProfile />}
-          />
+          <Route path="/companies/:companyId" element={<CompanyProfile />} />
           <Route
             path="/job-offers/:jobOfferId/application"
             element={<SendApplication />}
           />
           <Route element={<IsLoggedIn />}>
             <Route
-              path="/applicant/private-profile"
+              path="/applicants/profile"
               element={<ApplicantPrivateProfile />}
             />
             <Route
-              path="/company/private-profile"
+              path="/companies/profile"
               element={<CompanyPrivateProfile />}
             />
-            <Route path="company/new-job-offer" element={<PostJobOffer />} />
             <Route
-              path="/company/private-profile/job-offers"
+              path="companies/publish-job-offer"
+              element={<PostJobOffer />}
+            />
+            <Route
+              path="/companies/job-offers"
               element={<CompanyJobOffers />}
             />
-            <Route path="/job-offer/:jobOfferId" element={<ApplicantsList />} />
             <Route
-              path="/applicant/applications"
+              path="/companies/job-offers/:jobOfferId"
+              element={<ApplicantsList />}
+            />
+            <Route
+              path="/applicants/applications"
               element={<ApplicantApplications />}
             />
           </Route>
