@@ -54,10 +54,10 @@ const OneJobOffer = () => {
                 {job.company.name}
               </p>
             </Link>
+            <p className="text-sm text-gray-700 dark:text-gray-400">
+              {job.location}
+            </p>
           </div>
-          <p className="text-sm text-gray-700 dark:text-gray-400">
-            {job.location}
-          </p>
           <div className="flex flex-col gap-2">
             <p className="text-md font-bold dark:text-white">
               Company Overview

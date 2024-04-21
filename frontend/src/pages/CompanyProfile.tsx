@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../service/api";
 import JobCard from "../components/JobCard";
@@ -69,7 +69,12 @@ const CompanyProfile = () => {
             </p>
             {company.company.description ? (
               <p className="text-sm text-gray-700 dark:text-gray-400">
-                {company.company.description}
+                {company.company.description.split("\n").map((item, index) => (
+                  <React.Fragment key={index}>
+                    {item}
+                    <br />
+                  </React.Fragment>
+                ))}
               </p>
             ) : null}
             <p className="text-sm font-medium dark:text-white">

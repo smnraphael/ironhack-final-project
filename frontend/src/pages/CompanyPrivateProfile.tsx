@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import useAuth from "../context/useAuth";
 
@@ -43,7 +44,12 @@ const CompanyPrivateProfile = () => {
                 <div className="flex flex-col gap-2">
                   <p className="font-semibold dark:text-white">Description:</p>
                   <p className="text-sm text-gray-700 dark:text-gray-400">
-                    {user.description}
+                    {user.description.split("\n").map((item, index) => (
+                      <React.Fragment key={index}>
+                        {item}
+                        <br />
+                      </React.Fragment>
+                    ))}
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">

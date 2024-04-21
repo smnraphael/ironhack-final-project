@@ -39,10 +39,11 @@ const CompanySignup = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const reponse = await api.post("/auth/company/signup", formState);
-      if (reponse.status === 201) {
+      const response = await api.post("/auth/company/signup", formState);
+      if (response.status === 201) {
         navigate("/company/login");
       }
+      console.log(response);
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         console.log(error.message);
@@ -70,12 +71,12 @@ const CompanySignup = () => {
                 Email <span className="text-red-500">*</span>
               </label>
               <input
-                value={email}
-                onChange={handleChange}
                 type="email"
                 id="email"
                 name="email"
                 placeholder="hr@google.com"
+                value={email}
+                onChange={handleChange}
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
@@ -88,12 +89,12 @@ const CompanySignup = () => {
                 Password <span className="text-red-500">*</span>
               </label>
               <input
-                value={password}
-                onChange={handleChange}
                 type="password"
                 id="password"
                 name="password"
                 placeholder="••••••••••••"
+                value={password}
+                onChange={handleChange}
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
@@ -106,12 +107,12 @@ const CompanySignup = () => {
                 Company Name <span className="text-red-500">*</span>
               </label>
               <input
-                value={name}
-                onChange={handleChange}
                 type="text"
                 id="name"
                 name="name"
                 placeholder="Google LLC"
+                value={name}
+                onChange={handleChange}
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
@@ -124,11 +125,11 @@ const CompanySignup = () => {
                 Headquarters
               </label>
               <input
-                value={headquarters}
-                onChange={handleChange}
                 type="text"
                 id="headquarters"
                 name="headquarters"
+                value={headquarters}
+                onChange={handleChange}
                 placeholder="Googleplex, Mountain View, California, U.S."
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
@@ -141,12 +142,13 @@ const CompanySignup = () => {
                 Number of Employees
               </label>
               <input
-                value={numberOfEmployees}
-                onChange={handleChange}
                 type="number"
+                onWheel={(event) => event.currentTarget.blur()}
                 id="numberOfEmployees"
                 name="numberOfEmployees"
                 placeholder="140000"
+                value={numberOfEmployees}
+                onChange={handleChange}
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>
@@ -158,12 +160,12 @@ const CompanySignup = () => {
                 Website
               </label>
               <input
-                value={website}
-                onChange={handleChange}
                 type="url"
                 id="website"
                 name="website"
                 placeholder="https://about.google/"
+                value={website}
+                onChange={handleChange}
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>
@@ -175,11 +177,11 @@ const CompanySignup = () => {
                 Description
               </label>
               <textarea
-                value={description}
-                onChange={handleChange}
                 id="description"
                 name="description"
                 placeholder="Put the description of your company here."
+                value={description}
+                onChange={handleChange}
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               ></textarea>
             </div>
