@@ -1,4 +1,56 @@
+import useJob from "../context/useJob";
+
 const Filters = () => {
+  const { setEmploymentType, setWorkLevel, setRemote } = useJob();
+
+  const handleEmploymentTypeFilter = (e) => {
+    const isChecked = e.currentTarget.checked;
+    const value = e.currentTarget.value;
+    if (isChecked) {
+      setEmploymentType((current) => {
+        console.log("Adding employment type:", value);
+        return [...current, value];
+      });
+    } else {
+      setEmploymentType((current) => {
+        console.log("Removing employment type:", value);
+        return current.filter((type) => type !== value);
+      });
+    }
+  };
+
+  const handleWorkLevelFilter = (e) => {
+    const isChecked = e.currentTarget.checked;
+    const value = e.currentTarget.value;
+    if (isChecked) {
+      setWorkLevel((current) => {
+        console.log("Adding work level:", value);
+        return [...current, value];
+      });
+    } else {
+      setWorkLevel((current) => {
+        console.log("Removing work level:", value);
+        return current.filter((type) => type !== value);
+      });
+    }
+  };
+
+  const handleRemoteFilter = (e) => {
+    const isChecked = e.currentTarget.checked;
+    const value = e.currentTarget.value;
+    if (isChecked) {
+      setRemote((current) => {
+        console.log("Adding remote:", value);
+        return [...current, value];
+      });
+    } else {
+      setRemote((current) => {
+        console.log("Removing remote:", value);
+        return current.filter((type) => type !== value);
+      });
+    }
+  };
+
   return (
     <div className="w-2/12 hidden md:block">
       <div className="h-6" />
@@ -14,6 +66,7 @@ const Filters = () => {
                 id="Full-Time"
                 name="Full-Time"
                 value="Full-Time"
+                onChange={handleEmploymentTypeFilter}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -29,6 +82,7 @@ const Filters = () => {
                 id="Part-Time"
                 name="Part-Time"
                 value="Part-Time"
+                onChange={handleEmploymentTypeFilter}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -44,6 +98,7 @@ const Filters = () => {
                 id="Internship"
                 name="Internship"
                 value="Internship"
+                onChange={handleEmploymentTypeFilter}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -65,6 +120,8 @@ const Filters = () => {
                 type="checkbox"
                 id="Student Level"
                 name="Student Level"
+                value="Student Level"
+                onChange={handleWorkLevelFilter}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -79,6 +136,8 @@ const Filters = () => {
                 type="checkbox"
                 id="Entry Level"
                 name="Entry Level"
+                value="Entry Level"
+                onChange={handleWorkLevelFilter}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -93,6 +152,8 @@ const Filters = () => {
                 type="checkbox"
                 id="Mid Level"
                 name="Mid Level"
+                value="Mid Level"
+                onChange={handleWorkLevelFilter}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -107,6 +168,8 @@ const Filters = () => {
                 type="checkbox"
                 id="Senior Level"
                 name="Senior Level"
+                value="Senior Level"
+                onChange={handleWorkLevelFilter}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -121,6 +184,8 @@ const Filters = () => {
                 type="checkbox"
                 id="Director Level"
                 name="Director Level"
+                value="Director Level"
+                onChange={handleWorkLevelFilter}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -141,6 +206,8 @@ const Filters = () => {
               type="checkbox"
               id="On Site"
               name="On Site"
+              value="On Site"
+              onChange={handleRemoteFilter}
               className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
@@ -155,6 +222,8 @@ const Filters = () => {
               type="checkbox"
               id="Hybrid"
               name="Hybrid"
+              value="Hybrid"
+              onChange={handleRemoteFilter}
               className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
@@ -169,6 +238,8 @@ const Filters = () => {
               type="checkbox"
               id="Remote"
               name="Remote"
+              value="Remote"
+              onChange={handleRemoteFilter}
               className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label

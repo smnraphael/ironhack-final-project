@@ -36,15 +36,15 @@ function App() {
             path="/job-offers/:jobOfferId/application"
             element={<SendApplication />}
           />
-          <Route
-            path="/applicant/private-profile"
-            element={<ApplicantPrivateProfile />}
-          />
-          <Route
-            path="/company/private-profile"
-            element={<CompanyPrivateProfile />}
-          />
           <Route element={<IsLoggedIn />}>
+            <Route
+              path="/applicant/private-profile"
+              element={<ApplicantPrivateProfile />}
+            />
+            <Route
+              path="/company/private-profile"
+              element={<CompanyPrivateProfile />}
+            />
             <Route path="company/new-job-offer" element={<PostJobOffer />} />
             <Route
               path="/company/private-profile/job-offers"

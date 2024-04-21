@@ -18,7 +18,8 @@ type Job = {
   position: string;
   positionOverview: string;
   employmentType: string;
-  remote: boolean;
+  workLevel: string;
+  remote: string;
   salary: number;
   createdAt: Date;
 };
@@ -28,12 +29,24 @@ type Jobs = Job[];
 type JobContextType = {
   jobs: Jobs | null;
   setJobs: Dispatch<SetStateAction<Jobs | null>>;
+  employmentType: string[];
+  setEmploymentType: Dispatch<SetStateAction<string[]>>;
+  workLevel: string[];
+  setWorkLevel: Dispatch<SetStateAction<string[]>>;
+  remote: string[];
+  setRemote: Dispatch<SetStateAction<string[]>>;
   fetchJobs: () => void;
 };
 
 export const JobContext = createContext<JobContextType>({
   jobs: null,
   setJobs: () => {},
+  employmentType: [],
+  setEmploymentType: () => {},
+  workLevel: [],
+  setWorkLevel: () => {},
+  remote: [],
+  setRemote: () => {},
   fetchJobs: () => {},
 });
 
@@ -43,6 +56,9 @@ type ContextWrapperProps = {
 
 function JobContextWrapper({ children }: ContextWrapperProps) {
   const [jobs, setJobs] = useState<Jobs | null>(null);
+  const [employmentType, setEmploymentType] = useState<string[]>([]);
+  const [workLevel, setWorkLevel] = useState<string[]>([]);
+  const [remote, setRemote] = useState<string[]>([]);
 
   const fetchJobs = async () => {
     try {
@@ -63,7 +79,12 @@ function JobContextWrapper({ children }: ContextWrapperProps) {
       value={{
         jobs,
         setJobs,
-
+        employmentType,
+        setEmploymentType,
+        workLevel,
+        setWorkLevel,
+        remote,
+        setRemote,
         fetchJobs,
       }}
     >

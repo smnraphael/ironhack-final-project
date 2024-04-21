@@ -14,14 +14,11 @@ const Navbar = () => {
   return (
     <nav className="border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex flex-col sm:flex-row flex-wrap items-center justify-between py-3 px-4 md:px-10 lg:px-20">
-        <Link
-          to={"/"}
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <h1 className="text-2xl font-bold whitespace-nowrap hover:text-blue-700 dark:text-white dark:hover:text-blue-500">
             IT-Recruitment
           </h1>
-        </Link>
+        </a>
         <div className="block w-auto">
           {isLoggedIn ? (
             <div className="flex gap-1 items-center sm:gap-2">
