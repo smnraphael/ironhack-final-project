@@ -3,6 +3,7 @@ import useAuth from "../context/useAuth";
 
 const CompanyPrivateProfile = () => {
   const { user } = useAuth();
+
   if (!user || user.__t === "Applicant") {
     return <Navigate to="/" />;
   }
@@ -13,8 +14,8 @@ const CompanyPrivateProfile = () => {
       <div className="flex flex-col items-center sm:items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         {user.__t === "Company" && (
           <>
-            <div className="flex flex-col justify-between sm:flex-row gap-5">
-              <div className="flex flex-row gap-5 sm:w-3/12">
+            <div className="flex flex-col justify-between sm:flex-row w-full gap-5">
+              <div className="flex flex-row gap-5 sm:w-fit">
                 <img
                   src={user.image}
                   alt={user.name}

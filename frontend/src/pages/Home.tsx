@@ -1,16 +1,44 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Search from "../components/Search";
 import Filters from "../components/Filters";
 import JobCard from "../components/JobCard";
-import { useEffect } from "react";
 import TopJobOffers from "../components/TopJobOffers";
 import useJob from "../context/useJob";
 
 const Home = () => {
-  const { jobs, setJobs, fetchJobs } = useJob();
+  const {
+    jobs,
+    displayedJobs,
+    setDisplayedJobs,
+    employmentType,
+    workLevel,
+    remote,
+    fetchJobs,
+  } = useJob();
+
+  const location = useLocation();
 
   useEffect(() => {
     fetchJobs();
-  }, [setJobs]);
+  }, []);
+
+  const filterJobs = () => {
+    return (
+      jobs?.filter((job) => {
+        const employmentTypeMatch =
+          !employmentType.length || employmentType.includes(job.employmentType);
+        const workLevelMatch =
+          !workLevel.length || workLevel.includes(job.workLevel);
+        const remoteMatch = !remote.length || remote.includes(job.remote);
+        return employmentTypeMatch && workLevelMatch && remoteMatch;
+      }) || []
+    );
+  };
+
+  useEffect(() => {
+    setDisplayedJobs(filterJobs());
+  }, [location.pathname, employmentType, workLevel, remote, jobs]);
 
   return (
     <div>
@@ -18,9 +46,11 @@ const Home = () => {
       <div className="flex gap-5 justify-between">
         <Filters />
         <div className="w-max md:w-10/12 lg:9/12">
-          <TopJobOffers />
+          <TopJobOffers displayedJobs={displayedJobs} />
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {jobs && jobs.map((job) => <JobCard key={job._id} job={job} />)}
+            {displayedJobs?.map((job) => (
+              <JobCard key={job._id} job={job} />
+            ))}
           </div>
         </div>
       </div>

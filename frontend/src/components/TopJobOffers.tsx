@@ -1,10 +1,27 @@
 import Sort from "./Sort";
-import useJob from "../context/useJob";
 
-const TopJobOffers = () => {
-  const { jobs } = useJob();
+type Job = {
+  _id: string;
+  company: {
+    _id: string;
+    image: string;
+    name: string;
+  };
+  position: string;
+  positionOverview: string;
+  employmentType: string;
+  workLevel: string;
+  remote: string;
+  salary: number;
+  createdAt: Date;
+};
 
-  const jobCount = jobs ? jobs.length : 0;
+type Props = {
+  displayedJobs: Job[] | null;
+};
+
+const TopJobOffers = ({ displayedJobs }: Props) => {
+  const jobCount = displayedJobs ? displayedJobs.length : 0;
 
   return (
     <div>
