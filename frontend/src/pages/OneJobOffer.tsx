@@ -48,28 +48,36 @@ const OneJobOffer = () => {
       {job && (
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
-            <p className="text-3xl font-bold">{job.position}</p>
+            <p className="text-3xl font-bold dark:text-white">{job.position}</p>
             <Link to={`/company/profile/${job.company._id}`}>
               <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
                 {job.company.name}
               </p>
             </Link>
           </div>
-          <p className="text-gray-700">{job.location}</p>
+          <p className="text-sm text-gray-700 dark:text-gray-400">
+            {job.location}
+          </p>
           <div className="flex flex-col gap-2">
-            <p className="text-md font-bold">Company Overview</p>
+            <p className="text-md font-bold dark:text-white">
+              Company Overview
+            </p>
             <p className="text-sm text-gray-700 dark:text-gray-400">
               {job.companyOverview.split("\r\n")}
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-md font-bold">Position Overview</p>
+            <p className="text-md font-bold dark:text-white">
+              Position Overview
+            </p>
             <p className="text-sm text-gray-700 dark:text-gray-400">
               {job.positionOverview.split("\r\n")}
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-md font-bold">Key Responsibilities</p>
+            <p className="text-md font-bold dark:text-white">
+              Key Responsibilities
+            </p>
             <p className="text-sm text-gray-700 dark:text-gray-400">
               {job.keyResponsibilities.split("\n").map((item, index) => (
                 <React.Fragment key={index}>
@@ -79,46 +87,48 @@ const OneJobOffer = () => {
               ))}
             </p>
           </div>
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  Work Level
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Experience
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Employment Type
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Remote
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Salary
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="bg-white border-b dark:bg-gray-700 dark:border-gray-600">
-                <td>
-                  <p className="px-6 py-4">{job.workLevel}</p>
-                </td>
-                <td>
-                  <p className="px-6 py-4">{job.experience} years minimum</p>
-                </td>
-                <td>
-                  <p className="px-6 py-4">{job.employmentType}</p>
-                </td>
-                <td>
-                  <p className="px-6 py-4">{job.remote}</p>
-                </td>
-                <td>
-                  <p className="px-6 py-4">${job.salary}</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="relative overflow-x-auto">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-300">
+                <tr>
+                  <th scope="col" className="px-6 py-3">
+                    Work Level
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Experience
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Employment Type
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Remote
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Salary
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-white border-b dark:bg-gray-700 dark:border-gray-600">
+                  <td>
+                    <p className="px-6 py-4">{job.workLevel}</p>
+                  </td>
+                  <td>
+                    <p className="px-6 py-4">{job.experience} years minimum</p>
+                  </td>
+                  <td>
+                    <p className="px-6 py-4">{job.employmentType}</p>
+                  </td>
+                  <td>
+                    <p className="px-6 py-4">{job.remote}</p>
+                  </td>
+                  <td>
+                    <p className="px-6 py-4">${job.salary}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           {isLoggedIn ? (
             <Link
               to={`/job-offers/${jobOfferId}/application`}
