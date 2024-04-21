@@ -1,34 +1,44 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Search from "../components/Search";
 import Filters from "../components/Filters";
 import JobCard from "../components/JobCard";
-import { useEffect } from "react";
 import TopJobOffers from "../components/TopJobOffers";
 import useJob from "../context/useJob";
 
 const Home = () => {
-  const { jobs, setJobs, employmentType, workLevel, remote, fetchJobs } =
-    useJob();
+  const {
+    jobs,
+    displayedJobs,
+    setDisplayedJobs,
+    employmentType,
+    workLevel,
+    remote,
+    fetchJobs,
+  } = useJob();
+
+  const location = useLocation();
 
   useEffect(() => {
     fetchJobs();
-  }, [setJobs]);
+  }, []);
 
-  let displayedJobs;
+  const filterJobs = () => {
+    return (
+      jobs?.filter((job) => {
+        const employmentTypeMatch =
+          !employmentType.length || employmentType.includes(job.employmentType);
+        const workLevelMatch =
+          !workLevel.length || workLevel.includes(job.workLevel);
+        const remoteMatch = !remote.length || remote.includes(job.remote);
+        return employmentTypeMatch && workLevelMatch && remoteMatch;
+      }) || []
+    );
+  };
 
-  if (employmentType || workLevel || remote) {
-    displayedJobs = jobs?.filter((job) => {
-      // Check if the job's employment type matches any of the selected types
-      const employmentTypeMatch =
-        employmentType.length === 0 ||
-        employmentType.includes(job.employmentType);
-      const workLevelMatch =
-        workLevel.length === 0 || workLevel.includes(job.workLevel);
-      const remoteMatch = remote.length === 0 || remote.includes(job.remote);
-      return employmentTypeMatch && workLevelMatch && remoteMatch;
-    });
-  } else {
-    displayedJobs = jobs;
-  }
+  useEffect(() => {
+    setDisplayedJobs(filterJobs());
+  }, [location.pathname, employmentType, workLevel, remote, jobs]);
 
   return (
     <div>

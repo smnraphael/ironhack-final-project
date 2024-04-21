@@ -1,7 +1,27 @@
 import Sort from "./Sort";
 
-const TopJobOffers = ({ displayedJobs }) => {
-  displayedJobs = displayedJobs ? displayedJobs.length : 0;
+type Job = {
+  _id: string;
+  company: {
+    _id: string;
+    image: string;
+    name: string;
+  };
+  position: string;
+  positionOverview: string;
+  employmentType: string;
+  workLevel: string;
+  remote: string;
+  salary: number;
+  createdAt: Date;
+};
+
+type Props = {
+  displayedJobs: Job[] | null;
+};
+
+const TopJobOffers = ({ displayedJobs }: Props) => {
+  const jobCount = displayedJobs ? displayedJobs.length : 0;
 
   return (
     <div>
@@ -9,7 +29,7 @@ const TopJobOffers = ({ displayedJobs }) => {
       <div className="flex justify-between items-center pb-2">
         <div>
           <p className="text-2xl font-bold dark:text-white">
-            Showing {displayedJobs} {displayedJobs === 1 ? "job" : "jobs"}
+            Showing {jobCount} {jobCount === 1 ? "job" : "jobs"}
           </p>
         </div>
         <Sort />

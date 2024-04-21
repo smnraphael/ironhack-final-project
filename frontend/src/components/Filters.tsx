@@ -1,9 +1,30 @@
 import useJob from "../context/useJob";
+import { useState, useEffect } from "react";
 
 const Filters = () => {
-  const { setEmploymentType, setWorkLevel, setRemote } = useJob();
+  const {
+    employmentType,
+    setEmploymentType,
+    workLevel,
+    setWorkLevel,
+    remote,
+    setRemote,
+  } = useJob();
+  const [initialEmploymentType, setInitialEmploymentType] = useState<string[]>(
+    []
+  );
+  const [initialWorkLevel, setInitialWorkLevel] = useState<string[]>([]);
+  const [initialRemote, setInitialRemote] = useState<string[]>([]);
 
-  const handleEmploymentTypeFilter = (e) => {
+  useEffect(() => {
+    setInitialEmploymentType(employmentType);
+    setInitialWorkLevel(workLevel);
+    setInitialRemote(remote);
+  }, [employmentType, workLevel, remote]);
+
+  const handleEmploymentTypeFilter = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const isChecked = e.currentTarget.checked;
     const value = e.currentTarget.value;
     if (isChecked) {
@@ -19,7 +40,7 @@ const Filters = () => {
     }
   };
 
-  const handleWorkLevelFilter = (e) => {
+  const handleWorkLevelFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.currentTarget.checked;
     const value = e.currentTarget.value;
     if (isChecked) {
@@ -35,7 +56,7 @@ const Filters = () => {
     }
   };
 
-  const handleRemoteFilter = (e) => {
+  const handleRemoteFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.currentTarget.checked;
     const value = e.currentTarget.value;
     if (isChecked) {
@@ -67,6 +88,7 @@ const Filters = () => {
                 name="Full-Time"
                 value="Full-Time"
                 onChange={handleEmploymentTypeFilter}
+                checked={initialEmploymentType.includes("Full-Time")}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -83,6 +105,7 @@ const Filters = () => {
                 name="Part-Time"
                 value="Part-Time"
                 onChange={handleEmploymentTypeFilter}
+                checked={initialEmploymentType.includes("Part-Time")}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -99,6 +122,7 @@ const Filters = () => {
                 name="Internship"
                 value="Internship"
                 onChange={handleEmploymentTypeFilter}
+                checked={initialEmploymentType.includes("Internship")}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -122,6 +146,7 @@ const Filters = () => {
                 name="Student Level"
                 value="Student Level"
                 onChange={handleWorkLevelFilter}
+                checked={initialWorkLevel.includes("Student Level")}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -138,6 +163,7 @@ const Filters = () => {
                 name="Entry Level"
                 value="Entry Level"
                 onChange={handleWorkLevelFilter}
+                checked={initialWorkLevel.includes("Entry Level")}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -154,6 +180,7 @@ const Filters = () => {
                 name="Mid Level"
                 value="Mid Level"
                 onChange={handleWorkLevelFilter}
+                checked={initialWorkLevel.includes("Mid Level")}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -170,6 +197,7 @@ const Filters = () => {
                 name="Senior Level"
                 value="Senior Level"
                 onChange={handleWorkLevelFilter}
+                checked={initialWorkLevel.includes("Senior Level")}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -186,6 +214,7 @@ const Filters = () => {
                 name="Director Level"
                 value="Director Level"
                 onChange={handleWorkLevelFilter}
+                checked={initialWorkLevel.includes("Director Level")}
                 className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               />
               <label
@@ -208,6 +237,7 @@ const Filters = () => {
               name="On Site"
               value="On Site"
               onChange={handleRemoteFilter}
+              checked={initialRemote.includes("On Site")}
               className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
@@ -224,6 +254,7 @@ const Filters = () => {
               name="Hybrid"
               value="Hybrid"
               onChange={handleRemoteFilter}
+              checked={initialWorkLevel.includes("Hybrid")}
               className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
@@ -240,6 +271,7 @@ const Filters = () => {
               name="Remote"
               value="Remote"
               onChange={handleRemoteFilter}
+              checked={initialWorkLevel.includes("Remote")}
               className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label

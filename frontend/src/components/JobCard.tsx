@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom";
 
-type Job = {
-  _id: string;
-  company: {
+type Props = {
+  job: {
     _id: string;
-    name: string;
+    company: {
+      _id: string;
+      image: string;
+      name: string;
+    };
+    position: string;
+    positionOverview: string;
+    employmentType: string;
+    workLevel: string;
+    remote: string;
+    salary: number;
+    createdAt: Date;
   };
-  position: string;
-  positionOverview: string;
-  employmentType: string;
-  remote: boolean;
-  salary: number;
 };
 
-const JobCard: React.FC<{ job: Job }> = ({ job }) => {
+const JobCard = ({ job }: Props) => {
   return (
     <div className="flex flex-col gap-2 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <div className="flex flex-col gap-1">
