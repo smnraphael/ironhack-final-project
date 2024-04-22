@@ -65,7 +65,9 @@ router.get("/applications", isAuthenticated, async (req, res, next) => {
   try {
     const applications = await Application.find({
       applicant: req.currentUserId,
-    }).populate("jobOffer");
+    })
+      .populate("jobOffer")
+      .sort({ updatedAt: -1 });
     res.json(applications);
   } catch (error) {
     next(error);

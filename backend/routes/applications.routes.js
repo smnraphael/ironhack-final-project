@@ -16,7 +16,9 @@ router.get("/", async (req, res, next) => {
 // Get one application
 router.get("/:applicationId", async (req, res, next) => {
   try {
-    const oneApplication = await Application.findById(req.params.applicationId);
+    const oneApplication = await Application.findById(
+      req.params.applicationId
+    ).sort({ updatedAt: -1 });
     res.json(oneApplication);
   } catch (error) {
     next(error);

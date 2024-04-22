@@ -48,16 +48,21 @@ const ApplicantsList = () => {
 
   const updateApplicationStatus = async (applicationId: string) => {
     try {
-      await api.patch(`/applications/${applicationId}`, {
-        status: "Viewed by company",
-      });
-      setApplications((prevApplications) =>
-        prevApplications.map((application) =>
-          application._id === applicationId
-            ? { ...application, status: "Viewed by company" }
-            : application
-        )
+      const applicationToUpdate = applications.find(
+        (app) => app._id === applicationId
       );
+      if (applicationToUpdate && applicationToUpdate.status === "Resume sent") {
+        await api.patch(`/applications/${applicationId}`, {
+          status: "Viewed by company",
+        });
+        setApplications((prevApplications) =>
+          prevApplications.map((application) =>
+            application._id === applicationId
+              ? { ...application, status: "Viewed by company" }
+              : application
+          )
+        );
+      }
     } catch (error) {
       console.log(error);
     }
