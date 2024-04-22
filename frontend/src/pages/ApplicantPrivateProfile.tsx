@@ -24,7 +24,7 @@ const ApplicantPrivateProfile = () => {
                 <img
                   src={user.image}
                   alt={user.firstName}
-                  className="h-36 rounded-lg"
+                  className="h-36 w-36 rounded-lg object-cover"
                 />
                 <div className="flex flex-col gap-2">
                   <p className="font-semibold dark:text-white">
