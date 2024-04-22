@@ -40,4 +40,20 @@ router.post("/:applicantId/:jobOfferId", async (req, res, next) => {
   }
 });
 
+// Edit one application (update status)
+router.patch("/:applicationId", async (req, res, next) => {
+  try {
+    const updatedApplication = await Application.findByIdAndUpdate(
+      req.params.applicationId,
+      req.body
+    );
+    res.json({
+      message: "Successfuly updated status",
+      application: updatedApplication,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

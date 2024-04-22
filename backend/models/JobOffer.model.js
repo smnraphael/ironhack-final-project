@@ -51,6 +51,10 @@ const jobOfferSchema = new Schema(
       type: String,
       required: true,
     },
+    qualifications: {
+      type: String,
+      required: true,
+    },
     company: {
       type: Schema.Types.ObjectId,
       ref: "Company",

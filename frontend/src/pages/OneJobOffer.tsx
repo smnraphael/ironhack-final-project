@@ -16,6 +16,7 @@ type Job = {
   companyOverview: string;
   positionOverview: string;
   keyResponsibilities: string;
+  qualifications: string;
   company: {
     _id: string;
     image: string;
@@ -98,6 +99,19 @@ const OneJobOffer = () => {
               </p>
               <p className="text-sm text-gray-700 dark:text-gray-400">
                 {job.keyResponsibilities.split("\n").map((item, index) => (
+                  <React.Fragment key={index}>
+                    {item}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <p className="text-md font-bold dark:text-white">
+                Required Qualifications
+              </p>
+              <p className="text-sm text-gray-700 dark:text-gray-400">
+                {job.qualifications.split("\n").map((item, index) => (
                   <React.Fragment key={index}>
                     {item}
                     <br />

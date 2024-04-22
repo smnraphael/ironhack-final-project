@@ -10,8 +10,12 @@ type Application = {
   socialNetwork: string;
   resume: string;
   coverLetter: string;
+  status: string;
   applicant: string;
-  jobOffer: string;
+  jobOffer: {
+    _id: string;
+    position: string;
+  };
   createdAt: Date;
 };
 
@@ -40,6 +44,23 @@ const ApplicantsList = () => {
 
   const formatDate = (date: Date) => {
     return new Date(date).toLocaleDateString();
+  };
+
+  const updateApplicationStatus = async (applicationId: string) => {
+    try {
+      await api.patch(`/applications/${applicationId}`, {
+        status: "Viewed by company",
+      });
+      setApplications((prevApplications) =>
+        prevApplications.map((application) =>
+          application._id === applicationId
+            ? { ...application, status: "Viewed by company" }
+            : application
+        )
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -83,10 +104,11 @@ const ApplicantsList = () => {
                 <td className="px-6 py-4">
                   {formatDate(application.createdAt)}
                 </td>
-                <td className="px-6 py-4">**to add in db**</td>
+                <td className="px-6 py-4">{application.status}</td>
                 <td className="px-6 py-4">
                   <Link
-                    to={`/companies/job-offers/${application.jobOffer}/applications`}
+                    to={`/companies/job-offers/${application.jobOffer._id}/applications/${application._id}`}
+                    onClick={() => updateApplicationStatus(application._id)}
                     className="text-blue-600 hover:underline dark:text-blue-500"
                   >
                     View

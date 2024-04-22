@@ -41,7 +41,7 @@ const CompanySignup = () => {
     try {
       const response = await api.post("/auth/company/signup", formState);
       if (response.status === 201) {
-        navigate("/company/login");
+        navigate("/companies/login");
       }
       console.log(response);
     } catch (error: unknown) {

@@ -24,6 +24,20 @@ const applicationSchema = new Schema(
     coverLetter: {
       type: String,
     },
+    status: {
+      type: String,
+      enum: [
+        "Resume sent",
+        "Viewed by company",
+        "Contacted by the company",
+        "Application denied",
+      ],
+      default: "Resume sent",
+    },
+    archived: {
+      type: Boolean,
+      default: false,
+    },
     applicant: {
       type: Schema.Types.ObjectId,
       ref: "Applicant",

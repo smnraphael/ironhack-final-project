@@ -15,6 +15,7 @@ import CompanyJobOffers from "./pages/CompanyJobOffers";
 import IsLoggedIn from "./components/routing/IsLoggedIn";
 import ApplicantsList from "./pages/ApplicantsList";
 import ApplicantApplications from "./pages/ApplicantApplications";
+import Application from "./pages/Application";
 
 function App() {
   return (
@@ -57,6 +58,10 @@ function App() {
             <Route
               path="/applicants/applications"
               element={<ApplicantApplications />}
+            />
+            <Route
+              path="/companies/job-offers/:jobOfferId/applications/:applicationId"
+              element={<Application />}
             />
           </Route>
         </Routes>

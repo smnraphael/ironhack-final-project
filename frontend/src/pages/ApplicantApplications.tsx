@@ -10,6 +10,7 @@ type Application = {
   socialNetwork: string;
   resume: string;
   coverLetter: string;
+  status: string;
   jobOffer: {
     position: string;
   };
@@ -74,7 +75,7 @@ const ApplicantApplications = () => {
                 <td className="px-6 py-4">
                   {formatDate(application.createdAt)}
                 </td>
-                <td className="px-6 py-4">**to add in db**</td>
+                <td className="px-6 py-4">{application.status}</td>
               </tr>
             ))}
           </tbody>
