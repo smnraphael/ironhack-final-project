@@ -143,12 +143,13 @@ const CompanySignup = () => {
               </label>
               <input
                 type="number"
-                onWheel={(event) => event.currentTarget.blur()}
                 id="numberOfEmployees"
                 name="numberOfEmployees"
                 placeholder="140000"
+                step="1000"
                 value={numberOfEmployees}
                 onChange={handleChange}
+                onWheel={(event) => event.currentTarget.blur()}
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>
@@ -179,6 +180,7 @@ const CompanySignup = () => {
               <textarea
                 id="description"
                 name="description"
+                rows={6}
                 placeholder="Put the description of your company here."
                 value={description}
                 onChange={handleChange}

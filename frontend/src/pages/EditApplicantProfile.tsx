@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import useAuth from "../context/useAuth";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../service/api";
+import useAuth from "../context/useAuth";
 import { AxiosError } from "axios";
 
 const EditApplicantProfile = () => {
@@ -71,6 +71,11 @@ const EditApplicantProfile = () => {
 
   return (
     <div className="flex flex-col gap-5">
+      <a href="/applicants/profile" className="self-start">
+        <p className="text-xs font-medium dark:text-white hover:underline hover:text-blue-600  dark:hover:text-blue-500">
+          Back to profile
+        </p>
+      </a>
       <h1 className="text-xl font-bold dark:text-white">Edit Profile</h1>
       <div className="flex flex-col items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         {user && user.__t === "Applicant" && (
@@ -89,7 +94,6 @@ const EditApplicantProfile = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
-                  placeholder="John"
                   className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
@@ -106,7 +110,6 @@ const EditApplicantProfile = () => {
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder="Doe"
                   className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
@@ -121,7 +124,6 @@ const EditApplicantProfile = () => {
                   type="file"
                   id="file"
                   name="file"
-                  placeholder="johndoe@example.com"
                   className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   onChange={(e) => {
                     const selectedFile = e.target.files
@@ -146,7 +148,6 @@ const EditApplicantProfile = () => {
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="johndoe@example.com"
                   disabled
                   className="bg-gray-200 border border-gray-300 text-gray-600 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />

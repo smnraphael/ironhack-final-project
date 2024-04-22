@@ -28,18 +28,16 @@ router.put(
   async (req, res, next) => {
     try {
       const { email, firstName, lastName } = req.body;
-      let updateFields = { email, firstName, lastName };
+      let fieldsToUpdate = { email, firstName, lastName };
 
       if (req.file) {
-        updateFields.image = req.file.path;
+        fieldsToUpdate.image = req.file.path;
       }
 
       const updatedApplicant = await Applicant.findByIdAndUpdate(
         req.params.applicantId,
-        updateFields,
-        {
-          new: true,
-        }
+        fieldsToUpdate,
+        { new: true }
       );
       res.json(updatedApplicant);
     } catch (error) {
