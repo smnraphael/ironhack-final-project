@@ -60,10 +60,10 @@ const Avatar: React.FC = () => {
   return (
     <div className="relative inline-block text-left z-50">
       <button type="button" className="focus:outline-none" onClick={openMenu}>
-        <img src={user?.image} className="h-12 mt-2 rounded-full" />
+        <img src={user?.image} className="h-10 mt-2 rounded-full" />
       </button>
       {isOpen && (
-        <div className="absolute right-0 mt-5 w-48 bg-white border border-gray-200 rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-600">
+        <div className="absolute right-0 mt-6 w-48 bg-white border border-gray-200 rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-600">
           <div className="py-1">
             {renderMenuItems()}
             <a
