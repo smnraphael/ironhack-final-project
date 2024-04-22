@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const fileUploader = require("../config/cloudinaryConfig.js");
 const Company = require("../models/Company.model.js");
 const JobOffer = require("../models/JobOffer.model.js");
 
@@ -25,18 +26,35 @@ router.get("/:companyId", async (req, res, next) => {
 });
 
 // Edit one company (private)
-router.put("/:companyId", async (req, res, next) => {
-  try {
-    const updatedCompany = await Company.findByIdAndUpdate(
-      req.params.companyId,
-      req.body,
-      { new: true }
-    );
-    res.json(updatedCompany);
-  } catch (error) {
-    next(error);
+router.put(
+  "/:companyId",
+  fileUploader.single("image"),
+  async (req, res, next) => {
+    try {
+      const { name, headquarters, numberOfEmployees, website, description } =
+        req.body;
+      let fieldsToUpdate = {
+        name,
+        headquarters,
+        numberOfEmployees,
+        website,
+        description,
+      };
+
+      if (req.file) {
+        fieldsToUpdate.image = req.file.path;
+      }
+      const updatedCompany = await Company.findByIdAndUpdate(
+        req.params.companyId,
+        fieldsToUpdate,
+        { new: true }
+      );
+      res.json(updatedCompany);
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 // Get one company and related job offers (public)
 router.get("/profile/:companyId", async (req, res, next) => {

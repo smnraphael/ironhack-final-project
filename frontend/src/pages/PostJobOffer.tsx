@@ -205,6 +205,7 @@ const PostJobOffer = () => {
               <textarea
                 id="companyOverview"
                 name="companyOverview"
+                rows={6}
                 value={companyOverview}
                 onChange={handleChange}
                 required
@@ -221,6 +222,7 @@ const PostJobOffer = () => {
               <textarea
                 id="positionOverview"
                 name="positionOverview"
+                rows={6}
                 value={positionOverview}
                 onChange={handleChange}
                 required
@@ -237,6 +239,7 @@ const PostJobOffer = () => {
               <textarea
                 id="keyResponsibilities"
                 name="keyResponsibilities"
+                rows={6}
                 value={keyResponsibilities}
                 onChange={handleChange}
                 required
@@ -253,6 +256,7 @@ const PostJobOffer = () => {
               <textarea
                 id="qualifications"
                 name="qualifications"
+                rows={6}
                 value={qualifications}
                 onChange={handleChange}
                 required

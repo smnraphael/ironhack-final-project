@@ -24,22 +24,20 @@ router.get("/:applicantId", async (req, res, next) => {
 // Edit one applicant
 router.put(
   "/:applicantId",
-  fileUploader.single("avatar"),
+  fileUploader.single("image"),
   async (req, res, next) => {
     try {
-      const filePath = req.file.path;
+      const { email, firstName, lastName } = req.body;
+      let fieldsToUpdate = { email, firstName, lastName };
+
+      if (req.file) {
+        fieldsToUpdate.image = req.file.path;
+      }
+
       const updatedApplicant = await Applicant.findByIdAndUpdate(
         req.params.applicantId,
-        {
-          email,
-          password: hashedPassword,
-          firstName,
-          lastName,
-          avatar: filePath,
-        },
-        {
-          new: true,
-        }
+        fieldsToUpdate,
+        { new: true }
       );
       res.json(updatedApplicant);
     } catch (error) {
@@ -65,7 +63,9 @@ router.get("/applications", isAuthenticated, async (req, res, next) => {
   try {
     const applications = await Application.find({
       applicant: req.currentUserId,
-    }).populate("jobOffer");
+    })
+      .populate("jobOffer")
+      .sort({ updatedAt: -1 });
     res.json(applications);
   } catch (error) {
     next(error);
