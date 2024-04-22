@@ -2,8 +2,17 @@ import { useState } from "react";
 import api from "../service/api";
 import { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../context/useAuth";
 
 const PostJobOffer = () => {
+  const { user } = useAuth();
+
+  let companyOverviewForm = "";
+
+  if (user?.__t === "Company") {
+    companyOverviewForm = user.description;
+  }
+
   const [formState, setFormState] = useState({
     position: "",
     location: "",
@@ -11,7 +20,7 @@ const PostJobOffer = () => {
     experience: "",
     workLevel: "Student Level",
     salary: "",
-    companyOverview: "",
+    companyOverview: companyOverviewForm,
     positionOverview: "",
     keyResponsibilities: "",
     remote: "On Site",

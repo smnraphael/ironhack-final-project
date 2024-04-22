@@ -29,11 +29,11 @@ function App() {
           <Route path="/companies/login" element={<CompanyLogin />} />
           <Route path="/job-offers/:jobOfferId" element={<OneJobOffer />} />
           <Route path="/companies/:companyId" element={<CompanyProfile />} />
-          <Route
-            path="/job-offers/:jobOfferId/application"
-            element={<SendApplication />}
-          />
           <Route element={<IsLoggedIn />}>
+            <Route
+              path="/job-offers/:jobOfferId/application"
+              element={<SendApplication />}
+            />
             <Route
               path="/applicants/profile"
               element={<ApplicantPrivateProfile />}

@@ -5,10 +5,22 @@ import { AxiosError } from "axios";
 import useAuth from "../context/useAuth";
 
 const SendApplication = () => {
+  const { user } = useAuth();
+
+  let userFirstNameForm = "";
+  let userLastNameForm = "";
+  let userEmailForm = "";
+
+  if (user?.__t === "Applicant") {
+    userFirstNameForm = user.firstName;
+    userLastNameForm = user.lastName;
+    userEmailForm = user.email;
+  }
+
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
+    firstName: userFirstNameForm,
+    lastName: userLastNameForm,
+    email: userEmailForm,
     resume: "",
     coverLetter: "",
     socialNetwork: "",
@@ -21,8 +33,6 @@ const SendApplication = () => {
   const navigate = useNavigate();
 
   const { jobOfferId } = useParams();
-
-  const { user } = useAuth();
 
   const handleChange = (
     e:
