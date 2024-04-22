@@ -20,7 +20,7 @@ type Props = {
   displayedJobs: Job[] | null;
 };
 
-const TopJobOffers = ({ displayedJobs }: Props) => {
+const JobOffersHeader = ({ displayedJobs }: Props) => {
   const jobCount = displayedJobs ? displayedJobs.length : 0;
 
   return (
@@ -38,4 +38,4 @@ const TopJobOffers = ({ displayedJobs }: Props) => {
   );
 };
 
-export default TopJobOffers;
+export default JobOffersHeader;

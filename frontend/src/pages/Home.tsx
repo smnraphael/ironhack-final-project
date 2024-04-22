@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Search from "../components/Search";
 import Filters from "../components/Filters";
 import JobCard from "../components/JobCard";
-import TopJobOffers from "../components/TopJobOffers";
+import JobOffersHeader from "../components/JobOffersHeader";
 import useJob from "../context/useJob";
 
 const Home = () => {
@@ -46,7 +46,7 @@ const Home = () => {
       <div className="flex gap-5 justify-between">
         <Filters />
         <div className="w-max md:w-10/12 lg:9/12">
-          <TopJobOffers displayedJobs={displayedJobs} />
+          <JobOffersHeader displayedJobs={displayedJobs} />
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {displayedJobs?.map((job) => (
               <JobCard key={job._id} job={job} />

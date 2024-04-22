@@ -24,19 +24,19 @@ router.get("/:applicantId", async (req, res, next) => {
 // Edit one applicant
 router.put(
   "/:applicantId",
-  fileUploader.single("avatar"),
+  fileUploader.single("image"),
   async (req, res, next) => {
     try {
-      const filePath = req.file.path;
+      const { email, firstName, lastName } = req.body;
+      let updateFields = { email, firstName, lastName };
+
+      if (req.file) {
+        updateFields.image = req.file.path;
+      }
+
       const updatedApplicant = await Applicant.findByIdAndUpdate(
         req.params.applicantId,
-        {
-          email,
-          password: hashedPassword,
-          firstName,
-          lastName,
-          avatar: filePath,
-        },
+        updateFields,
         {
           new: true,
         }
