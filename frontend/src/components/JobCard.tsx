@@ -34,9 +34,11 @@ const JobCard = ({ job }: Props) => {
           <p className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
             {job.position}
           </p>
-          <p className="font-semibold text-xs bg-red-400 text-white px-1.5 py-0.5 rounded-lg mt-1">
-            {isNewJob() && "NEW"}
-          </p>
+          {isNewJob() && (
+            <p className="font-semibold text-xs bg-red-400 dark:bg-red-500 text-white px-1.5 py-0.5 rounded-lg mt-1">
+              NEW
+            </p>
+          )}
         </div>
         <Link to={`/companies/${job.company._id}`}>
           <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
