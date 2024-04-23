@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Applicant = require("../models/Applicant.model.js");
 const Application = require("../models/Application.model.js");
+const Favorite = require("../models/Favorite.model.js");
 const fileUploader = require("../config/cloudinaryConfig.js");
 const isAuthenticated = require("../middlewares/isAuthenticated.js");
 const { isValidObjectId } = require("mongoose");
@@ -76,5 +77,25 @@ router.get("/applications", isAuthenticated, async (req, res, next) => {
     next(error);
   }
 });
+
+// Get one favorite of a user for a specific job offer
+router.get(
+  "/:jobOfferId/favorites",
+  isAuthenticated,
+  async (req, res, next) => {
+    try {
+      const jobOfferId = req.params.jobOfferId;
+      const userId = req.user.id;
+      const favorite = await Favorite.find({
+        jobOffer: jobOfferId,
+        applicant: userId,
+      });
+
+      res.json({ isFavorite: favorite });
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 module.exports = router;

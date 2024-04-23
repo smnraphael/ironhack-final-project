@@ -18,6 +18,7 @@ import ApplicantApplications from "./pages/ApplicantApplications";
 import Application from "./pages/Application";
 import EditApplicantProfile from "./pages/EditApplicantProfile";
 import EditCompanyProfile from "./pages/EditCompanyProfile";
+import ApplicantFavorites from "./pages/ApplicantFavorites";
 
 function App() {
   return (
@@ -72,6 +73,10 @@ function App() {
             <Route
               path="/companies/profile/edit-profile"
               element={<EditCompanyProfile />}
+            />
+            <Route
+              path="/applicants/favorites"
+              element={<ApplicantFavorites />}
             />
           </Route>
         </Routes>

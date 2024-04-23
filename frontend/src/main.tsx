@@ -5,13 +5,16 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import AuthContextWrapper from "./context/AuthContextWrapper.tsx";
 import JobContextWrapper from "./context/JobContextWrapper.tsx";
+import FavContextWrapper from "./context/FavContextWrapper.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextWrapper>
         <JobContextWrapper>
-          <App />
+          <FavContextWrapper>
+            <App />
+          </FavContextWrapper>
         </JobContextWrapper>
       </AuthContextWrapper>
     </BrowserRouter>

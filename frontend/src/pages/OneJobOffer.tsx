@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import api from "../service/api";
 import useAuth from "../context/useAuth";
+import useFav from "../context/useFav";
 
 type Job = {
   _id: string;
@@ -24,11 +25,19 @@ type Job = {
   };
 };
 
+type Favorites = {
+  _id: string;
+  jobOffer: string;
+  applicant: string;
+}[];
+
 const OneJobOffer = () => {
   const [job, setJob] = useState<Job | null>(null);
+  const [isFavorite, setIsFavorite] = useState<Favorites>([]);
 
   const { isLoggedIn } = useAuth();
   const { jobOfferId } = useParams();
+  const { favorites, fetchFavorites } = useFav();
 
   useEffect(() => {
     const fetchOneJob = async () => {
@@ -44,6 +53,33 @@ const OneJobOffer = () => {
     fetchOneJob();
   }, [jobOfferId]);
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchFavorites();
+    }
+  }, [isLoggedIn, jobOfferId, isFavorite]);
+
+  const handleAddToFavorite = async () => {
+    try {
+      const { data } = await api.post(`/favorites/${jobOfferId}`);
+      setIsFavorite(data);
+      console.log({ isFavorite: data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  let isJobOfferFavorite = false;
+
+  if (favorites) {
+    for (const favorite of favorites) {
+      if (favorite.jobOffer === jobOfferId) {
+        isJobOfferFavorite = true;
+        break;
+      }
+    }
+  }
+
   return (
     <div className="flex flex-col gap-5">
       <a href="/" className="self-start">
@@ -55,9 +91,19 @@ const OneJobOffer = () => {
         {job && (
           <div className="flex flex-col gap-5">
             <div className="flex flex-col gap-2">
-              <p className="text-3xl font-bold dark:text-white">
-                {job.position}
-              </p>
+              <div className="flex flex-row gap-1 justify-between">
+                <p className="text-3xl font-bold dark:text-white">
+                  {job.position}
+                </p>
+                {isLoggedIn && !isJobOfferFavorite && (
+                  <button
+                    onClick={handleAddToFavorite}
+                    className="dark:text-white"
+                  >
+                    Add to wishlist
+                  </button>
+                )}
+              </div>
               <Link to={`/companies/${job.company._id}`}>
                 <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
                   {job.company.name}

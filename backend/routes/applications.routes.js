@@ -7,7 +7,7 @@ const fileUploader = require("../config/cloudinaryConfig.js");
 // Get all applications
 router.get("/", async (req, res, next) => {
   try {
-    const applications = await Application.find({});
+    const applications = await Application.find({}).sort({ updatedAt: -1 });
     res.json(applications);
   } catch (error) {
     next(error);
@@ -17,9 +17,7 @@ router.get("/", async (req, res, next) => {
 // Get one application
 router.get("/:applicationId", async (req, res, next) => {
   try {
-    const oneApplication = await Application.findById(
-      req.params.applicationId
-    ).sort({ updatedAt: -1 });
+    const oneApplication = await Application.findById(req.params.applicationId);
     res.json(oneApplication);
   } catch (error) {
     next(error);
