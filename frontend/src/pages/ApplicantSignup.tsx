@@ -27,7 +27,7 @@ const ApplicantSignup = () => {
     try {
       const reponse = await api.post("/auth/applicant/signup", formState);
       if (reponse.status === 201) {
-        navigate("/applicant/login");
+        navigate("/applicants/login");
       }
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
