@@ -21,39 +21,50 @@ const SendApplication = () => {
     firstName: userFirstNameForm,
     lastName: userLastNameForm,
     email: userEmailForm,
-    resume: "",
     coverLetter: "",
     socialNetwork: "",
   });
+  const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string>("");
-
-  const { firstName, lastName, email, resume, coverLetter, socialNetwork } =
-    formData;
 
   const navigate = useNavigate();
 
   const { jobOfferId } = useParams();
 
-  const handleChange = (
+  function handleChange(
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    const { id, value } = e.target;
+  ) {
+    const { id, value } = e.currentTarget;
     setFormData({ ...formData, [id]: value });
-  };
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      let dataToSend;
+      if (file) {
+        const fd = new FormData();
+        fd.append("firstName", formData.firstName);
+        fd.append("lastName", formData.lastName);
+        fd.append("email", formData.email);
+        fd.append("resume", file);
+        fd.append("coverLetter", formData.coverLetter);
+        fd.append("socialNetwork", formData.socialNetwork);
+        dataToSend = fd;
+      }
+
       const response = await api.post(
         `/applications/${user?._id}/${jobOfferId}`,
-        formData
+        dataToSend
       );
+
+      console.log("Response:", response);
+
       if (response.status === 200) {
         navigate("/");
       }
-      console.log(response);
     } catch (error) {
       if (error instanceof AxiosError) {
         console.log(error.message);
@@ -87,7 +98,7 @@ const SendApplication = () => {
                 placeholder="John"
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={firstName}
+                value={formData.firstName}
                 onChange={handleChange}
               />
             </div>
@@ -105,7 +116,7 @@ const SendApplication = () => {
                 placeholder="Doe"
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={lastName}
+                value={formData.lastName}
                 onChange={handleChange}
               />
             </div>
@@ -123,7 +134,7 @@ const SendApplication = () => {
                 placeholder="johndoe@example.com"
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={email}
+                value={formData.email}
                 onChange={handleChange}
               />
             </div>
@@ -138,11 +149,17 @@ const SendApplication = () => {
                 type="file"
                 id="resume"
                 name="resume"
-                placeholder="johndoe@example.com"
+                accept=".pdf"
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={resume}
-                onChange={handleChange}
+                onChange={(e) => {
+                  const selectedFile = e.target.files
+                    ? e.target.files[0]
+                    : null;
+                  if (selectedFile) {
+                    setFile(selectedFile);
+                  }
+                }}
               />
             </div>
             <div className="flex flex-col">
@@ -158,7 +175,7 @@ const SendApplication = () => {
                 rows={6}
                 placeholder="Write your cover letter here..."
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={coverLetter}
+                value={formData.coverLetter}
                 onChange={handleChange}
               />
             </div>
@@ -175,7 +192,7 @@ const SendApplication = () => {
                 name="socialNetwork"
                 placeholder="http://linkedin.com/johndoe"
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={socialNetwork}
+                value={formData.socialNetwork}
                 onChange={handleChange}
               />
             </div>

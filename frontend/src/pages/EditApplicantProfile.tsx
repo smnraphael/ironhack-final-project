@@ -21,6 +21,7 @@ const EditApplicantProfile = () => {
     firstName: userFirstNameForm,
     lastName: userLastNameForm,
     email: userEmailForm,
+    socialNetwork: "",
   });
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string>("");
@@ -36,7 +37,7 @@ const EditApplicantProfile = () => {
     e.preventDefault();
     try {
       let dataToSend;
-      if (file !== null) {
+      if (file) {
         const fd = new FormData();
         fd.append("firstName", formData.firstName);
         fd.append("lastName", formData.lastName);
@@ -48,6 +49,7 @@ const EditApplicantProfile = () => {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
+          socialNetwork: formData.socialNetwork,
         };
       }
 

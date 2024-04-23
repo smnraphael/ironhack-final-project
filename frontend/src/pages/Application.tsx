@@ -73,29 +73,38 @@ const Application = () => {
       <h1 className="text-xl font-bold dark:text-white">Applicants</h1>
       <div className="flex flex-col items-center sm:items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         <div className="flex flex-col gap-3">
-          <p className="text-xl font-semibold dark:text-white">
-            {application?.lastName} {application?.firstName}
-          </p>
-          <p className="text-sm text-gray-600 dark:text-gray-300">
-            {application?.coverLetter.split("\n").map((item, index) => (
-              <React.Fragment key={index}>
-                {item}
-                <br />
-              </React.Fragment>
-            ))}
-          </p>
-          <a href={application?.resume} target="_blank">
-            Download resume
-          </a>
-          <div>
-            <a
-              href={application?.socialNetwork}
-              target="_blank"
-              className="text-sm text-blue-600 hover:underline"
-            >
-              {application?.socialNetwork}
-            </a>
-          </div>
+          {application && (
+            <>
+              <p className="text-xl font-semibold dark:text-white">
+                {application.lastName} {application.firstName}
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {application.coverLetter &&
+                  application.coverLetter.split("\n").map((item, index) => (
+                    <React.Fragment key={index}>
+                      {item}
+                      <br />
+                    </React.Fragment>
+                  ))}
+              </p>
+              <a
+                href={application.resume}
+                target="_blank"
+                className="text-blue-600 hover:underline"
+              >
+                Download resume
+              </a>
+              <div>
+                <a
+                  href={application.socialNetwork}
+                  target="_blank"
+                  className="text-sm text-blue-600 hover:underline"
+                >
+                  {application.socialNetwork}
+                </a>
+              </div>
+            </>
+          )}
         </div>
         <div className="flex justify-center w-full">
           <div className="flex justify-center gap-5">

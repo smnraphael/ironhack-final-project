@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Application = require("../models/Application.model.js");
+const fileUploader = require("../config/cloudinaryConfig.js");
 
 // We are prefixed with /api/applications
 
@@ -26,21 +27,39 @@ router.get("/:applicationId", async (req, res, next) => {
 });
 
 // Post one application
-router.post("/:applicantId/:jobOfferId", async (req, res, next) => {
-  try {
-    const newApplication = await Application.create({
-      ...req.body,
-      applicant: req.params.applicantId,
-      jobOffer: req.params.jobOfferId,
-    });
-    res.json({
-      message: "Successfully applied",
-      application: newApplication,
-    });
-  } catch (error) {
-    next(error);
+router.post(
+  "/:applicantId/:jobOfferId",
+  fileUploader.single("resume"),
+  async (req, res, next) => {
+    try {
+      const { firstName, lastName, email, coverLetter, socialNetwork } =
+        req.body;
+      let fieldsToUpdate = {
+        firstName,
+        lastName,
+        email,
+        coverLetter,
+        socialNetwork,
+      };
+
+      if (req.file) {
+        fieldsToUpdate.resume = req.file.path;
+      }
+
+      const newApplication = await Application.create({
+        ...fieldsToUpdate,
+        applicant: req.params.applicantId,
+        jobOffer: req.params.jobOfferId,
+      });
+      res.json({
+        message: "Successfully applied",
+        application: newApplication,
+      });
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 // Edit one application (update status)
 router.patch("/:applicationId", async (req, res, next) => {
