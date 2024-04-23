@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="flex flex-wrap items-center justify-between py-3 px-4 md:px-10 lg:px-20 w-full">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <h1 className="text-2xl font-bold whitespace-nowrap hover:text-blue-700 dark:text-white dark:hover:text-blue-500">
-            IT-Recruitment
+            ByteHire
           </h1>
         </a>
 
