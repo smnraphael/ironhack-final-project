@@ -14,6 +14,15 @@ type Job = {
   remote: string;
   salary: number;
   createdAt: Date;
+  jobOffers: {
+    _id: string;
+    position: string;
+    positionOverview: string;
+    employmentType: string;
+    remote: boolean;
+    salary: number;
+    createdAt: Date;
+  }[];
 };
 
 const Sort = () => {
