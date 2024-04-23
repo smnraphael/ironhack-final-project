@@ -22,32 +22,31 @@ const CompanyPrivateProfile = () => {
           <>
             <div className="flex flex-col justify-between sm:flex-row w-full gap-5">
               <div className="flex justify-between w-full">
-                <div className="flex flex-col sm:flex-row gap-5 justify-between">
-                  <div className="w-fit">
-                    <div className="flex flex-row gap-5">
-                      <img
-                        src={user.image}
-                        alt={user.name}
-                        className="h-20 rounded-lg"
-                      />
-                      <div className="flex flex-col gap-2">
-                        <p className="text-xl font-semibold dark:text-white">
-                          {user.name}
-                        </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-300">
-                          {user.email}
-                        </p>
-                        <a
-                          href={user.website}
-                          target="_blank"
-                          className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 dark:hover:text-blue-500"
-                        >
-                          {user.website}
-                        </a>
-                      </div>
+                <div className="flex flex-col sm:flex-row gap-5 justify-between w-full">
+                  <div className="flex gap-5 w-6/12">
+                    <img
+                      src={user.image}
+                      alt={user.name}
+                      className="h-20 rounded-lg"
+                    />
+                    <div className="flex flex-col gap-2">
+                      <p className="text-xl font-semibold dark:text-white">
+                        {user.name}
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        {user.email}
+                      </p>
+                      <a
+                        href={user.website}
+                        target="_blank"
+                        className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 dark:hover:text-blue-500"
+                      >
+                        {user.website}
+                      </a>
                     </div>
                   </div>
-                  <div className="sm:w-7/12">
+
+                  <div className="sm:w-6/12 flex flex-col gap-3">
                     <div className="flex flex-col gap-2">
                       <p className="font-semibold dark:text-white">
                         Description:
