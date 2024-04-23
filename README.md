@@ -2,7 +2,7 @@
 
 ### Demo
 
-[smnraphael-bytehire.netlify.app](smnraphael-bytehire.netlify.app)
+[https://smnraphael-bytehire.netlify.app](https://smnraphael-bytehire.netlify.app)
 
 ### User Experience
 
