@@ -1,19 +1,59 @@
-# BYTE-HIRE
+# ByteHire
 
-Demo: smnraphael-bytehire.netlify.app
+### Demo
 
-#### Front-End
+<a href="smnraphael-bytehire.netlify.app" target="_blank">smnraphael-bytehire.netlify.app</a>
 
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat&logo=tailwind-css&logoColor=white)
+### User Experience
 
-#### Back-End
+This project is a Full-Stack website, a recruitment platform allowing companies to create accounts, publish job offers, and manage their listings and applications. The applicants can also create a profile, explore job opportunities, apply, and follow the status of their application.
 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E)
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=flat&logo=express&logoColor=%2361DAFB)
+### Technologies
 
-#### Database
+Front-End: ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat&logo=tailwind-css&logoColor=white)
 
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
+Back-End: ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=flat&logo=express&logoColor=%2361DAFB)
+
+#Database: ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
+
+Design: ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white)
+
+### Functionalities
+
+#### Public user:
+- View job offers
+- Search job offer by keyword
+- Sort job offers by date
+- Filter job offers by type of employment, seniority level, on-site/remote
+- View job offer details
+- View company profile and related job offers
+
+#### Applicant:
+- Sign up
+- Sign in
+- Edit profile
+- Apply to a job offer
+- Check application status
+- Add job offer to wishlist
+- Check wishlist to retrieve favorite job offers
+- Remove job offer from wishlist
+
+#### Companies:
+- Sign up
+- Sign in
+- Edit profile
+- Publish job offer
+- See published job offers
+- See list of applicants for each job offer
+- View application and its details
+- Contact candidate
+- Decline application
+
+#### Additional features:
+- Mobile responsive
+- Dark mode based on user system settings
+
+### Overview
+
+![Computer](https://github.com/smnraphael/ironhack-final-project/assets/130636559/71befe46-809b-422d-975c-922e55dda406)
+![Mobile](https://github.com/smnraphael/ironhack-final-project/assets/130636559/b4744e73-90b9-4288-9b88-8a5e13aa4234)
