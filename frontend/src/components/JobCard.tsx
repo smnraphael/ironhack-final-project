@@ -45,8 +45,8 @@ const JobCard = ({ job }: Props) => {
             {job.company.name}
           </p>
         </Link>
-        <p className="text-sm text-gray-700 dark:text-gray-400">
-          {job.positionOverview.slice(0, 150).concat("...")}
+        <p className="text-sm text-gray-700 dark:text-gray-400 line-clamp-4">
+          {job.positionOverview}
         </p>
       </div>
       <div className="flex flex-col gap-4 items-start">
