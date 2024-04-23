@@ -43,9 +43,9 @@ const ApplicantApplications = () => {
   const getStatusColor = (status: string): string => {
     switch (status) {
       case "Contacted by company":
-        return "bg-green-100 dark:bg-green-700";
+        return "font-semibold text-green-700 dark:text-green-500";
       case "Application denied":
-        return "bg-red-100 dark:bg-red-700";
+        return "font-semibold text-red-700 dark:text-red-500";
       default:
         return "";
     }
@@ -81,9 +81,7 @@ const ApplicantApplications = () => {
             {applications.map((application) => (
               <tr
                 key={application._id}
-                className={`bg-white hover:bg-gray-100 border-b dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600 ${getStatusColor(
-                  application.status
-                )}`}
+                className="bg-white hover:bg-gray-100 border-b dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600"
               >
                 <th
                   scope="row"
@@ -97,7 +95,11 @@ const ApplicantApplications = () => {
                 <td className="px-6 py-4">
                   {formatDate(application.createdAt)}
                 </td>
-                <td className="px-6 py-4">{application.status}</td>
+                <td
+                  className={`px-6 py-4 ${getStatusColor(application.status)}`}
+                >
+                  {application.status}
+                </td>
               </tr>
             ))}
           </tbody>
