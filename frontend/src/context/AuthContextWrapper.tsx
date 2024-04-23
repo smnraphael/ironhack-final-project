@@ -94,7 +94,7 @@ function AuthContextWrapper({ children }: ContextWrapperProps) {
     removeToken();
     setUser(null);
     setIsLoggedIn(false);
-    navigate(0);
+    navigate("/");
   };
 
   return (

@@ -84,9 +84,9 @@ const Application = () => {
               </React.Fragment>
             ))}
           </p>
-          <p className="text-xl font-semibold dark:text-white">
-            {application?.resume}
-          </p>
+          <a href={application?.resume} target="_blank">
+            Download resume
+          </a>
           <div>
             <a
               href={application?.socialNetwork}
