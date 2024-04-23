@@ -79,7 +79,7 @@ const EditApplicantProfile = () => {
         </p>
       </a>
       <h1 className="text-xl font-bold dark:text-white">Edit Profile</h1>
-      <div className="flex flex-col items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
+      <div className="flex flex-col items-center gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         {user && user.__t === "Applicant" && (
           <>
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
@@ -151,7 +151,7 @@ const EditApplicantProfile = () => {
                   id="email"
                   name="email"
                   disabled
-                  className="bg-gray-200 border border-gray-300 text-gray-600 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-200 border border-gray-300 text-gray-600 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
               <button
