@@ -13,6 +13,9 @@ type Application = {
   status: string;
   jobOffer: {
     position: string;
+    company: {
+      name: string;
+    };
   };
   createdAt: Date;
 };
@@ -53,6 +56,9 @@ const ApplicantApplications = () => {
                 Application
               </th>
               <th scope="col" className="px-6 py-3">
+                Company
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Date
               </th>
               <th scope="col" className="px-6 py-3">
@@ -72,6 +78,9 @@ const ApplicantApplications = () => {
                 >
                   <p>{application.jobOffer.position}</p>
                 </th>
+                <td className="px-6 py-4">
+                  {application.jobOffer.company.name}
+                </td>
                 <td className="px-6 py-4">
                   {formatDate(application.createdAt)}
                 </td>

@@ -64,7 +64,12 @@ router.get("/applications", isAuthenticated, async (req, res, next) => {
     const applications = await Application.find({
       applicant: req.currentUserId,
     })
-      .populate("jobOffer")
+      .populate({
+        path: "jobOffer",
+        populate: {
+          path: "company",
+        },
+      })
       .sort({ updatedAt: -1 });
     res.json(applications);
   } catch (error) {
