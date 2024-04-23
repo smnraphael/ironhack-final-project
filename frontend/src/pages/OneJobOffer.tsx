@@ -98,17 +98,19 @@ const OneJobOffer = () => {
                 {isLoggedIn && !isJobOfferFavorite && (
                   <button
                     onClick={handleAddToFavorite}
-                    className="dark:text-white"
+                    className="text-xs dark:text-white hover:underline hover:text-blue-500 w-16"
                   >
                     Add to wishlist
                   </button>
                 )}
               </div>
-              <Link to={`/companies/${job.company._id}`}>
-                <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-                  {job.company.name}
-                </p>
-              </Link>
+              <div className="flex justify-start">
+                <Link to={`/companies/${job.company._id}`}>
+                  <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                    {job.company.name}
+                  </p>
+                </Link>
+              </div>
               <p className="text-sm text-gray-700 dark:text-gray-400">
                 {job.location}
               </p>

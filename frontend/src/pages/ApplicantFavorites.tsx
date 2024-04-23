@@ -91,7 +91,7 @@ const ApplicantFavorites = () => {
                       <td>
                         <Link
                           to={`/job-offers/${job._id}`}
-                          className="text-blue-600 hover:underline dark:text-blue-500"
+                          className="px-6 py-4 text-blue-600 hover:underline dark:text-blue-500"
                         >
                           View
                         </Link>
@@ -99,7 +99,7 @@ const ApplicantFavorites = () => {
                       <td>
                         <button
                           onClick={() => handleDeleteFavorite(favorite._id)}
-                          className="text-red-700 hover:underline dark:text-red-500"
+                          className="px-6 py-4 text-red-700 hover:underline dark:text-red-500"
                         >
                           Delete
                         </button>
