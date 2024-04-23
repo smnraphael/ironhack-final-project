@@ -64,7 +64,7 @@ const Sort = () => {
         id="sortSelect"
         name="sortSelect"
         onChange={handleSort}
-        className="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg py-1 px-2 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-300"
+        className="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg py-1 pr-2 pl-1 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-300"
       >
         <option value="newest">Newest</option>
         <option value="oldest">Oldest</option>
