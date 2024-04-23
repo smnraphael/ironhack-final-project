@@ -21,7 +21,7 @@ const CompanyPrivateProfile = () => {
         {user.__t === "Company" && (
           <>
             <div className="flex flex-col justify-between sm:flex-row w-full gap-5">
-              <div className="flex justify-between w-full">
+              <div className="flex justify-between w-full gap-2">
                 <div className="flex flex-col sm:flex-row gap-5 justify-between w-full">
                   <div className="flex gap-5 w-6/12">
                     <img
