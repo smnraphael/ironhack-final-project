@@ -1,6 +1,6 @@
-# IT-RECRUITMENT
+# BYTE-HIRE
 
-Demo: https://smnraphael-it-recruitment.netlify.app
+Demo: smnraphael-bytehire.netlify.app
 
 #### Front-End
 
