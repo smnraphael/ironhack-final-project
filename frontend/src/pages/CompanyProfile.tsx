@@ -24,6 +24,7 @@ type Company = {
     name: string;
     image: string;
     description: string;
+    website: string;
     headquarters: string;
     numberOfEmployees: number;
   };
@@ -58,54 +59,62 @@ const CompanyProfile = () => {
           Back to job offers
         </p>
       </a>
-      <div className="flex flex-col items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
+      <h1 className="text-xl font-bold dark:text-white">Company Profile</h1>
+      <div className="flex flex-col items-center sm:items-start gap-5 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-600">
         {company && (
-          <div className="flex flex-col gap-5">
-            <div>
+          <div className="flex flex-col justify-between sm:flex-row w-full gap-5">
+            <div className="flex flex-row gap-5 sm:w-fit">
               <img
                 src={company.company.image}
                 alt={company.company.name}
-                className="h-16 rounded-lg"
+                className="h-20 rounded-lg"
               />
+
+              <div className="flex flex-col gap-2">
+                <p className="text-xl font-semibold dark:text-white">
+                  {company.company.name}
+                </p>
+
+                <a
+                  href={company.company.website}
+                  target="_blank"
+                  className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 dark:hover:text-blue-500"
+                >
+                  {company.company.website}
+                </a>
+              </div>
             </div>
 
-            <p className="text-3xl font-bold dark:text-white">
-              {company.company.name}
-            </p>
-            {company.company.description ? (
-              <p className="text-sm text-gray-700 dark:text-gray-400">
-                {company.company.description.split("\n").map((item, index) => (
-                  <React.Fragment key={index}>
-                    {item}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </p>
-            ) : null}
-            <p className="text-sm font-medium dark:text-white">
-              Headquarters:{" "}
-              {company.company.headquarters ? (
-                <span className="font-normal text-gray-700 dark:text-gray-400">
+            <div className="flex flex-col gap-5 sm:w-7/12">
+              <div className="flex flex-col gap-2">
+                <p className="font-semibold dark:text-white">Description:</p>
+                <p className="text-sm text-gray-700 dark:text-gray-400">
+                  {company.company.description &&
+                    company.company.description
+                      .split("\n")
+                      .map((item, index) => (
+                        <React.Fragment key={index}>
+                          {item}
+                          <br />
+                        </React.Fragment>
+                      ))}
+                </p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="font-semibold dark:text-white">Headquarters:</p>
+                <p className="text-sm text-gray-700 dark:text-gray-400">
                   {company.company.headquarters}
-                </span>
-              ) : (
-                <span className="font-normal text-gray-700 dark:text-gray-400">
-                  N/A
-                </span>
-              )}
-            </p>
-            <p className="text-sm font-medium dark:text-white">
-              Number of employees:{" "}
-              {company.company.numberOfEmployees ? (
-                <span className="font-normal text-gray-700 dark:text-gray-400">
+                </p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="font-semibold dark:text-white">
+                  Number of employees:
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-400">
                   {company.company.numberOfEmployees}
-                </span>
-              ) : (
-                <span className="font-normal text-gray-700 dark:text-gray-400">
-                  N/A
-                </span>
-              )}
-            </p>
+                </p>
+              </div>
+            </div>
           </div>
         )}
       </div>

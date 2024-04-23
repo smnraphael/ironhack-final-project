@@ -72,6 +72,12 @@ const Filters = () => {
     }
   };
 
+  const handleResetFilters = () => {
+    setEmploymentType([]);
+    setWorkLevel([]);
+    setRemote([]);
+  };
+
   return (
     <div className="w-2/12 hidden md:block">
       <div className="h-6" />
@@ -281,6 +287,14 @@ const Filters = () => {
               Remote
             </label>
           </div>
+        </div>
+        <div>
+          <button
+            onClick={handleResetFilters}
+            className="text-sm text-blue-600 font-medium hover:underline dark:text-blue-500"
+          >
+            Reset filters
+          </button>
         </div>
       </div>
     </div>
