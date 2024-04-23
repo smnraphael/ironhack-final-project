@@ -40,6 +40,17 @@ const ApplicantApplications = () => {
     return new Date(date).toLocaleDateString();
   };
 
+  const getStatusColor = (status: string): string => {
+    switch (status) {
+      case "Contacted by company":
+        return "bg-green-100 dark:bg-green-700";
+      case "Application denied":
+        return "bg-red-100 dark:bg-red-700";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div className="flex flex-col gap-5">
       <Link to="/applicants/profile" className="self-start">
@@ -70,7 +81,9 @@ const ApplicantApplications = () => {
             {applications.map((application) => (
               <tr
                 key={application._id}
-                className="bg-white hover:bg-gray-100 border-b dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600"
+                className={`bg-white hover:bg-gray-100 border-b dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600 ${getStatusColor(
+                  application.status
+                )}`}
               >
                 <th
                   scope="row"
