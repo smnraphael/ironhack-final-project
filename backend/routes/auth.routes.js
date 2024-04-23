@@ -90,10 +90,9 @@ router.post("/user/login", async (req, res, next) => {
 // User Verify
 router.get("/user/verify", isAuthenticated, async (req, res, next) => {
   try {
-    const user = await User.findById(req.currentUserId);
-    // console.log(user);
+    const user = await User.findById(req.currentUserId).select("-password");
     if (!user) {
-      return res.status(400).send("user not found");
+      return res.status(400).send("User not found");
     }
     res.json(user);
   } catch (error) {
