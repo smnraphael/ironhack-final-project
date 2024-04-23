@@ -260,7 +260,7 @@ const Filters = () => {
               name="Hybrid"
               value="Hybrid"
               onChange={handleRemoteFilter}
-              checked={initialWorkLevel.includes("Hybrid")}
+              checked={initialRemote.includes("Hybrid")}
               className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
@@ -277,7 +277,7 @@ const Filters = () => {
               name="Remote"
               value="Remote"
               onChange={handleRemoteFilter}
-              checked={initialWorkLevel.includes("Remote")}
+              checked={initialRemote.includes("Remote")}
               className="w-4 h-4 text-blue-600 dark:text-blue-600 bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
             />
             <label
