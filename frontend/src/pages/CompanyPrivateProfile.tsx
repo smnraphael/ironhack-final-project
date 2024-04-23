@@ -77,7 +77,7 @@ const CompanyPrivateProfile = () => {
               <div>
                 <Link
                   to="/companies/profile/edit-profile"
-                  className="hover:underline hover:text-blue-600 dark:text-white pr-1"
+                  className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 pr-1"
                 >
                   Edit
                 </Link>

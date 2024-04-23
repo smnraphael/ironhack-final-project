@@ -19,12 +19,25 @@ type Props = {
 };
 
 const JobCard = ({ job }: Props) => {
+  const isNewJob = () => {
+    const today = new Date();
+    const jobDate = new Date(job.createdAt);
+    const differenceInDays =
+      (today.getTime() - jobDate.getTime()) / (1000 * 3600 * 24);
+    return differenceInDays < 3;
+  };
+
   return (
-    <div className="flex flex-col gap-2 justify-between p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <div className="flex flex-col gap-2 justify-between px-5 py-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <div className="flex flex-col gap-1">
-        <p className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {job.position}
-        </p>
+        <div className="flex justify-between gap-1 items-start">
+          <p className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {job.position}
+          </p>
+          <p className="font-semibold text-xs bg-red-400 text-white px-1.5 py-0.5 rounded-lg mt-1">
+            {isNewJob() && "NEW"}
+          </p>
+        </div>
         <Link to={`/companies/${job.company._id}`}>
           <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
             {job.company.name}
