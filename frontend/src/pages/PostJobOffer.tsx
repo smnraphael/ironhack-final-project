@@ -50,9 +50,8 @@ const PostJobOffer = () => {
       | React.ChangeEvent<HTMLSelectElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    const key = e.currentTarget.id;
-    const value = e.currentTarget.value;
-    setFormState({ ...formState, [key]: value });
+    const { id, value } = e.currentTarget;
+    setFormState({ ...formState, [id]: value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -151,6 +150,7 @@ const PostJobOffer = () => {
                 name="experience"
                 value={experience}
                 onChange={handleChange}
+                onWheel={(e) => e.currentTarget.blur()}
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
@@ -191,6 +191,7 @@ const PostJobOffer = () => {
                 value={salary}
                 step="1000"
                 onChange={handleChange}
+                onWheel={(e) => e.currentTarget.blur()}
                 required
                 className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />

@@ -35,7 +35,7 @@ const OneJobOffer = () => {
   const [job, setJob] = useState<Job | null>(null);
   const [isFavorite, setIsFavorite] = useState<Favorites>([]);
 
-  const { isLoggedIn } = useAuth();
+  const { user, isLoggedIn } = useAuth();
   const { jobOfferId } = useParams();
   const { favorites, fetchFavorites } = useFav();
 
@@ -95,14 +95,16 @@ const OneJobOffer = () => {
                 <p className="text-3xl font-bold dark:text-white">
                   {job.position}
                 </p>
-                {isLoggedIn && !isJobOfferFavorite && (
-                  <button
-                    onClick={handleAddToFavorite}
-                    className="text-xs dark:text-white hover:underline hover:text-blue-500 w-16"
-                  >
-                    Add to wishlist
-                  </button>
-                )}
+                {isLoggedIn &&
+                  !isJobOfferFavorite &&
+                  user?.__t === "Applicant" && (
+                    <button
+                      onClick={handleAddToFavorite}
+                      className="text-xs dark:text-white hover:underline hover:text-blue-500 w-16"
+                    >
+                      Add to wishlist
+                    </button>
+                  )}
               </div>
               <div className="flex justify-start">
                 <Link to={`/companies/${job.company._id}`}>
