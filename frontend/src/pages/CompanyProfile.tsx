@@ -75,14 +75,15 @@ const CompanyProfile = () => {
                 <p className="text-xl font-semibold dark:text-white">
                   {company.company.name}
                 </p>
-
-                <a
-                  href={company.company.website}
-                  target="_blank"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 dark:hover:text-blue-500"
-                >
-                  {company.company.website}
-                </a>
+                <div>
+                  <a
+                    href={company.company.website}
+                    target="_blank"
+                    className="text-sm text-gray-600 dark:text-gray-300 hover:underline hover:text-blue-600 dark:hover:text-blue-500"
+                  >
+                    {company.company.website}
+                  </a>
+                </div>
               </div>
             </div>
 

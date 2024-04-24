@@ -29,7 +29,7 @@ const JobCard = ({ job }: Props) => {
 
   return (
     <div className="flex flex-col gap-2 justify-between px-5 py-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col items-start gap-1">
         <div className="flex justify-between gap-1 items-start">
           <p className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
             {job.position}
@@ -40,11 +40,13 @@ const JobCard = ({ job }: Props) => {
             </p>
           )}
         </div>
-        <Link to={`/companies/${job.company._id}`}>
-          <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-            {job.company.name}
-          </p>
-        </Link>
+        <div>
+          <Link to={`/companies/${job.company._id}`}>
+            <p className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+              {job.company.name}
+            </p>
+          </Link>
+        </div>
         <p className="text-sm text-gray-700 dark:text-gray-400 line-clamp-4">
           {job.positionOverview}
         </p>
