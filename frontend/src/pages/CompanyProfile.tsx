@@ -17,6 +17,7 @@ type Job = {
   remote: string;
   salary: number;
   createdAt: Date;
+  archived: boolean;
 };
 
 type Company = {
@@ -123,9 +124,11 @@ const CompanyProfile = () => {
           Job offers posted by {company?.company.name}:
         </p>
         <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
-          {company?.jobOffers.map((jobOffer) => (
-            <JobCard key={jobOffer._id} job={jobOffer} />
-          ))}
+          {company?.jobOffers
+            .filter((jobOffer) => !jobOffer.archived) // Filter job offers where archived is false
+            .map((jobOffer) => (
+              <JobCard key={jobOffer._id} job={jobOffer} />
+            ))}
         </div>
       </div>
     </div>

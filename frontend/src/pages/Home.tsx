@@ -31,7 +31,10 @@ const Home = () => {
         const workLevelMatch =
           !workLevel.length || workLevel.includes(job.workLevel);
         const remoteMatch = !remote.length || remote.includes(job.remote);
-        return employmentTypeMatch && workLevelMatch && remoteMatch;
+        const archivedMatch = !job.archived; // Only include if archived is false
+        return (
+          employmentTypeMatch && workLevelMatch && remoteMatch && archivedMatch
+        );
       }) || []
     );
   };
