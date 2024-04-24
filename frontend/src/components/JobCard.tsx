@@ -60,7 +60,7 @@ const JobCard = ({ job }: Props) => {
             {job.remote}
           </p>
           <p className="text-sm bg-gray-200 dark:bg-gray-600 dark:text-gray-100 rounded-xl px-2">
-            ${job.salary}
+            ${job.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </p>
         </div>
         <Link

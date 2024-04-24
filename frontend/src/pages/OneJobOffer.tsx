@@ -207,7 +207,12 @@ const OneJobOffer = () => {
                       <p className="px-6 py-4">{job.remote}</p>
                     </td>
                     <td>
-                      <p className="px-6 py-4">${job.salary}</p>
+                      <p className="px-6 py-4">
+                        $
+                        {job.salary
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                      </p>
                     </td>
                   </tr>
                 </tbody>
