@@ -8,17 +8,15 @@ const safePassword = bcrypt.hashSync(password);
 
 const applicants = [
   {
+    email: "simonraphael@hotmail.fr",
+    password: safePassword,
+    firstName: "Raphaël",
+    lastName: "Simon",
+  },
+  {
     email: "johndoe@example.com",
     password: safePassword,
     firstName: "John",
-    lastName: "Doe",
-    image:
-      "https://lh5.googleusercontent.com/proxy/swauUCDkb6bxTsSpoEmcnqYahRFvXabwkprJghyVnET4zRW7Z1cZWyLW0zCCkZ5T5XgyVK5CFlEhEcedPfH58Syk49NFUHwuUgivRTi9GWZcbf4jREppKHikXmqd1r3VhnjXVE4PWaXhFTKaBTj2Ns04",
-  },
-  {
-    email: "janedoe@example.com",
-    password: safePassword,
-    firstName: "Jane",
     lastName: "Doe",
   },
   {

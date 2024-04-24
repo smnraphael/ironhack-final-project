@@ -35,14 +35,10 @@ const Application = () => {
 
   const updateApplicationStatus = async (applicationId: string | undefined) => {
     try {
-      await api.patch(`/applications/${applicationId}`, {
+      const { data } = await api.patch(`/applications/${applicationId}`, {
         status: "Application denied",
       });
-      setApplication((prevApplication) =>
-        prevApplication
-          ? { ...prevApplication, status: "Application denied" }
-          : prevApplication
-      );
+      setApplication(data);
     } catch (error) {
       console.log(error);
     }

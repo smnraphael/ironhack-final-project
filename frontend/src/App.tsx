@@ -19,6 +19,7 @@ import Application from "./pages/Application";
 import EditApplicantProfile from "./pages/EditApplicantProfile";
 import EditCompanyProfile from "./pages/EditCompanyProfile";
 import ApplicantFavorites from "./pages/ApplicantFavorites";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -79,6 +80,7 @@ function App() {
               element={<ApplicantFavorites />}
             />
           </Route>
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
     </div>
