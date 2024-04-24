@@ -14,6 +14,7 @@ type Job = {
   remote: string;
   salary: number;
   createdAt: Date;
+  archived: boolean;
   jobOffers: {
     _id: string;
     position: string;
