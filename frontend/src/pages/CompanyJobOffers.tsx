@@ -57,10 +57,6 @@ const CompanyJobOffers = () => {
     return new Date(date).toLocaleDateString();
   };
 
-  if (!companyJobs) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="flex flex-col gap-5">
       <Link to="/companies/profile" className="self-start">
@@ -84,7 +80,8 @@ const CompanyJobOffers = () => {
             </tr>
           </thead>
           <tbody>
-            {companyJobs.jobOffers &&
+            {companyJobs &&
+              companyJobs.jobOffers &&
               companyJobs.jobOffers.map((offer) => (
                 <tr
                   key={offer._id}
