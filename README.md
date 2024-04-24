@@ -4,6 +4,8 @@
 
 [https://smnraphael-bytehire.netlify.app](https://smnraphael-bytehire.netlify.app)
 
+NB: After a period of inactivity, the server is reactivated within seconds after the first request.
+
 ### User Experience
 
 This project is a Full-Stack website, a recruitment platform allowing companies to create accounts, publish job offers, and manage their listings and applications. The applicants can also create a profile, explore job opportunities, apply, and follow the status of their application.
