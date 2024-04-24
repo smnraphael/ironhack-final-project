@@ -55,6 +55,6 @@ Design: ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma
 
 ### Overview
 
-![Computer](https://github.com/smnraphael/ironhack-final-project/assets/130636559/b1f9a6ac-1ad5-4106-9475-8f4be8e26f1b)
-![Mobile](https://github.com/smnraphael/ironhack-final-project/assets/130636559/99bd13d4-60a0-4aaa-bec0-2fb34f3879a2)
+![Computer](https://github.com/smnraphael/ironhack-final-project/assets/130636559/7ab67b96-3e9e-47a8-be69-10b83972f425)
+![Mobile](https://github.com/smnraphael/ironhack-final-project/assets/130636559/84ea6928-a748-48e6-a681-0475f8e8dfeb)
 
