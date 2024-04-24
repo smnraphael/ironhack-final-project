@@ -14,7 +14,7 @@ Front-End: ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?s
 
 Back-End: ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=flat&logo=express&logoColor=%2361DAFB)
 
-#Database: ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
+Database: ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
 
 Design: ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white)
 
@@ -55,5 +55,6 @@ Design: ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma
 
 ### Overview
 
-![Computer](https://github.com/smnraphael/ironhack-final-project/assets/130636559/71befe46-809b-422d-975c-922e55dda406)
-![Mobile](https://github.com/smnraphael/ironhack-final-project/assets/130636559/b4744e73-90b9-4288-9b88-8a5e13aa4234)
+![Computer](https://github.com/smnraphael/ironhack-final-project/assets/130636559/b1f9a6ac-1ad5-4106-9475-8f4be8e26f1b)
+![Mobile](https://github.com/smnraphael/ironhack-final-project/assets/130636559/99bd13d4-60a0-4aaa-bec0-2fb34f3879a2)
+
