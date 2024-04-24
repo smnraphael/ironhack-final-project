@@ -44,6 +44,7 @@ Design: ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma
 - Edit profile
 - Publish job offer
 - See published job offers
+- Archive job offer
 - See list of applicants for each job offer
 - View application and its details
 - Contact candidate
