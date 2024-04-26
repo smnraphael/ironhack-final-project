@@ -30,7 +30,7 @@ const JobCard = ({ job }: Props) => {
   return (
     <div className="flex flex-col gap-2 justify-between px-5 py-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <div className="flex flex-col items-start gap-1">
-        <div className="flex justify-between gap-1 items-start">
+        <div className="flex justify-between gap-1 items-start w-full">
           <p className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
             {job.position}
           </p>
